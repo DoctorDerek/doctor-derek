@@ -1,4 +1,4 @@
 # Redirects from what the browser requests to what we serve
-/email         https://tinyletter.com/doctorderek          302
-/              https://linkedin.com/in/derek-austin/       302
-/*             https://linkedin.com/in/derek-austin/       302
+/email         https://tinyletter.com/doctorderek          302!
+/              https://linkedin.com/in/derek-austin/       302!
+/*             https://linkedin.com/in/derek-austin/       302!
