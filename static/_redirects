@@ -1,5 +1,5 @@
 # Redirects from what the browser requests to what we serve
-/email         https://tinyletter.com/doctorderek          302!
+/email         http://eepurl.com/hnoJ-n          302!
 /YouTube       https://www.youtube.com/channel/UCWGEic3Goh6_BcnGtrZoZNw 302!
 /youtube       https://www.youtube.com/channel/UCWGEic3Goh6_BcnGtrZoZNw 302!
 /Youtube       https://www.youtube.com/channel/UCWGEic3Goh6_BcnGtrZoZNw 302!
