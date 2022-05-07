@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - node
 scripts:
-  - npm run test
-  - npm install codecov -g
+  - yarn test
+  - yarn add codecov
 after_success:
-  - codecov
+  - yarn codecov
