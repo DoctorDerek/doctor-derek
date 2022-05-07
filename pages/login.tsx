@@ -65,16 +65,10 @@ function LoginInput({
   errors: FieldErrors
 }) {
   const isPassword = fieldName === "password"
+
   return (
     <>
-      {errors[fieldName] && (
-        <div>
-          <span role="img" aria-label="Error">
-            ⚠️
-          </span>
-          This field is required:
-        </div>
-      )}
+      {errors[fieldName] && <Required />} {/* Show error if any */}
       <input
         placeholder={placeholder}
         {...register(fieldName, { required: true })}
@@ -88,4 +82,15 @@ function LoginInput({
       />
     </>
   )
+
+  function Required() {
+    return (
+      <div>
+        <span role="img" aria-label="Error">
+          ⚠️
+        </span>
+        This field is required:
+      </div>
+    )
+  }
 }
