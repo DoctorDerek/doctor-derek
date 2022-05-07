@@ -75,8 +75,8 @@ function LoginInput({
         className={classNames(
           BUTTON_HEIGHT,
           "mb-7 rounded-lg bg-gray-700 pl-4",
+          // Center the placeholders, compensating for ***** (password):
           isPassword ? "pt-1 text-2xl placeholder-shown:pt-3" : "pt-1"
-          // Center the placeholders, compensating for ***** (password)
         )}
         type={isPassword ? "password" : "text"}
       />
