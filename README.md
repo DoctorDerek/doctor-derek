@@ -1,34 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+[![codecov](https://codecov.io/gh/DoctorDerek/pokedex/branch/main/graph/badge.svg?token=3gfQ4azgws)](https://codecov.io/gh/DoctorDerek/pokedex)
 
-## Getting Started
+[![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=weather-app-demo-doctorderek)](https://weather-app-demo-doctorderek.vercel.app/) [![codecov](https://codecov.io/gh/DoctorDerek/weather-app-demo/branch/main/graph/badge.svg?token=bEqXKgUSSb)](https://codecov.io/gh/DoctorDerek/weather-app-demo) [![Build Status](https://app.travis-ci.com/DoctorDerek/weather-app-demo.svg?branch=main)](https://app.travis-ci.com/DoctorDerek/weather-app-demo)
 
-First, run the development server:
+# 📆 Pokedex - Next.js 12 + React 18 + Tailwind CSS + XState + 100% Test Coverage
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+# ✅ ...
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# 👀 View Production Build at https://pokedex-doctorderek.vercel.app/
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+I built ...
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Additionally, I added \_ other major features, including best practices and 100% test coverage.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Below you will find the complete feature set, a discussion section, and my technical journal.
 
-## Learn More
+## Required Features
 
-To learn more about Next.js, take a look at the following resources:
+1. ✅ ...
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Additional Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. ✅ Deployed production build of Next.js to Vercel with CI/CD
+2. ✅ Used Next.js version 12.1.6 with React 18.1.0 and Tailwind CSS 3.0.24
+3. ✅ Established engineering best practices:
+   - Prettier, ESLint, Husky (Git Hooks), `tsconfig.json`, TypeScript Import Sorter, XState
+4. 🌠 Crafted unit tests for new code features (TDD / Test Driven Development)
+   - Jest + React Testing Library with React Test Renderer
+5. 🌠 Wrote unit testing (100% test coverage)
+6. 🌠 Developed mobile-first, responsive UX design with Tailwind CSS
+7. 🌠 Implemented Tailwind CSS dark mode for app with animated SVG toggle
 
-## Deploy on Vercel
+## Discussion Section
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. ...
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Test Coverage Report - Jest & React Testing Library
+
+### `yarn run test`
+
+Launches the test runner and generates code coverage report.
+
+### `yarn test:watch`
+
+Launches the test runner in the interactive watch mode.
+
+## Technical Journal
+
+- `0.1.0` Bootstrapped with create-next-app (TypeScript)
+- `0.2.0`
