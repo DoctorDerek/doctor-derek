@@ -67,9 +67,17 @@ function LoginInput({
   const isPassword = fieldName === "password"
   return (
     <>
+      {errors[fieldName] && (
+        <div>
+          <span role="img" aria-label="Error">
+            ⚠️
+          </span>
+          This field is required:
+        </div>
+      )}
       <input
         placeholder={placeholder}
-        {...(register(fieldName), { required: true })}
+        {...register(fieldName, { required: true })}
         className={classNames(
           BUTTON_HEIGHT,
           "mb-7 rounded-lg bg-gray-700 pl-4",
@@ -78,7 +86,6 @@ function LoginInput({
         )}
         type={isPassword ? "password" : "text"}
       />
-      {errors[fieldName] && <span>This field is required</span>}
     </>
   )
 }
