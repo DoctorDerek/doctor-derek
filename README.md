@@ -1,6 +1,4 @@
-[![codecov](https://codecov.io/gh/DoctorDerek/pokedex/branch/main/graph/badge.svg?token=3gfQ4azgws)](https://codecov.io/gh/DoctorDerek/pokedex)
-
-[![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=weather-app-demo-doctorderek)](https://weather-app-demo-doctorderek.vercel.app/) [![codecov](https://codecov.io/gh/DoctorDerek/weather-app-demo/branch/main/graph/badge.svg?token=bEqXKgUSSb)](https://codecov.io/gh/DoctorDerek/weather-app-demo) [![Build Status](https://app.travis-ci.com/DoctorDerek/weather-app-demo.svg?branch=main)](https://app.travis-ci.com/DoctorDerek/weather-app-demo)
+[![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=pokedex-doctorderek)](https://pokedex-doctorderek.vercel.app/) [![codecov](https://codecov.io/gh/DoctorDerek/pokedex/branch/main/graph/badge.svg?token=3gfQ4azgws)](https://codecov.io/gh/DoctorDerek/pokedex) [![Build Status](https://app.travis-ci.com/DoctorDerek/pokedex.svg?branch=main)](https://app.travis-ci.com/DoctorDerek/pokedex)
 
 # 📆 Pokedex - Next.js 12 + React 18 + Tailwind CSS + XState + 100% Test Coverage
 
