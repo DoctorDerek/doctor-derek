@@ -1,7 +1,8 @@
 language: node_js
 node_js:
-  - node
+  - lts/*
 scripts:
+  - yarn --frozen-lockfile
   - yarn test
   - yarn add codecov
 after_success:
