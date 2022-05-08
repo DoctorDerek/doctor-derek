@@ -89,7 +89,7 @@ function LoginInput({
 
   function Required() {
     return (
-      <div>
+      <div role="alert" aria-live="polite">
         <span role="img" aria-label="Error">
           ⚠️
         </span>
