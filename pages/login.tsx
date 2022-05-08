@@ -5,6 +5,8 @@ import {
   UseFormRegister,
 } from "react-hook-form"
 
+import UserAuthComponent from "@/components/UserAuthComponent"
+
 type LoginFormValues = {
   email: string
   password: string
@@ -14,6 +16,7 @@ const classNames = (...rest: string[]) => rest.join(" ")
 const BUTTON_HEIGHT = "h-15" // height: 3.75rem /* 60px */;
 
 export default function Login() {
+  // Set up our form handlers using react-hook-form:
   const {
     register,
     handleSubmit,
@@ -23,6 +26,7 @@ export default function Login() {
 
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center bg-gray-900">
+      <UserAuthComponent />
       <div className="flex h-114 w-128 flex-col items-center justify-center rounded-lg bg-gray-800 text-lg text-white">
         <form onSubmit={handleSubmit(onSubmit)} className="flex w-96 flex-col">
           <LoginInput
