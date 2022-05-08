@@ -1,5 +1,5 @@
-import Link from "next/link"
-import { Router, useRouter } from "next/router"
+import Head from "next/head"
+import { useRouter } from "next/router"
 import React, { useContext, useEffect, useState } from "react"
 import {
   FieldErrors,
@@ -10,17 +10,12 @@ import {
 
 import GlobalStateContext from "@/components/GlobalStateContext"
 import UserAuthComponent from "@/components/UserAuthComponent"
-import authMachine, {
-  LOCALSTORAGE_KEY_AUTH,
-  validateHashToken,
-} from "@/utils/authMachine"
 import { useActor } from "@xstate/react"
 
 type LoginFormValues = {
   email: string
   password: string
 }
-
 const classNames = (...rest: string[]) => rest.join(" ")
 const BUTTON_HEIGHT = "h-15" // height: 3.75rem /* 60px */;
 
@@ -50,6 +45,10 @@ export default function Login() {
 
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center bg-gray-900">
+      <Head>
+        <title>Pokédex by @DoctorDerek - Login as admin/admin</title>
+      </Head>
+
       <UserAuthComponent />
       <div className="flex h-114 w-128 flex-col items-center justify-center rounded-lg bg-gray-800 text-lg text-white">
         <form onSubmit={handleSubmit(onSubmit)} className="flex w-96 flex-col">
