@@ -73,10 +73,18 @@ function LoginInput({
 
   return (
     <>
-      {errors[fieldName] && <Required />} {/* Show error if any */}
+      {/* Show form validation errors, if any */}
+      {errors[fieldName]?.type === "required" && <Required />}
+      {errors[fieldName]?.type === "validate" && (
+        <Invalid fieldName={fieldName} />
+      )}
       <input
         placeholder={placeholder}
-        {...register(fieldName, { required: true })}
+        {...register(fieldName, {
+          required: true,
+          // Note that the only valid email & password are admin/admin:
+          validate: (value) => value === "admin",
+        })}
         className={classNames(
           BUTTON_HEIGHT,
           "mb-7 rounded-lg bg-gray-700 pl-4",
@@ -90,6 +98,10 @@ function LoginInput({
 
   function Required() {
     return <FormError text="This field is required" />
+  }
+
+  function Invalid({ fieldName }: { fieldName: string }) {
+    return <FormError text={`The only valid ${fieldName} is admin`} />
   }
 
   function FormError({ text }: { text: string }) {
