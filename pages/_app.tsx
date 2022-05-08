@@ -7,9 +7,7 @@ import { useInterpret } from "@xstate/react"
 import type { AppProps } from "next/app"
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const authService = useInterpret(authMachine, {
-    context: authMachine.context,
-  })
+  const authService = useInterpret(authMachine)
   return (
     <GlobalStateContext.Provider value={{ authService }}>
       {/* We can access this context throughout the app because of .Provider */}
