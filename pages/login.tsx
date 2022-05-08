@@ -1,3 +1,4 @@
+import React from "react"
 import {
   FieldErrors,
   SubmitHandler,
@@ -88,12 +89,16 @@ function LoginInput({
   )
 
   function Required() {
+    return <FormError text="This field is required" />
+  }
+
+  function FormError({ text }: { text: string }) {
     return (
       <div role="alert" aria-live="polite">
         <span role="img" aria-label="Error">
           ⚠️
         </span>
-        This field is required:
+        {text}:
       </div>
     )
   }
