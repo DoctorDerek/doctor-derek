@@ -1,4 +1,6 @@
-import React from "react"
+import Link from "next/link"
+import { Router, useRouter } from "next/router"
+import React, { useContext, useEffect, useState } from "react"
 import {
   FieldErrors,
   SubmitHandler,
@@ -6,7 +8,13 @@ import {
   UseFormRegister,
 } from "react-hook-form"
 
+import GlobalStateContext from "@/components/GlobalStateContext"
 import UserAuthComponent from "@/components/UserAuthComponent"
+import authMachine, {
+  LOCALSTORAGE_KEY_AUTH,
+  validateHashToken,
+} from "@/utils/authMachine"
+import { useActor } from "@xstate/react"
 
 type LoginFormValues = {
   email: string
@@ -17,13 +25,28 @@ const classNames = (...rest: string[]) => rest.join(" ")
 const BUTTON_HEIGHT = "h-15" // height: 3.75rem /* 60px */;
 
 export default function Login() {
+  // Grab next/router via its useRouter hook, so we can redirect after login.
+  const router = useRouter()
+
+  // Retrieve our loggedIn/loggedOut status from the global context with xState:
+  const globalServices = useContext(GlobalStateContext)
+  const [state] = useActor(globalServices.authService)
+  const isLoggedIn = state.matches("loggedIn")
+  const { send } = globalServices.authService
+
   // Set up our form handlers using react-hook-form:
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<LoginFormValues>()
-  const onSubmit: SubmitHandler<LoginFormValues> = (data) => console.log(data)
+  const onSubmit: SubmitHandler<LoginFormValues> = ({ email, password }) => {
+    // We'll log the user in via global context using our XState authMachine.
+    send("LOG_IN", { authorizedUser: email })
+    // Note: We already know we have admin/admin because of the form validation.
+    console.log(`Attempting login with ${email}/${password} credentials...`)
+    router.push("/")
+  }
 
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center bg-gray-900">

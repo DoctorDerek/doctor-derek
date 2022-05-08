@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { useContext, useEffect, useState } from "react"
 
 import GlobalStateContext from "@/components/GlobalStateContext"
@@ -59,12 +60,7 @@ export default function UserAuthComponent() {
       {!isLoggedIn && (
         <>
           Logged Out{" | "}
-          <button
-            type="button"
-            onClick={() => send("LOG_IN", { authorizedUser: "admin" })}
-          >
-            Login
-          </button>
+          <Link href="/login">Login</Link>
         </>
       )}
     </div>
