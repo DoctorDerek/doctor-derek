@@ -11,7 +11,8 @@
     "test": "jest test --collectCoverage",
     "test:watch": "jest test --watch",
     "test:watchAll": "jest test --watchAll",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "generateTypes": "graphql-codegen"
   },
   "dependencies": {
     "@xstate/react": "3.0.0",
@@ -23,6 +24,10 @@
     "xstate": "4.32.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "2.6.2",
+    "@graphql-codegen/typescript": "2.4.10",
+    "@graphql-codegen/typescript-operations": "2.3.7",
+    "@graphql-codegen/typescript-react-query": "3.5.11",
     "@testing-library/jest-dom": "5.16.4",
     "@testing-library/react": "13.2.0",
     "@types/node": "17.0.31",
@@ -32,6 +37,7 @@
     "eslint": "8.15.0",
     "eslint-config-next": "12.1.6",
     "eslint-config-prettier": "8.5.0",
+    "graphql": "16.4.0",
     "husky": "7.0.4",
     "jest": "28.1.0",
     "jest-environment-jsdom": "28.1.0",
