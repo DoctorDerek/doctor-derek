@@ -28,6 +28,10 @@ export default function Login() {
   // Set up a justLoggedIn variable in React state to differentiate between if
   // we just logged in (via this page) or if we were already logged in before.
   const [justLoggedIn, setJustLoggedIn] = useState(false)
+  // Set up a redirectInXSeconds variable so we can have a redirect countdown.
+  const [redirectInXSeconds, setRedirectInXSeconds] = useState(
+    REDIRECT_AFTER_X_SECONDS
+  )
 
   // Retrieve our loggedIn/loggedOut status from the global context with xState:
   const globalServices = useContext(GlobalStateContext)
@@ -53,6 +57,20 @@ export default function Login() {
     setTimeout(() => {
       router.push("/")
     }, REDIRECT_AFTER_X_SECONDS * 1000) // Convert seconds to milliseconds.
+    // Use setTimeout to show a visual countdown of the redirect to the user.
+    // First, we fill an array from 1 to REDIRECT_AFTER_X_SECONDS:
+    const countdownArray = Array.from(
+      { length: REDIRECT_AFTER_X_SECONDS },
+      (_, index) => index + 1
+    )
+    // Then, we'll spawn a new setTimeout callback for each x (integer seconds).
+    countdownArray.forEach((x) => {
+      setTimeout(() => {
+        // Given an x (i.e. 3 sec), we update the countdown (i.e. after 2 sec).
+        setRedirectInXSeconds(x)
+      }, (REDIRECT_AFTER_X_SECONDS - x) * 1000) // Convert seconds to ms.
+      // Note: We subtract x from REDIRECT_AFTER_X_SECONDS - x for the timer.
+    })
   }
 
   return (
@@ -87,7 +105,7 @@ export default function Login() {
             </h2>
             {justLoggedIn && (
               <>
-                <h3>Redirecting in {REDIRECT_AFTER_X_SECONDS} seconds...</h3>
+                <h3>Redirecting in {redirectInXSeconds} seconds...</h3>
                 <h3>
                   Click{" "}
                   <Link href="/">
