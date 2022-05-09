@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { useRouter } from "next/router"
+import { send } from "process"
 import { useContext, useState } from "react"
 import {
   FieldErrors,
@@ -74,27 +75,35 @@ export default function Login() {
               register={register}
               errors={errors}
             />
-            <LoginButton />
+            <FormButton type="login" />
           </form>
         )}
         {isLoggedIn && (
-          <div>
+          <div className="flex w-96 flex-col space-y-4 text-center">
             <h2>
               {justLoggedIn && "Successfully"}
               {!justLoggedIn && "Currently"} logged in as{" "}
               {state.context.authorizedUser}
             </h2>
             {justLoggedIn && (
-              <div>
+              <>
                 <h3>Redirecting in {REDIRECT_AFTER_X_SECONDS} seconds...</h3>
                 <h3>
                   Click{" "}
-                  <Link href="/" className="underline">
-                    here
+                  <Link href="/">
+                    <span className="underline">here</span>
                   </Link>{" "}
                   if you are not redirected.
                 </h3>
-              </div>
+              </>
+            )}
+            {!justLoggedIn && (
+              <FormButton
+                type="logout"
+                onClick={() => {
+                  send("LOG_OUT")
+                }}
+              />
             )}
           </div>
         )}
@@ -161,16 +170,23 @@ function LoginInput({
   }
 }
 
-function LoginButton() {
+function FormButton({
+  type,
+  onClick,
+}: {
+  type: "login" | "logout"
+  onClick?: () => void
+}) {
   return (
     <button
-      type="submit"
+      type={type === "login" ? "submit" : undefined} // undefined for logout
       className={classNames(
         "mt-4 rounded-lg bg-yellow-400 p-2 font-bold uppercase",
         BUTTON_HEIGHT
       )}
+      onClick={type === "logout" ? onClick : undefined} // undefined for login
     >
-      Login
+      {type === "login" ? "Login" : "Logout"}
     </button>
   )
 }
