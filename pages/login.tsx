@@ -74,16 +74,7 @@ export default function Login() {
               register={register}
               errors={errors}
             />
-
-            <button
-              type="submit"
-              className={classNames(
-                "mt-4 rounded-lg bg-yellow-400 p-2 font-bold uppercase",
-                BUTTON_HEIGHT
-              )}
-            >
-              Login
-            </button>
+            <LoginButton />
           </form>
         )}
         {isLoggedIn && (
@@ -168,4 +159,18 @@ function LoginInput({
       </div>
     )
   }
+}
+
+function LoginButton() {
+  return (
+    <button
+      type="submit"
+      className={classNames(
+        "mt-4 rounded-lg bg-yellow-400 p-2 font-bold uppercase",
+        BUTTON_HEIGHT
+      )}
+    >
+      Login
+    </button>
+  )
 }
