@@ -1,6 +1,5 @@
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { send } from "process"
 import { useContext, useState } from "react"
 import {
   FieldErrors,
@@ -11,13 +10,13 @@ import {
 
 import AppContainer from "@/components/AppContainer"
 import GlobalStateContext from "@/components/GlobalStateContext"
+import classNames from "@/utils/classNames"
 import { useActor } from "@xstate/react"
 
 type LoginFormValues = {
   email: string
   password: string
 }
-const classNames = (...rest: string[]) => rest.join(" ")
 const BUTTON_HEIGHT = "h-15" // height: 3.75rem /* 60px */;
 const REDIRECT_AFTER_X_SECONDS = 5
 
