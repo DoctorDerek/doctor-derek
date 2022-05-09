@@ -11,18 +11,23 @@ export default function AppContainer({
   pageTitle?: string
   children: React.ReactNode
 }) {
-  // Add "Pokédex" before the passed-in pageTitle prop, if any:
-  const fullPageTitle = `Pokédex by @DoctorDerek${
-    pageTitle ? ` - ${pageTitle}` : ""
-  }`
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center bg-gray-900 text-white">
       <Head>
-        <title>{fullPageTitle}</title>
+        <title>
+          {/* Add "Pokédex" before the passed-in pageTitle prop, if any: */}
+          Pokédex by @DoctorDerek{pageTitle ? ` - ${pageTitle}` : ""}
+        </title>
       </Head>
       <header className="absolute top-0 w-full">
         <FlexAlignmentBox>
-          <div>{fullPageTitle}</div>
+          <div>
+            <Link href="/">Pokédex</Link> by{" "}
+            <Link href="https://linkedin.com/in/derek-austin">
+              @DoctorDerek
+            </Link>
+            {pageTitle ? ` - ${pageTitle}` : ""}
+          </div>
           <UserAuthComponent />
         </FlexAlignmentBox>
       </header>
