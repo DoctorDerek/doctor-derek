@@ -1,4 +1,3 @@
-import Head from "next/head"
 import { useRouter } from "next/router"
 import React, { useContext, useEffect, useState } from "react"
 import {
@@ -8,8 +7,8 @@ import {
   UseFormRegister,
 } from "react-hook-form"
 
+import AppContainer from "@/components/AppContainer"
 import GlobalStateContext from "@/components/GlobalStateContext"
-import UserAuthComponent from "@/components/UserAuthComponent"
 import { useActor } from "@xstate/react"
 
 type LoginFormValues = {
@@ -44,12 +43,7 @@ export default function Login() {
   }
 
   return (
-    <div className="flex h-screen w-screen flex-col items-center justify-center bg-gray-900">
-      <Head>
-        <title>Pokédex by @DoctorDerek - Login as admin/admin</title>
-      </Head>
-
-      <UserAuthComponent />
+    <AppContainer pageTitle="Login Page (admin/admin)">
       <div className="flex h-114 w-128 flex-col items-center justify-center rounded-lg bg-gray-800 text-lg text-white">
         <form onSubmit={handleSubmit(onSubmit)} className="flex w-96 flex-col">
           <LoginInput
@@ -76,7 +70,7 @@ export default function Login() {
           </button>
         </form>
       </div>
-    </div>
+    </AppContainer>
   )
 }
 

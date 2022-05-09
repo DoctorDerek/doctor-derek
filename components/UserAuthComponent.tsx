@@ -47,7 +47,7 @@ export default function UserAuthComponent() {
   // Note that send should never change, since it's a helper from authService.
 
   return (
-    <div className="absolute right-0 top-0 mt-2 mr-4 text-white">
+    <div>
       {isLoggedIn && (
         <>
           Logged In as {state.context.authorizedUser}
