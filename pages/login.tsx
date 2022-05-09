@@ -73,7 +73,7 @@ export default function Login() {
   }
 
   return (
-    <AppContainer pageTitle="Login Page (admin/admin)">
+    <AppContainer pageTitle="Login Page (admin/admin)" bgColor="bg-gray-900">
       <div className="flex h-114 w-128 flex-col items-center justify-center rounded-lg bg-gray-800 text-lg text-white">
         {!isLoggedIn && (
           <form

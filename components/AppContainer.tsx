@@ -3,16 +3,24 @@ import Link from "next/link"
 import React from "react"
 
 import UserAuthComponent from "@/components/UserAuthComponent"
+import classNames from "@/utils/classNames"
 
 export default function AppContainer({
   pageTitle,
   children,
+  bgColor,
 }: {
   pageTitle?: string
+  bgColor?: "bg-gray-900" | "bg-gray-600"
   children: React.ReactNode
 }) {
   return (
-    <div className="flex h-screen w-screen flex-col items-center justify-center bg-gray-900 text-white">
+    <div
+      className={classNames(
+        "flex h-screen w-screen flex-col items-center justify-center text-white",
+        bgColor ? bgColor : "bg-gray-900"
+      )}
+    >
       <Head>
         <title>
           {/* Add "Pokédex" before the passed-in pageTitle prop, if any: */}
