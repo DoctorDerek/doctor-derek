@@ -48,3 +48,4 @@ Launches the test runner in the interactive watch mode.
 - `0.2.0` Added all best practices & basic dependencies
 - `0.3.0` Implemented data fetching, login, and Pokédex
 - `0.4.0` Redirected / to /1 with SSR via getStaticProps
+- `0.5.0` Highlight active Pokémon & current page number
