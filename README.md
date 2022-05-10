@@ -46,3 +46,4 @@ Launches the test runner in the interactive watch mode.
 
 - `0.1.0` Bootstrapped with create-next-app (TypeScript)
 - `0.2.0` Added all best practices & basic dependencies
+- `0.3.0` Implemented data fetching, login, and Pokédex
