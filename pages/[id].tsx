@@ -163,7 +163,14 @@ const Pokedex: InferGetStaticPropsType<typeof getStaticProps> = ({
               </Link>
             )
           })}
-          <div className="sticky bottom-0 flex w-full items-center justify-between bg-gray-900 p-4 text-xs">
+          <div
+            className={classNames(
+              "bottom-0 flex w-full items-center justify-between bg-gray-900 p-4 text-xs",
+              // To handle #151, page 16 with Mew, we use position: absolute
+              // instead of position sticky because this page has only 1 item.
+              currentPageNumber === MAX_PAGE_NUMBER ? "absolute" : "sticky"
+            )}
+          >
             {/* Pokédex component: Pokémon sidebar -- pagination component. */}
             {/* The pagination bar uses position: sticky to stick in place. */}
             <div className="flex space-x-2">
