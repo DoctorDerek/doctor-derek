@@ -365,17 +365,19 @@ async function fetchPokemon({ pokemonCount }: { pokemonCount: number }) {
 }
 
 /**
- * We need to calculate the number of Pokémon to retrieve, which is
- * 10 for #1, 20 for #15, 30 for #30, etc. The math is 10*(n-1)%10.
+ * We need to calculate the number of Pokémon to retrieve, which will be
+ * 10 for #1, 20 for #15, 30 for #30, etc. The math is 10*((n-1)%10+1).
  **/
-const calculatePokemonCount = ({ id }: { id: string }) => 10 * (Number(id) % 10)
-
+function calculatePokemonCount({ id }: { id: string }) {
+  return 10 * ((Number(id) % 10) + 1)
+}
 /**
  * We need to calculate the current page based on the current id, which will be
  * the pokemonCount divided by 10: page 1 for #1, page 2 for #15, pg 3 for #30.
  */
-const calculateCurrentPage = ({ id }: { id: string }) =>
-  calculatePokemonCount({ id }) / 10
+function calculateCurrentPage({ id }: { id: string }) {
+  return calculatePokemonCount({ id }) / 10
+}
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { id } = params as { id: string }
