@@ -180,7 +180,7 @@ const Pokedex: InferGetStaticPropsType<typeof getStaticProps> = ({
                     <PaginationButton
                       paddingX="px-2"
                       // Page 1 links to #1, page 2 links to #11, etc:
-                      href={`/${(pageNumber - 1) * 10 + 1}`}
+                      href={convertPageNumberToHref({ pageNumber })}
                       // Highlight the current page:
                       currentPage={currentPageNumber === pageNumber}
                       text={String(pageNumber)}
@@ -193,7 +193,13 @@ const Pokedex: InferGetStaticPropsType<typeof getStaticProps> = ({
               <PaginationButton
                 paddingX="px-3"
                 // Link to the previous page, unless we're on the first page:
-                href={`/${currentPageNumber === 1 ? 1 : currentPageNumber - 1}`}
+                href={`/${
+                  currentPageNumber === 1
+                    ? convertPageNumberToHref({ pageNumber: 1 })
+                    : convertPageNumberToHref({
+                        pageNumber: currentPageNumber - 1,
+                      })
+                }`}
                 text="Prev"
               />
               <PaginationButton
@@ -201,8 +207,10 @@ const Pokedex: InferGetStaticPropsType<typeof getStaticProps> = ({
                 // Link to the next page, unless we're on the last page:
                 href={`/${
                   currentPageNumber === MAX_PAGE_NUMBER
-                    ? MAX_PAGE_NUMBER
-                    : currentPageNumber + 1
+                    ? convertPageNumberToHref({ pageNumber: MAX_PAGE_NUMBER })
+                    : convertPageNumberToHref({
+                        pageNumber: currentPageNumber + 1,
+                      })
                 }`}
                 text="Next"
               />
@@ -479,6 +487,10 @@ function calculatePokemonCount({ id }: { id: string }) {
  */
 function calculateCurrentPage({ id }: { id: string }) {
   return calculatePokemonCount({ id }) / 10
+}
+
+function convertPageNumberToHref({ pageNumber }: { pageNumber: number }) {
+  return `/${(pageNumber - 1) * 10 + 1}`
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
