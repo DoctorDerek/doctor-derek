@@ -1,22 +1,32 @@
 [![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=pokedex-doctorderek)](https://pokedex-doctorderek.vercel.app/) [![codecov](https://codecov.io/gh/DoctorDerek/pokedex/branch/main/graph/badge.svg?token=3gfQ4azgws)](https://codecov.io/gh/DoctorDerek/pokedex) [![Build Status](https://app.travis-ci.com/DoctorDerek/pokedex.svg?branch=main)](https://app.travis-ci.com/DoctorDerek/pokedex)
 
-# 🃏 Pokedex - Next.js 12 + React 18 + Tailwind CSS + XState + 100% Test Coverage
-
-# ✅ ...
+# 🃏 Pokédex - Next.js 12 + React 18 + Tailwind CSS + XState + Login Mockup
 
 # 👀 View Production Build at https://pokedex-doctorderek.vercel.app/
 
-I built ...
+I built a Pokédex that queries a GraphQL endpoint at https://graphql-pokemon2.vercel.app/
 
-Additionally, I added \_ other major features, including best practices and 100% test coverage.
+Additionally, I added 3 other major features, including best practices and XState for login.
 
 Below you will find the complete feature set, a discussion section, and my technical journal.
 
 ## Required Features
 
-1. ✅ ...
+1. ✅ Ability to create forms
+2. ✅ Ability to implement the various form states (field validation, error, success etc)
+3. ✅ Ability to implement style to spec
+4. ✅ Responsiveness
+5. ✅ Ability to use Graphql correctly
+6. ✅ Ability to integrate a real API
+7. ✅ Ability to implement a pagination API
+8. ✅ Clean-code and separation of component concerns
+9. ✅ Ability to design new UIs
 
 ## Additional Features
+
+### ✅ === DONE
+
+### 🌠 === TODO
 
 1. ✅ Deployed production build of Next.js to Vercel with CI/CD
 2. ✅ Used Next.js version 12.1.6 with React 18.1.0 and Tailwind CSS 3.0.24
@@ -30,7 +40,10 @@ Below you will find the complete feature set, a discussion section, and my techn
 
 ## Discussion Section
 
-1. ...
+1. The feature set is complete, but the app could use additional features and testing.
+2. I wrote the login feature to save the authenticated user to localStorage via XState.
+3. There are optimizations possible for the pagination and data-fetching algorithms.
+4. Overall the app's performance is good because of Next.js SSR + use of next/image.
 
 ## Test Coverage Report - Jest & React Testing Library
 
@@ -51,3 +64,4 @@ Launches the test runner in the interactive watch mode.
 - `0.5.0` Highlight active Pokémon & current page number
 - `0.6.0` Improve display of sidebar for edge case #151
 - `0.7.0` Correct behavior of Prev and Next page buttons
+- `0.8.0` Disable broken tests and write basic util test
