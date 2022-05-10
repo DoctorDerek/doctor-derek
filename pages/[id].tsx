@@ -1,5 +1,6 @@
 import type { NextPage } from "next"
 import gql from "graphql-tag"
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next"
 import Image from "next/image"
 import React, { Fragment } from "react"
 
@@ -27,9 +28,29 @@ const ACCESSIBLE_ATTRIBUTE_TITLES: { [key in keyof Pokemon]: string } = {
   id: "The unique identifier of this Pokémon in the API",
 }
 
-const Home: NextPage = ({ data }: { data: PokemonsQuery }) => {
+const MAX_POKEMON_NUMBER = 151 // Only load Pokemon up to Mew the original.
+
+const Pokedex: InferGetStaticPropsType<typeof getStaticProps> = ({
+  data,
+  id,
+}: {
+  data: PokemonsQuery
+  id: string
+}) => {
+  // We inefficiently fetch all the Pokémon we need from 1 to the current id.
+  // The advantage is we only make 1 GraphQL request, vs. 10x requests for the
+  // current page, but we fetch much more data than is needed. Note that the
+  // data fetching only happens on the server-side, never on the client side.
   const pokemons = data.pokemons as Pokemon[]
-  const currentPokemon = pokemons[0]
+  // Since we have all of the Pokémons loaded from 1 to a little more than the
+  // current id (specifically all of them to fill out the current page), then
+  // we can grab the current Pokémon by checking the index at pokemons[id - 1].
+  // (For example, Bulbasaur (#1) is at index 0 in the pokemons array.)
+  const currentPokemon = pokemons[Number(id) - 1]
+
+  // We should never hit the following guard clause, but it's here just in case.
+  if (!currentPokemon) return <div>Sorry, Pokémon #{id} not found 😔.</div>
+  // Without checking for currentPokemon, then the destructuring could error.
 
   const {
     // Destructure the current Pokémon based on the GraphQL schema.
@@ -53,7 +74,7 @@ const Home: NextPage = ({ data }: { data: PokemonsQuery }) => {
   return (
     <AppContainer pageTitle="Homepage" bgColor="bg-gray-600">
       <div className="flex h-128 w-192 overflow-hidden rounded-lg">
-        {/* We use overflow-hidden here is to round off the corners: */}
+        {/* We use overflow-hidden here is to round off the corners. */}
         <div className="relative w-[40%] space-y-4 overflow-y-auto bg-gray-800 text-sm">
           {pokemons?.map((pokemon) => {
             const { id, number, name, image } = pokemon
@@ -83,7 +104,7 @@ const Home: NextPage = ({ data }: { data: PokemonsQuery }) => {
             <div className="flex space-x-2">
               {Array(4)
                 .fill(4) // 4 pages (placeholder)
-                .map((item, index) => {
+                .map((_, index) => {
                   const pageNumber = index + 1
                   return (
                     <Fragment key={`page${pageNumber}`}>
@@ -282,7 +303,7 @@ function PokemonDetails({
 // API Reference: https://wayfair.github.io/dociql/
 gql`
   query pokemons {
-    pokemons(first: 10) {
+    pokemons(first: $first) {
       id
       number
       name
@@ -306,13 +327,13 @@ gql`
   }
 `
 
-async function fetchPokemon() {
+async function fetchPokemon({ pokemonCount }: { pokemonCount: number }) {
   return await fetch("https://graphql-pokemon2.vercel.app/", {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       query: `
         query pokemons {
-          pokemons(first: 10) {
+          pokemons(first: ${pokemonCount}) {
             id
             number
             name
@@ -343,8 +364,39 @@ async function fetchPokemon() {
     .then((res) => res.data as PokemonsQuery)
 }
 
-export async function getStaticProps() {
-  return { props: { data: await fetchPokemon() } }
+/**
+ * We need to calculate the number of Pokémon to retrieve, which is
+ * 10 for #1, 20 for #15, 30 for #30, etc. The math is 10*(n-1)%10.
+ **/
+const calculatePokemonCount = ({ id }: { id: string }) => 10 * (Number(id) % 10)
+
+/**
+ * We need to calculate the current page based on the current id, which will be
+ * the pokemonCount divided by 10: page 1 for #1, page 2 for #15, pg 3 for #30.
+ */
+const calculateCurrentPage = ({ id }: { id: string }) =>
+  calculatePokemonCount({ id }) / 10
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { id } = params as { id: string }
+  const pokemonCount = calculatePokemonCount({ id })
+  return { props: { data: await fetchPokemon({ pokemonCount }), id } }
 }
 
-export default Home
+export const getStaticPaths: GetStaticPaths = () => {
+  return {
+    // Fill a new array from 1 to MAX_POKEMON_NUMBER, then map the valid paths.
+    paths: Array(MAX_POKEMON_NUMBER)
+      .fill(MAX_POKEMON_NUMBER)
+      .map((_, index) => index + 1)
+      .map((pokemonNumber) => ({
+        params: {
+          id: String(pokemonNumber),
+        },
+      })),
+    //[{ params: { id: "1" } }],
+    fallback: false, // We don't handle ids beyond the MAX_POKEMON_NUMBER
+  }
+}
+
+export default Pokedex

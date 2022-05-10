@@ -1,7 +1,7 @@
 // __tests__/fetch.test.js
 import "@testing-library/jest-dom"
 
-import Home from "@/pages/index"
+import Home from "@/pages/[id]"
 import { fireEvent, render, screen, waitFor } from "@testing-library/react"
 
 test("loads and displays homepage", async () => {
