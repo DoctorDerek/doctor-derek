@@ -85,11 +85,46 @@ const Pokedex: InferGetStaticPropsType<typeof getStaticProps> = ({
     weight,
   } = currentPokemon
 
+  /**
+   * Generate the pages for the pagination bar as a number[] array.
+   */
+  const getPagesToShow = () => {
+    if (currentPageNumber === 1)
+      // Beginning of the list
+      return [1, 2, 3, 4]
+    if (currentPageNumber === MAX_PAGE_NUMBER)
+      // End of the list
+      return [
+        MAX_PAGE_NUMBER - 3,
+        MAX_PAGE_NUMBER - 2,
+        MAX_PAGE_NUMBER - 1,
+        MAX_PAGE_NUMBER,
+      ]
+    if (currentPageNumber < MAX_PAGE_NUMBER / 2)
+      // Early in the list
+      return [
+        currentPageNumber - 1,
+        currentPageNumber,
+        currentPageNumber + 1,
+        currentPageNumber + 2,
+      ]
+    // Late in the list (default case)
+    return [
+      currentPageNumber - 2,
+      currentPageNumber - 1,
+      currentPageNumber,
+      currentPageNumber + 1,
+    ]
+  }
+  const pagesToShow = getPagesToShow() // Show 4 pages, from 1 to MAX_PAGE_COUNT
+
   return (
     <AppContainer pageTitle="Homepage" bgColor="bg-gray-600">
       <div className="flex h-128 w-192 overflow-hidden rounded-lg">
+        {/* Pokédex component: Pokémon wrapper box for the [id] page. */}
         {/* We use overflow-hidden here is to round off the corners. */}
         <div className="relative w-[40%] space-y-4 overflow-y-auto bg-gray-800 text-sm">
+          {/* Pokédex component: Pokémon sidebar -- pagination component. */}
           {pokemons?.map((thisPokemon) => {
             const {
               id,
@@ -106,11 +141,13 @@ const Pokedex: InferGetStaticPropsType<typeof getStaticProps> = ({
               <Link key={id} href={`/${Number(thisPokemonNumber)}`}>
                 <div
                   className={classNames(
-                    "m-4 flex items-center justify-start space-x-4 rounded-lg bg-gray-600 py-3 pl-4 hover:bg-gray-700",
+                    "m-4 flex items-center justify-start space-x-4 rounded-lg border-2 border-solid py-3 pl-4",
                     // Highlight the active Pokémon:
                     thisPokemonNumber === number
-                      ? "border-2 border-solid border-yellow-400"
-                      : ""
+                      ? "border-yellow-400 bg-gray-700" // active state
+                      : "border-transparent bg-gray-600 hover:bg-gray-700"
+                    // Note: We use border-transparent for an invisible border
+                    // that helps with the alignment of the CSS flexbox items.
                   )}
                 >
                   <PokemonImage
@@ -127,35 +164,33 @@ const Pokedex: InferGetStaticPropsType<typeof getStaticProps> = ({
             )
           })}
           <div className="sticky bottom-0 flex w-full items-center justify-between bg-gray-900 p-4 text-xs">
+            {/* Pokédex component: Pokémon sidebar -- pagination component. */}
             {/* The pagination bar uses position: sticky to stick in place. */}
             <div className="flex space-x-2">
-              {Array(4)
-                .fill(4) // Show 4 pages, of the total pages 1 to MAX_PAGE_COUNT
-                .map((_, index) => {
-                  const pageNumber = index + 1
-                  return (
-                    <Fragment key={`page${pageNumber}`}>
-                      <PaginationButton
-                        paddingX="px-2"
-                        // Page 1 links to #1, page 2 links to #11, etc:
-                        href={`/${(pageNumber - 1) * 10 + 1}`}
-                        // Highlight the current page:
-                        currentPage={currentPageNumber === pageNumber}
-                        text={String(pageNumber)}
-                      />
-                    </Fragment>
-                  )
-                })}
+              {pagesToShow.map((pageNumber) => {
+                return (
+                  <Fragment key={`page${pageNumber}`}>
+                    <PaginationButton
+                      paddingX="px-2"
+                      // Page 1 links to #1, page 2 links to #11, etc:
+                      href={`/${(pageNumber - 1) * 10 + 1}`}
+                      // Highlight the current page:
+                      currentPage={currentPageNumber === pageNumber}
+                      text={String(pageNumber)}
+                    />
+                  </Fragment>
+                )
+              })}
             </div>
             <div className="flex space-x-2">
               <PaginationButton
-                paddingX="px-4"
+                paddingX="px-3"
                 // Link to the previous page, unless we're on the first page:
                 href={`/${currentPageNumber === 1 ? 1 : currentPageNumber - 1}`}
                 text="Prev"
               />
               <PaginationButton
-                paddingX="px-4"
+                paddingX="px-3"
                 // Link to the next page, unless we're on the last page:
                 href={`/${
                   currentPageNumber === MAX_PAGE_NUMBER
@@ -167,7 +202,8 @@ const Pokedex: InferGetStaticPropsType<typeof getStaticProps> = ({
             </div>
           </div>
         </div>
-        <div className="bg-gray-700">
+        <div className="w-[60%] bg-gray-700">
+          {/* Pokédex component: Pokémon details */}
           <h2 className="flex justify-between border-b-2 border-solid border-b-gray-800 p-8 text-2xl">
             {name && (
               <h3
@@ -282,7 +318,7 @@ function PaginationButton({
   currentPage,
   text,
 }: {
-  paddingX?: "px-2" | "px-4"
+  paddingX?: "px-2" | "px-3"
   href: string
   currentPage?: boolean
   text: string
@@ -291,9 +327,13 @@ function PaginationButton({
     <Link href={href}>
       <div
         className={classNames(
-          "flex flex-col content-center items-center rounded-md bg-gray-600 py-1",
+          "flex flex-col content-center items-center rounded-md border-2 border-solid py-1",
           paddingX ? paddingX : "px-2",
-          currentPage ? "border-2 border-solid border-yellow-400" : ""
+          currentPage
+            ? "border-yellow-400 bg-gray-700" // active state
+            : "border-transparent bg-gray-600 hover:bg-gray-700"
+          // Note that we use border-transparent for an invisible border
+          // that helps with the alignment of the CSS flexbox items.
         )}
       >
         {text}
