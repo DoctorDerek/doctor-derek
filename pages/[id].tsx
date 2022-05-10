@@ -2,6 +2,7 @@ import type { NextPage } from "next"
 import gql from "graphql-tag"
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next"
 import Image from "next/image"
+import Link from "next/link"
 import React, { Fragment } from "react"
 
 import AppContainer from "@/components/AppContainer"
@@ -28,7 +29,11 @@ const ACCESSIBLE_ATTRIBUTE_TITLES: { [key in keyof Pokemon]: string } = {
   id: "The unique identifier of this Pokémon in the API",
 }
 
-const MAX_POKEMON_NUMBER = 151 // Only load Pokemon up to Mew the original.
+const MAX_POKEMON_NUMBER = 151 // Only load Pokemon up to Mew in Red/Blue.
+const MAX_PAGE_NUMBER = calculateCurrentPage({
+  // There are a maximum of 16 pages, based on MAX_POKEMON_NUMBER of 151.
+  id: String(MAX_POKEMON_NUMBER),
+})
 
 const Pokedex: InferGetStaticPropsType<typeof getStaticProps> = ({
   data,
@@ -41,12 +46,21 @@ const Pokedex: InferGetStaticPropsType<typeof getStaticProps> = ({
   // The advantage is we only make 1 GraphQL request, vs. 10x requests for the
   // current page, but we fetch much more data than is needed. Note that the
   // data fetching only happens on the server-side, never on the client side.
-  const pokemons = data.pokemons as Pokemon[]
+  const allPokemons = data.pokemons as Pokemon[]
   // Since we have all of the Pokémons loaded from 1 to a little more than the
   // current id (specifically all of them to fill out the current page), then
   // we can grab the current Pokémon by checking the index at pokemons[id - 1].
   // (For example, Bulbasaur (#1) is at index 0 in the pokemons array.)
-  const currentPokemon = pokemons[Number(id) - 1]
+  const currentPokemon = allPokemons[Number(id) - 1]
+  // Next, we need to figure out which page of the pagination we should be on.
+  const currentPageNumber = calculateCurrentPage({ id })
+  // Finally, we need to filter out the pokemons to only match the current page.
+  const pokemons = allPokemons.slice(
+    // For example, for Pokemon #32, we'd be on page 4. Then we...
+    (currentPageNumber - 1) * 10, // Start at Pokemon #30 (index 29), included.
+    currentPageNumber * 10 // Slice to Pokemon #41 (index 40), excluded.
+    // And, of course, remember that .slice() includes start but not end items.
+  )
 
   // We should never hit the following guard clause, but it's here just in case.
   if (!currentPokemon) return <div>Sorry, Pokémon #{id} not found 😔.</div>
@@ -76,46 +90,80 @@ const Pokedex: InferGetStaticPropsType<typeof getStaticProps> = ({
       <div className="flex h-128 w-192 overflow-hidden rounded-lg">
         {/* We use overflow-hidden here is to round off the corners. */}
         <div className="relative w-[40%] space-y-4 overflow-y-auto bg-gray-800 text-sm">
-          {pokemons?.map((pokemon) => {
-            const { id, number, name, image } = pokemon
+          {pokemons?.map((thisPokemon) => {
+            const {
+              id,
+              number: thisNumber,
+              name: thisName,
+              image: thisImage,
+            } = thisPokemon
             // Fields can be potentially undefined, so coerce to string type:
-            const pokemonNumber = number ? number : ""
-            const pokemonName = name ? name : ""
-            const imageUrl = image ? image : ""
+            const thisPokemonNumber = thisNumber ? thisNumber : ""
+            const thisPokemonName = thisName ? thisName : ""
+            const thisImageUrl = thisImage ? thisImage : ""
             return (
-              <div
-                key={id}
-                className="m-4 flex items-center justify-start space-x-4 rounded-lg bg-gray-600 py-3 pl-4"
-              >
-                <PokemonImage
-                  size="h-8 w-8"
-                  imageUrl={imageUrl}
-                  altText={pokemonName}
-                />
-                <span className="font-bold text-yellow-400">
-                  {pokemonNumber}
-                </span>
-                <span>{pokemonName}</span>
-              </div>
+              // Link to the active Pokemon:
+              <Link key={id} href={`/${Number(thisPokemonNumber)}`}>
+                <div
+                  className={classNames(
+                    "m-4 flex items-center justify-start space-x-4 rounded-lg bg-gray-600 py-3 pl-4 hover:bg-gray-700",
+                    // Highlight the active Pokémon:
+                    thisPokemonNumber === number
+                      ? "border-2 border-solid border-yellow-400"
+                      : ""
+                  )}
+                >
+                  <PokemonImage
+                    size="h-8 w-8"
+                    imageUrl={thisImageUrl}
+                    altText={thisPokemonName}
+                  />
+                  <span className="font-bold text-yellow-400">
+                    {thisPokemonNumber}
+                  </span>
+                  <span>{thisPokemonName}</span>
+                </div>
+              </Link>
             )
           })}
           <div className="sticky bottom-0 flex w-full items-center justify-between bg-gray-900 p-4 text-xs">
             {/* The pagination bar uses position: sticky to stick in place. */}
             <div className="flex space-x-2">
               {Array(4)
-                .fill(4) // 4 pages (placeholder)
+                .fill(4) // Show 4 pages, of the total pages 1 to MAX_PAGE_COUNT
                 .map((_, index) => {
                   const pageNumber = index + 1
                   return (
                     <Fragment key={`page${pageNumber}`}>
-                      <PaginationButton>{pageNumber}</PaginationButton>
+                      <PaginationButton
+                        paddingX="px-2"
+                        // Page 1 links to #1, page 2 links to #11, etc:
+                        href={`/${(pageNumber - 1) * 10 + 1}`}
+                        // Highlight the current page:
+                        currentPage={currentPageNumber === pageNumber}
+                        text={String(pageNumber)}
+                      />
                     </Fragment>
                   )
                 })}
             </div>
             <div className="flex space-x-2">
-              <PaginationButton paddingX="px-4">Prev</PaginationButton>
-              <PaginationButton paddingX="px-4">Next</PaginationButton>
+              <PaginationButton
+                paddingX="px-4"
+                // Link to the previous page, unless we're on the first page:
+                href={`/${currentPageNumber === 1 ? 1 : currentPageNumber - 1}`}
+                text="Prev"
+              />
+              <PaginationButton
+                paddingX="px-4"
+                // Link to the next page, unless we're on the last page:
+                href={`/${
+                  currentPageNumber === MAX_PAGE_NUMBER
+                    ? MAX_PAGE_NUMBER
+                    : currentPageNumber + 1
+                }`}
+                text="Next"
+              />
             </div>
           </div>
         </div>
@@ -230,20 +278,27 @@ const Pokedex: InferGetStaticPropsType<typeof getStaticProps> = ({
 
 function PaginationButton({
   paddingX,
-  children,
+  href,
+  currentPage,
+  text,
 }: {
   paddingX?: "px-2" | "px-4"
-  children: React.ReactNode
+  href: string
+  currentPage?: boolean
+  text: string
 }) {
   return (
-    <div
-      className={classNames(
-        "flex flex-col content-center items-center rounded-md bg-gray-600 py-1",
-        paddingX ? paddingX : "px-2"
-      )}
-    >
-      {children}
-    </div>
+    <Link href={href}>
+      <div
+        className={classNames(
+          "flex flex-col content-center items-center rounded-md bg-gray-600 py-1",
+          paddingX ? paddingX : "px-2",
+          currentPage ? "border-2 border-solid border-yellow-400" : ""
+        )}
+      >
+        {text}
+      </div>
+    </Link>
   )
 }
 
@@ -366,10 +421,10 @@ async function fetchPokemon({ pokemonCount }: { pokemonCount: number }) {
 
 /**
  * We need to calculate the number of Pokémon to retrieve, which will be
- * 10 for #1, 20 for #15, 30 for #30, etc. The math is 10*((n-1)%10+1).
+ * 10 for #1, 20 for #15, 30 for #30, etc. The math is 10*((n-1)/10+1).
  **/
 function calculatePokemonCount({ id }: { id: string }) {
-  return 10 * ((Number(id) % 10) + 1)
+  return 10 * (Math.floor((Number(id) - 1) / 10) + 1)
 }
 /**
  * We need to calculate the current page based on the current id, which will be
