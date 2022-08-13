@@ -1,6 +1,12 @@
+import Head from "next/head"
+
 export default function Home() {
   return (
     <div className="grid h-screen w-screen grid-cols-1 grid-rows-4 text-center text-4xl font-bold">
+      <Head>
+        <title>Dr. Derek Austin - Developer Advocate - @DoctorDerek</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <h1 className="flex w-full items-center justify-center rounded-xl bg-[#1FFFFF] p-1 text-6xl">
         Dr. Derek Austin 🥳 @DoctorDerek
       </h1>
