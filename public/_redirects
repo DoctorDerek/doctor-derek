@@ -1,0 +1,9 @@
+# Redirects from what the browser requests to what we serve
+
+/email https://doctorderek.medium.com/subscribe 302!
+/newsletter https://doctorderek.medium.com/subscribe 302!
+/subscribe https://doctorderek.medium.com/subscribe 302!
+/YouTube https://www.youtube.com/channel/UCWGEic3Goh6_BcnGtrZoZNw 302!
+/youtube https://www.youtube.com/channel/UCWGEic3Goh6_BcnGtrZoZNw 302!
+/Youtube https://www.youtube.com/channel/UCWGEic3Goh6_BcnGtrZoZNw 302!
+/youTube https://www.youtube.com/channel/UCWGEic3Goh6_BcnGtrZoZNw 302!
