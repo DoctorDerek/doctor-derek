@@ -10,14 +10,14 @@ export default function Home() {
       <h1 className="flex w-full items-center justify-center rounded-xl bg-[#1FFFFF] p-1 text-6xl">
         Dr. Derek Austin 🥳
       </h1>
-      <h1 className="flex w-full items-center justify-center rounded-xl bg-[#FFFDE1] p-1">
+      <h2 className="flex w-full items-center justify-center rounded-xl bg-[#FFFDE1] p-1">
         I work exclusively with Next.js + Tailwind CSS
-      </h1>
-      <h1 className="flex w-full items-center justify-center rounded-xl bg-[#FF9D76] p-1">
+      </h2>
+      <h3 className="flex w-full items-center justify-center rounded-xl bg-[#FF9D76] p-1">
         Senior Frontend Developer ♦ React Software Engineer ♦ SEO & Web
         Performance Expert ♦ I love accessible websites
-      </h1>
-      <h1 className="flex w-full items-center justify-center rounded-xl bg-[#FF4273] p-1">
+      </h3>
+      <h4 className="flex w-full items-center justify-center rounded-xl bg-[#FF4273] p-1">
         <a href="https://DoctorDerek.Medium.com">Medium.com/@DoctorDerek</a>{" "}
         <a href="https://LinkedIn.com/in/derek-austin">
           LinkedIn.com/in/Derek-Austin
@@ -26,7 +26,7 @@ export default function Home() {
         <a href="https://twitter.com/AskDoctorDerek">
           Twitter.com/AskDoctorDerek
         </a>
-      </h1>
+      </h4>
     </div>
   )
 }
