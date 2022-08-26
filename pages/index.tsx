@@ -10,7 +10,7 @@ export default function Home() {
       <h1 className="flex w-full items-center justify-center rounded-xl bg-[#1FFFFF] p-1 text-6xl">
         Dr. Derek Austin 🥳
       </h1>
-      <h2 className="flex w-full items-center justify-center rounded-xl bg-[#FFFDE1] p-1 text-5xl">
+      <h2 className="flex w-full items-center justify-center rounded-xl bg-[#FFFDE1] p-1 text-4xl">
         I work exclusively with Next.js + Tailwind CSS
       </h2>
       <h3 className="flex w-full items-center justify-center rounded-xl bg-[#FF9D76] p-1 text-3xl">
