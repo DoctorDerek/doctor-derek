@@ -17,7 +17,7 @@ export default function Home() {
         Senior Frontend Developer ♦ React Software Engineer ♦ SEO & Web
         Performance Expert ♦ I love accessible websites
       </h3>
-      <h4 className="flex w-full items-center justify-center rounded-xl bg-[#FF4273] p-1 text-base">
+      <h4 className="flex w-full items-center justify-between rounded-xl bg-[#FF4273] p-1 text-base">
         <a href="https://DoctorDerek.Medium.com">Medium.com/@DoctorDerek</a>{" "}
         <a href="https://LinkedIn.com/in/derek-austin">
           LinkedIn.com/in/Derek-Austin
