@@ -92,6 +92,7 @@ function DisplaySections({
   )
 }
 
+/** Custom hook that returns the current window width */
 function useWindowWidth() {
   const [width, setWidth] = useState(1400) // We assume desktop for SSR
   if (typeof window !== "undefined") {
@@ -100,6 +101,9 @@ function useWindowWidth() {
   return { width }
 }
 
+/** Unfortunately, we have to use a hook to determine the width to
+ * conditionally render mobile and desktop because otherwise fullPage.js will
+ * find all of the "hidden" `<div>` elements with the className of "section" */
 export default function Home() {
   const { width } = useWindowWidth()
   return (
@@ -111,7 +115,18 @@ export default function Home() {
         </title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <DisplaySections sections={MobileSections} aspect="aspect-[1500/2668]" />
+      {width < 768 && (
+        <DisplaySections
+          sections={MobileSections}
+          aspect="aspect-[1500/2668]"
+        />
+      )}
+      {width >= 768 && (
+        <DisplaySections
+          sections={DesktopSections}
+          aspect="aspect-[5760/3200]"
+        />
+      )}
     </>
   )
 }
