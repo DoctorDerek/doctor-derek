@@ -94,8 +94,9 @@ function DisplaySections({
 
 /** Custom hook that returns the current window width */
 function useWindowWidth() {
-  const [width, setWidth] = useState(1400) // We assume desktop for SSR
+  const [width, setWidth] = useState(0)
   if (typeof window !== "undefined") {
+    if (!width) setWidth(window.innerWidth)
     window.addEventListener("resize", () => setWidth(window.innerWidth))
   }
   return { width }
