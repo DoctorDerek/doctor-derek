@@ -77,7 +77,8 @@ function DisplaySections({
                   src={section}
                   alt={section.src}
                   className={classNames(
-                    "absolute top-0 h-[100dvh] object-contain",
+                    // We use "bg-yellow" to fill in the background (sides)
+                    "absolute top-0 h-[100dvh] w-full bg-[#FFE366] object-contain",
                     aspect
                   )}
                   placeholder="blur"
