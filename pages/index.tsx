@@ -22,7 +22,7 @@ import M6_Blog_A from "@/images/M6_Blog_A.jpg"
 import M6_Blog_B from "@/images/M6_Blog_B.jpg"
 import M7_Contact from "@/images/M7_Contact.jpg"
 import Image, { StaticImageData } from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const DesktopSections = [
   D0_Intro_Animation,
@@ -92,13 +92,16 @@ function DisplaySections({
   )
 }
 
-/** Custom hook that returns the current window width */
+/** Custom hook that returns the current window width for mobile vs. desktop */
 function useWindowWidth() {
   const [width, setWidth] = useState(0)
-  if (typeof window !== "undefined") {
-    if (!width) setWidth(window.innerWidth)
-    window.addEventListener("resize", () => setWidth(window.innerWidth))
-  }
+  // We need to have a `useEffect` wrapper to prevent hydration errors.
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (!width) setWidth(window.innerWidth)
+      window.addEventListener("resize", () => setWidth(window.innerWidth))
+    }
+  }, [width])
   return { width }
 }
 
@@ -116,6 +119,14 @@ export default function Home() {
         </title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
+      {/* <Rive src="https://cdn.rive.app/animations/vehicles.riv" /> */}
+      <iframe
+        allowFullScreen
+        src="https://rive.app/s/0PCnhbxltU_9fMHg94CxVg/embed"
+        // We use "pointer-events-none" to prevent capturing scroll or clicks.
+        className="pointer-events-none absolute inset-0 z-10 h-full w-full"
+      />
+      {/* <Rive src="https://rive.app/s/0PCnhbxltU_9fMHg94CxVg/embed" /> */}
       {width < 768 && (
         <DisplaySections
           sections={MobileSections}
