@@ -22,7 +22,7 @@ import M6_Blog_A from "@/images/M6_Blog_A.jpg"
 import M6_Blog_B from "@/images/M6_Blog_B.jpg"
 import M7_Contact from "@/images/M7_Contact.jpg"
 import Image, { StaticImageData } from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const DesktopSections = [
   D0_Intro_Animation,
@@ -92,13 +92,16 @@ function DisplaySections({
   )
 }
 
-/** Custom hook that returns the current window width */
+/** Custom hook that returns the current window width for mobile vs. desktop */
 function useWindowWidth() {
   const [width, setWidth] = useState(0)
-  if (typeof window !== "undefined") {
-    if (!width) setWidth(window.innerWidth)
-    window.addEventListener("resize", () => setWidth(window.innerWidth))
-  }
+  // We need to have a `useEffect` wrapper to prevent hydration errors.
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (!width) setWidth(window.innerWidth)
+      window.addEventListener("resize", () => setWidth(window.innerWidth))
+    }
+  }, [width])
   return { width }
 }
 
