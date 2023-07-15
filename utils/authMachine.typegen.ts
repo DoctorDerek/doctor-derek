@@ -2,25 +2,25 @@
 
 export interface Typegen0 {
   "@@xstate/typegen": true
-  eventsCausingActions: {
-    updateUserInContext: "LOG_IN"
-    saveUserToLocalStorage: "LOG_IN"
-    clearUserFromContext: "LOG_OUT"
-    clearUserFromLocalStorage: "LOG_OUT"
-  }
   internalEvents: {
     "xstate.init": { type: "xstate.init" }
   }
   invokeSrcNameMap: {}
   missingImplementations: {
     actions: never
-    services: never
-    guards: never
     delays: never
+    guards: never
+    services: never
   }
-  eventsCausingServices: {}
-  eventsCausingGuards: {}
+  eventsCausingActions: {
+    clearUserFromContext: "LOG_OUT"
+    clearUserFromLocalStorage: "LOG_OUT"
+    saveUserToLocalStorage: "LOG_IN"
+    updateUserInContext: "LOG_IN"
+  }
   eventsCausingDelays: {}
-  matchesStates: "loggedOut" | "loggedIn"
+  eventsCausingGuards: {}
+  eventsCausingServices: {}
+  matchesStates: "loggedIn" | "loggedOut"
   tags: never
 }
