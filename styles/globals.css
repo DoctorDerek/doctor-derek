@@ -6,7 +6,6 @@
 Accessible focus effects
 https://uxdesign.cc/create-better-accessible-focus-effects-75a3de27b8ba
 */
-
 :focus {
   outline: none !important;
   box-shadow: 0 0 0 0.0625rem #facc15 !important; /* 1px */
@@ -16,8 +15,14 @@ https://uxdesign.cc/create-better-accessible-focus-effects-75a3de27b8ba
   /* Tailwind CSS rounded-lg === 0.5rem === 8px */
 }
 
+/* HTML scroll behavior and font */
 html,
 body {
   scroll-behavior: smooth;
   font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+/* Remove the fullPage.js watermark from the last slide */
+.fp-watermark {
+  display: none;
 }
