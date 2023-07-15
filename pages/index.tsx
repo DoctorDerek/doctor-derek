@@ -21,9 +21,86 @@ import M5_Testimonials from "@/images/M5_Testimonials.jpg"
 import M6_Blog_A from "@/images/M6_Blog_A.jpg"
 import M6_Blog_B from "@/images/M6_Blog_B.jpg"
 import M7_Contact from "@/images/M7_Contact.jpg"
-import Image from "next/image"
+import Image, { StaticImageData } from "next/image"
+import { useState } from "react"
+
+const DesktopSections = [
+  D0_Intro_Animation,
+  D1_Intro,
+  D2_About,
+  D3_Experience,
+  D4_Portfolio,
+  D5_Testimonials,
+  D6_Blog,
+  D7_Contact_Original,
+]
+
+const MobileSections = [
+  M0_Intro_Animation,
+  M1_Intro,
+  M2_About_A,
+  M2_About_B,
+  M3_Experience_A,
+  M3_Experience_B,
+  M3_Experience_C,
+  M3_Experience_D,
+  M4_Portfolio,
+  M5_Testimonials,
+  M6_Blog_A,
+  M6_Blog_B,
+  M7_Contact,
+]
+
+/** Helper function to join Tailwind CSS classNames. Filters out falsy values */
+const classNames = (...args: string[]) => args.filter(Boolean).join(" ")
+
+function DisplaySections({
+  sections,
+  aspect,
+}: {
+  sections: StaticImageData[]
+  /** The aspect ratio of the images, i.e. desktop | mobile */
+  aspect: "aspect-[5760/3200]" | "aspect-[1500/2668]"
+}) {
+  return (
+    <ReactFullpage
+      credits={{ enabled: false }}
+      navigation
+      render={() => {
+        // We don't need any of the props here, but I list them for reference
+        //  render={({ state, fullpageApi }) => {
+        return (
+          <ReactFullpage.Wrapper>
+            {sections.map((section) => (
+              <div className="section" key={section.src}>
+                <Image
+                  src={section}
+                  alt={section.src}
+                  className={classNames(
+                    "absolute top-0 h-[100dvh] object-contain",
+                    aspect
+                  )}
+                  placeholder="blur"
+                />
+              </div>
+            ))}
+          </ReactFullpage.Wrapper>
+        )
+      }}
+    />
+  )
+}
+
+function useWindowWidth() {
+  const [width, setWidth] = useState(1400) // We assume desktop for SSR
+  if (typeof window !== "undefined") {
+    window.addEventListener("resize", () => setWidth(window.innerWidth))
+  }
+  return { width }
+}
 
 export default function Home() {
+  const { width } = useWindowWidth()
   return (
     <>
       <Head>
@@ -33,44 +110,7 @@ export default function Home() {
         </title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <ReactFullpage
-        credits={{ enabled: false }}
-        navigation
-        render={() => {
-          // We don't need any of the props here, but I list them for reference
-          //  render={({ state, fullpageApi }) => {
-          return (
-            <ReactFullpage.Wrapper>
-              <div className="block md:hidden">
-                {/* Mobile */}
-                <div className="section">
-                  <Image src={M0_Intro_Animation} alt="Intro Animation" />
-                </div>
-                <div className="section">
-                  <Image src={M1_Intro} alt="Intro" />
-                </div>
-              </div>
-              <div className="hidden md:block">
-                {/* Desktop */}
-                <div className="section">
-                  <Image
-                    src={D0_Intro_Animation}
-                    alt="Intro Animation"
-                    className="aspect-[5760/3200] h-screen object-cover"
-                    placeholder="blur"
-                  />
-                </div>
-                <div className="section">
-                  <Image src={D1_Intro} alt="Intro" />
-                </div>
-                <div className="section">
-                  <Image src={D2_About} alt="About" />
-                </div>
-              </div>
-            </ReactFullpage.Wrapper>
-          )
-        }}
-      />
+      <DisplaySections sections={MobileSections} aspect="aspect-[1500/2668]" />
     </>
   )
 }
