@@ -24,6 +24,7 @@ import M7_Contact from "@/images/M7_Contact.jpg"
 import Image, { StaticImageData } from "next/image"
 import { useEffect, useState } from "react"
 
+
 const DesktopSections = [
   D0_Intro_Animation,
   D1_Intro,
@@ -127,6 +128,8 @@ export default function Home() {
         className="pointer-events-none absolute inset-0 z-10 h-full w-full"
       />
       {/* <Rive src="https://rive.app/s/0PCnhbxltU_9fMHg94CxVg/embed" /> */}
+      
+      {/* =======LAYOUT ===== */}
       {width < 768 && (
         <DisplaySections
           sections={MobileSections}
