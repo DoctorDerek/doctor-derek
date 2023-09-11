@@ -11,7 +11,7 @@
     "test": "jest test --collectCoverage",
     "test:watch": "jest test --watch",
     "test:watchAll": "jest test --watchAll",
-    "prepare": "husky install",
+    "prepare": "husky install && chmod ug+x .husky",
     "generateTypes": "graphql-codegen"
   },
   "dependencies": {

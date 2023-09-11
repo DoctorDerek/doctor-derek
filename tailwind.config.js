@@ -21,6 +21,10 @@ module.exports = {
         208: "54rem",
         224: "58rem",
       },
+      colors: {
+        'sky-blue': '#89CFFD',
+        'dark-purple': '#311B4D'
+      }
     },
   },
   plugins: [],

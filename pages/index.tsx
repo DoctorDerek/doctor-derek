@@ -23,6 +23,7 @@ import M6_Blog_B from "@/images/M6_Blog_B.jpg"
 import M7_Contact from "@/images/M7_Contact.jpg"
 import Image, { StaticImageData } from "next/image"
 import { useEffect, useState } from "react"
+import Layout from "@/components/layout"
 
 
 const DesktopSections = [
@@ -128,7 +129,7 @@ export default function Home() {
         className="pointer-events-none absolute inset-0 z-10 h-full w-full"
       />
       {/* <Rive src="https://rive.app/s/0PCnhbxltU_9fMHg94CxVg/embed" /> */}
-      
+
       {/* =======LAYOUT ===== */}
       {width < 768 && (
         <DisplaySections
@@ -142,6 +143,7 @@ export default function Home() {
           aspect="aspect-[5760/3200]"
         />
       )}
+      {/* <Layout /> */}
     </>
   )
 }
