@@ -18,8 +18,28 @@ export default function Example() {
 
   return (
     <div className="">
-      <div className="fixed inset-0 flex ">
-        <div className="absolute left-full top-0 flex w-16 justify-center pt-5">
+      {/* ======== MOBILE NAVBAR ======= */}
+      <div className="lg:pl-72">
+        <div className="sticky top-0 z-40 flex h-16 shrink-0 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
+          <div className="w-1/4 p-2.5">
+            <Image src={Logo} object-fit="contain" alt="Logo" />
+          </div>
+          <button
+            type="button"
+            className="ml-auto p-2.5 text-gray-700 lg:hidden"
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+          >
+            {sidebarOpen ? 
+              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+            : 
+              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            }
+          </button>
+        </div>
+      </div>      
+      
+      <div className="fixed inset-0 flex">
+        {/* <div className="absolute left-full top-0 flex w-16 justify-center pt-5">
           <button
             type="button"
             className="m-2.5 p-2.5"
@@ -27,19 +47,18 @@ export default function Example() {
           >
             <XMarkIcon className="h-6 w-6 text-white" aria-hidden="true" />
           </button>
-        </div>
+        </div> */}
 
         {/* =========== SIDEBAR MOBILE MENU =========== */}
-        <div className="flex grow flex-col overflow-y-auto pr-6 pb-4">
+        <div className="flex grow flex-col overflow-y-auto ">
           {/* ========= div creates spacing between links and navbar */}
           <div className="h-16"></div>
-          
-          <nav className="flex flex-1 flex-col">
+          {/* =========== NAVIGATION LINKS ========== */}
+          <nav className={`flex flex-1 flex-col duration-500 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} `}>
             <ul
               role="list"
-              className="flex flex-1 flex-col pt-8 bg-blue-400 rounded-tr-3xl"
+              className="flex flex-1 flex-col pt-8 bg-blue-400 w-11/12 rounded-tr-3xl"
             >
-              {/* =========== NAVIGATION LINKS ========== */}
               <li>
                 <ul role="list" className="mx-2 space-y-3">
                   {navigation.map((item) => (
@@ -85,21 +104,6 @@ export default function Example() {
               </li>
             </ul>
           </nav>
-        </div>
-      </div>
-
-      <div className="lg:pl-72">
-        <div className="sticky top-0 z-40 flex h-16 shrink-0 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
-          <div className="w-1/4 p-2.5">
-            <Image src={Logo} object-fit="contain" alt="Logo" />
-          </div>
-          <button
-            type="button"
-            className="ml-auto p-2.5 text-gray-700 lg:hidden"
-            onClick={() => setSidebarOpen(true)}
-          >
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-          </button>
         </div>
       </div>
     </div>
