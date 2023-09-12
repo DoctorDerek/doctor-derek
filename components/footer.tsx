@@ -126,13 +126,13 @@ const navigation = {
 export default function Footer() {
   return (
     <footer className="" aria-labelledby="footer-heading">
-      <div className="mx-auto max-w-7xl px-6 pb-8 pt-20 sm:pt-24 lg:px-8 lg:pt-32">
+      <div className="mx-auto max-w-7xl px-6 pb-8 pt-20 sm:pt-24 lg:px-8 lg:pt-32 ">
+        <div className=" bg-dark-purple">
         {/* ======= SIGN UP ========== */}
         <div className="">
-          <div className="mt-10 xl:mt-0 bg-pink-400">
-          <div>
-            <h3 className="text-sm font-semibold">Join over 160 email subscribers</h3>
-          </div>
+          <div className="py-6 xl:mt-0 rounded-tl-2xl bg-pink-400">
+            <div className="w-11/12 mx-auto">
+              <h3 className="text-xl pb-2">Join over 160 email subscribers</h3>
             <form className="flex">
               <input
                 type="email"
@@ -140,23 +140,24 @@ export default function Footer() {
                 id="email-address"
                 autoComplete="email"
                 required
-                className="w-9/12 min-w-0 appearance-none rounded-md border-0 bg-white/5 px-3 py-1.5 text-base text-white shadow-sm ring-1 ring-inset ring-white/10 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:w-64 sm:text-sm sm:leading-6 xl:w-full"
-                placeholder="Enter your email"
+                className="w-9/12 min-w-0 appearance-none border-0 px-3 py-1.5 text-base bg-white shadow-sm ring-1 ring-inset ring-white/10 placeholder:text-slate-400 placeholder:text-lg focus:ring-2 focus:ring-inset sm:w-64 sm:text-sm sm:leading-6 xl:w-full"
+                placeholder="Your email address"
               />
               <div className="w-1/4 sm:ml-4 sm:mt-0 sm:flex-shrink-0">
                 <button
                   type="submit"
-                  className="flex w-full items-center justify-center rounded-md px-3 py-6 text-sm font-semibold text-yellow-300 shadow-sm bg-dark-purple"
+                  className="flex w-full items-center justify-center rounded-tr-md px-3 py-6 text-sm font-semibold text-yellow-300 shadow-sm bg-dark-purple"
                 >
                   Sign up
                 </button>
               </div>
             </form>
+            </div>
           </div>
         </div>
         {/* ======= FOOTER LINKS ========== */}
-        <div className="bg-yellow-300 py-4 border-t border-white/10 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24">
-          <div className="flex justify-around">
+        <div className="bg-pink-400 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24">
+          <div className="rounded-tl-2xl flex justify-around bg-yellow-300 py-4 ">
             {navigation.social.map((item) => (
               <a
                 key={item.name}
@@ -168,6 +169,7 @@ export default function Footer() {
               </a>
             ))}
           </div>
+        </div>
         </div>
       </div>
     </footer>
