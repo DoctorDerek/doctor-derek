@@ -4,6 +4,7 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid"
 import Image from "next/image"
 import Logo from "images/Logo.png"
 import Link from "next/link"
+import IconLinks from "./iconLinks"
 
 const navigation = [
   { name: "About", href: "#", current: true },
@@ -13,6 +14,7 @@ const navigation = [
   { name: "Blog", href: "#", current: false },
   { name: "Contact", href: "#", current: false },
 ]
+
 
 export default function Example() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -85,6 +87,9 @@ export default function Example() {
                 </ul>
               </li>
             </ul>
+            <div className="w-11/12 bg-blue-400">
+            <IconLinks fill={'white'} />
+            </div>            
           </nav>
         </div>
       </div>
