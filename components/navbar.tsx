@@ -3,6 +3,7 @@ import { Bars3Icon, HomeIcon, XMarkIcon } from "@heroicons/react/24/outline"
 import { ChevronDownIcon } from "@heroicons/react/20/solid"
 import Image from "next/image"
 import Logo from "images/Logo.png"
+import Link from "next/link"
 
 const navigation = [
   { name: "About", href: "#", current: true },
@@ -20,24 +21,28 @@ export default function Example() {
     <div className="">
       {/* ======== MOBILE NAVBAR ======= */}
       <div className="lg:pl-72">
-        <div className="sticky top-0 z-40 flex h-16 shrink-0 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
-          <div className="w-1/4 p-2.5">
-            <Image src={Logo} object-fit="contain" alt="Logo" />
+        <div className="bg-yellow-300 sticky top-0 z-40 flex h-16 shrink-0 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8 ">
+          <div className="flex w-full">
+            <Link href="/" className="w-1/4 pt-3 pl-3 block">
+              <Image src={Logo} object-fit="contain" alt="Logo" />
+            </Link>
+            <button
+              type="button"
+              className="ml-auto p-3.5 text-yellow-300 lg:hidden bg-blue-400"
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+            >
+              {sidebarOpen ? (
+                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              ) : (
+                <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+              )}
+            </button>
           </div>
-          <button
-            type="button"
-            className="ml-auto p-2.5 text-gray-700 lg:hidden"
-            onClick={() => setSidebarOpen(!sidebarOpen)}
-          >
-            {sidebarOpen ? 
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-            : 
-              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-            }
-          </button>
+          {/* ======== SCROLL INDICATOR ======= */}
+
         </div>
-      </div>      
-      
+      </div>
+
       <div className="fixed inset-0 flex">
         {/* <div className="absolute left-full top-0 flex w-16 justify-center pt-5">
           <button
@@ -54,7 +59,11 @@ export default function Example() {
           {/* ========= div creates spacing between links and navbar */}
           <div className="h-16"></div>
           {/* =========== NAVIGATION LINKS ========== */}
-          <nav className={`flex flex-1 flex-col duration-500 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} `}>
+          <nav
+            className={`flex flex-1 flex-col duration-500 ${
+              sidebarOpen ? "translate-x-0" : "-translate-x-full"
+            } `}
+          >
             <ul
               role="list"
               className="flex flex-1 flex-col pt-8 bg-blue-400 w-11/12 rounded-tr-3xl"

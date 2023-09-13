@@ -126,7 +126,7 @@ const navigation = {
 export default function Footer() {
   return (
     <footer className="" aria-labelledby="footer-heading">
-      <div className="mx-auto max-w-7xl px-6 pb-8 pt-20 sm:pt-24 lg:px-8 lg:pt-32 ">
+      <div className="mx-auto max-w-7xl pt-20 sm:pt-24 lg:px-8 lg:pt-32">
         <div className=" bg-dark-purple">
         {/* ======= SIGN UP ========== */}
         <div className="">
@@ -164,7 +164,6 @@ export default function Footer() {
                 href={item.href}
                 className="text-gray-500 hover:text-gray-400"
               >
-                <span className="sr-only">{item.name}</span>
                 <item.icon className="h-6 w-6" aria-hidden="true" />
               </a>
             ))}
