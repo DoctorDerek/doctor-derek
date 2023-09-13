@@ -1,11 +1,13 @@
 type Props = {
-  fill: String
+  fill: string
 }
 
+//Icons as hyperlinks, when clicked it opens links to either e-mail, Linkedin, resume, Github, Medium, or copy link
 export default function IconLinks({ fill }: Props) {
   return (
     <div className="rounded-tl-2xl flex justify-around py-4">
-      <a href="#" className="text-gray-500 hover:text-gray-400">
+      {/* ======== EMAIL ICON LINK ======== */}
+      <a href="mailto:derekraustin@gmail.com" className="text-gray-500 hover:text-gray-400">
         <svg
           width="35"
           height="35"
@@ -22,7 +24,8 @@ export default function IconLinks({ fill }: Props) {
         </svg>
       </a>
 
-      <a href="#" className="text-gray-500 hover:text-gray-400">
+      {/* =========== LINKEDIN ICON LINK =========== */}
+      <a href="https://www.linkedin.com/in/derek-austin/" target="_blank" className="text-gray-500 hover:text-gray-400">
         <svg
           width="35"
           height="35"
@@ -39,6 +42,7 @@ export default function IconLinks({ fill }: Props) {
         </svg>
       </a>
 
+      {/* =========== RESUME ICON LINK =========== */}
       <a href="#" className="text-gray-500 hover:text-gray-400">
         <svg
           width="35"
@@ -56,7 +60,8 @@ export default function IconLinks({ fill }: Props) {
         </svg>
       </a>
 
-      <a href="#" className="text-gray-500 hover:text-gray-400">
+      {/* =========== GITHUB ICON LINK =========== */}
+      <a href="https://github.com/DoctorDerek" target="_blank" className="text-gray-500 hover:text-gray-400">
         <svg
           width="35"
           height="35"
@@ -73,7 +78,8 @@ export default function IconLinks({ fill }: Props) {
         </svg>
       </a>
 
-      <a href="#" className="text-gray-500 hover:text-gray-400">
+      {/* =========== MEDIUM ICON LINK =========== */}
+      <a href="https://doctorderek.medium.com/" target="_blank" className="text-gray-500 hover:text-gray-400">
         <svg
           width="35"
           height="35"
@@ -89,6 +95,8 @@ export default function IconLinks({ fill }: Props) {
           />
         </svg>
       </a>
+
+      {/* =========== COPY ICON LINK =========== */}
       <a href="#" className="text-gray-500 hover:text-gray-400">
         <svg
           width="35"
