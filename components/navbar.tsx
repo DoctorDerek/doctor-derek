@@ -15,7 +15,6 @@ const navigation = [
   { name: "Contact", href: "#", current: false },
 ]
 
-
 export default function Example() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
@@ -66,9 +65,10 @@ export default function Example() {
               sidebarOpen ? "translate-x-0" : "-translate-x-full"
             } `}
           >
+            <div className="w-11/12 rounded-tr-3xl bg-blue-400 h-full flex-col">
             <ul
               role="list"
-              className="flex flex-1 flex-col pt-8 bg-blue-400 w-11/12 rounded-tr-3xl"
+              className="flex flex-1 flex-col pt-8"
             >
               <li>
                 <ul role="list" className="mx-2 space-y-3">
@@ -87,8 +87,9 @@ export default function Example() {
                 </ul>
               </li>
             </ul>
-            <div className="w-11/12 bg-blue-400">
+            <div className="mt-auto mb-2 w-10/12">
             <IconLinks fill={'white'} />
+            </div>
             </div>            
           </nav>
         </div>
