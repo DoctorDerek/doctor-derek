@@ -25,7 +25,6 @@ import Image, { StaticImageData } from "next/image"
 import { useEffect, useState } from "react"
 import Layout from "@/components/layout"
 
-
 const DesktopSections = [
   D0_Intro_Animation,
   D1_Intro,
@@ -73,20 +72,20 @@ function DisplaySections({
         //  render={({ state, fullpageApi }) => {
         return (
           <ReactFullpage.Wrapper>
-            {sections.map((section) => (
-              <div className="section" key={section.src}>
-                <Image
-                  src={section}
-                  alt={section.src}
-                  className={classNames(
-                    // We use "bg-yellow" to fill in the background (sides)
-                    "absolute top-0 h-[100dvh] w-full bg-[#FFE366] object-contain",
-                    aspect
-                  )}
-                  placeholder="blur"
-                />
-              </div>
-            ))}
+              {sections.map((section) => (
+                <div className="section" key={section.src}>
+                  <Image
+                    src={section}
+                    alt={section.src}
+                    className={classNames(
+                      // We use "bg-yellow" to fill in the background (sides)
+                      "absolute top-0 h-[100dvh] w-full bg-[#FFE366] object-contain",
+                      aspect,
+                    )}
+                    placeholder="blur"
+                  />
+                </div>
+              ))}
           </ReactFullpage.Wrapper>
         )
       }}
@@ -143,7 +142,6 @@ export default function Home() {
           aspect="aspect-[5760/3200]"
         />
       )}
-      {/* <Layout /> */}
     </>
   )
 }

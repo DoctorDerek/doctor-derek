@@ -22,14 +22,14 @@ export default function Example() {
     <div className="">
       {/* ======== MOBILE NAVBAR ======= */}
       <div className="lg:pl-72">
-        <div className="bg-yellow-300 sticky top-0 z-40 flex h-16 shrink-0 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8 ">
+        <div className="bg-[#FFE366] sticky top-0 z-40 flex h-16 shrink-0 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8 ">
           <div className="flex w-full">
             <Link href="/" className="w-1/4 pt-3 pl-3 block">
               <Image src={Logo} object-fit="contain" alt="Logo" />
             </Link>
             <button
               type="button"
-              className="ml-auto p-3.5 text-yellow-300 lg:hidden bg-blue-400"
+              className="ml-auto p-3.5 text-[#FFE366] lg:hidden bg-[#89cffd]"
               onClick={() => setSidebarOpen(!sidebarOpen)}
             >
               {sidebarOpen ? (
@@ -65,7 +65,7 @@ export default function Example() {
               sidebarOpen ? "translate-x-0" : "-translate-x-full"
             } `}
           >
-            <div className="w-11/12 rounded-tr-3xl bg-blue-400 h-full flex-col">
+            <div className="w-11/12 rounded-tr-3xl bg-[#89cffd]  h-full flex-col">
             <ul
               role="list"
               className="flex flex-1 flex-col pt-8"
@@ -97,7 +97,7 @@ export default function Example() {
 
       {/* Static sidebar for desktop */}
       <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
-        <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-indigo-600 px-6 pb-4">
+        <div className="flex grow flex-col gap-y-5 overflow-y-auto px-6 pb-4">
           <div className="flex h-16 shrink-0 items-center"></div>
           <nav className="flex flex-1 flex-col">
             <ul role="list" className="flex flex-1 flex-col gap-y-7">

@@ -4,10 +4,10 @@ export default function Footer() {
   return (
     <footer className="" aria-labelledby="footer-heading">
       <div className="mx-auto max-w-7xl pt-20 sm:pt-24 lg:px-8 lg:pt-32">
-        <div className=" bg-dark-purple">
+        <div className=" bg-[#311B4D]">
         {/* ======= SIGN UP ========== */}
         <div className="">
-          <div className="py-6 xl:mt-0 rounded-tl-2xl bg-pink-400">
+          <div className="py-6 xl:mt-0 rounded-tl-2xl bg-[#FB70AA]">
             <div className="w-11/12 mx-auto">
               <h3 className="text-xl pb-2">Join over 160 email subscribers</h3>
             <form className="flex">
@@ -23,7 +23,7 @@ export default function Footer() {
               <div className="w-1/4 sm:ml-4 sm:mt-0 sm:flex-shrink-0">
                 <button
                   type="submit"
-                  className="flex w-full items-center justify-center rounded-tr-md px-3 py-6 text-sm font-semibold text-yellow-300 shadow-sm bg-dark-purple"
+                  className="flex w-full items-center justify-center rounded-tr-md px-3 py-6 text-sm font-semibold text-[#FFE366] shadow-sm bg-[#311B4D]"
                 >
                   Sign up
                 </button>
@@ -33,8 +33,8 @@ export default function Footer() {
           </div>
         </div>
         {/* ======= FOOTER LINKS ========== */}
-        <div className="bg-pink-400 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24">
-          <div className=" bg-yellow-300">
+        <div className="bg-[#FB70AA] sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24">
+          <div className="bg-[#FFE366]">
             <IconLinks fill={"#F38B57"} />
           </div>
         </div>
