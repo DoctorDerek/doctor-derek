@@ -15,7 +15,7 @@ const navigation = [
   { name: "Contact", href: "#", current: false },
 ]
 
-export default function Example() {
+export default function Navbar() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
@@ -88,7 +88,7 @@ export default function Example() {
               </li>
             </ul>
             <div className="mt-auto mb-2 w-10/12">
-            <IconLinks fill={'white'} />
+            <IconLinks fill={'white'} flexSpacing={"justify-around"} />
             </div>
             </div>            
           </nav>

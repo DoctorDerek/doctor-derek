@@ -1,11 +1,16 @@
 type Props = {
   fill: string
+  flexSpacing: string
 }
 
-//Icons as hyperlinks, when clicked it opens links to either e-mail, Linkedin, resume, Github, Medium, or copy link
-export default function IconLinks({ fill }: Props) {
+/* 
+Icons as hyperlinks, when clicked it opens links to either e-mail, Linkedin, resume, Github, Medium, or copy link
+
+flexSpacing: flexbox property for justify-content
+*/
+export default function IconLinks({ fill, flexSpacing }: Props) {
   return (
-    <div className="rounded-tl-2xl flex justify-around py-4">
+    <div className={`rounded-tl-2xl flex ${flexSpacing} py-4`}>
       {/* ======== EMAIL ICON LINK ======== */}
       <a href="mailto:derekraustin@gmail.com" className="text-gray-500 hover:text-gray-400">
         <svg
