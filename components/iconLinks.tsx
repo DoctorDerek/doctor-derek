@@ -1,18 +1,30 @@
-type Props = {
+import classNames from "@/utils/classNames"
+
+/**
+ * Icons as hyperlinks, when clicked it opens links to either e-mail,
+ * Linkedin, Resume, Github, Medium, or copy link
+ */
+export default function IconLinks({
+  fill,
+  flexSpacing,
+}: {
+  /**
+   * Fill is for the svg icon color, hex color
+   */
   fill: string
-  flexSpacing: string
-}
-
-/* 
-Icons as hyperlinks, when clicked it opens links to either e-mail, Linkedin, resume, Github, Medium, or copy link
-
-flexSpacing: flexbox property for justify-content
-*/
-export default function IconLinks({ fill, flexSpacing }: Props) {
+  /**
+   * flexSpacing: flexbox property for justify-content
+   * content will either have space around or between flex items
+   * */
+  flexSpacing: "justify-between" | "justify-around" // | union type, valid values
+}) {
   return (
-    <div className={`rounded-tl-2xl flex ${flexSpacing} py-4`}>
+    <div className={classNames(`rounded-tl-2xl flex py-4`, flexSpacing)}>
       {/* ======== EMAIL ICON LINK ======== */}
-      <a href="mailto:derekraustin@gmail.com" className="text-gray-500 hover:text-gray-400">
+      <a
+        href="mailto:derekraustin@gmail.com"
+        className="text-gray-500 hover:text-gray-400"
+      >
         <svg
           width="35"
           height="35"
@@ -30,7 +42,11 @@ export default function IconLinks({ fill, flexSpacing }: Props) {
       </a>
 
       {/* =========== LINKEDIN ICON LINK =========== */}
-      <a href="https://www.linkedin.com/in/derek-austin/" target="_blank" className="text-gray-500 hover:text-gray-400">
+      <a
+        href="https://www.linkedin.com/in/derek-austin/"
+        target="_blank"
+        className="text-gray-500 hover:text-gray-400"
+      >
         <svg
           width="35"
           height="35"
@@ -66,7 +82,11 @@ export default function IconLinks({ fill, flexSpacing }: Props) {
       </a>
 
       {/* =========== GITHUB ICON LINK =========== */}
-      <a href="https://github.com/DoctorDerek" target="_blank" className="text-gray-500 hover:text-gray-400">
+      <a
+        href="https://github.com/DoctorDerek"
+        target="_blank"
+        className="text-gray-500 hover:text-gray-400"
+      >
         <svg
           width="35"
           height="35"
@@ -84,7 +104,11 @@ export default function IconLinks({ fill, flexSpacing }: Props) {
       </a>
 
       {/* =========== MEDIUM ICON LINK =========== */}
-      <a href="https://doctorderek.medium.com/" target="_blank" className="text-gray-500 hover:text-gray-400">
+      <a
+        href="https://doctorderek.medium.com/"
+        target="_blank"
+        className="text-gray-500 hover:text-gray-400"
+      >
         <svg
           width="35"
           height="35"

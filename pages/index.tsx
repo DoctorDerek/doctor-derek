@@ -25,6 +25,7 @@ import Image, { StaticImageData } from "next/image"
 import { useEffect, useState } from "react"
 import Layout from "@/components/layout"
 import IconLinks from "@/components/iconLinks"
+import DrDerekAustin from "@/images/DrDerekAustin.png"
 
 const DesktopSections = [
   D0_Intro_Animation,
@@ -51,6 +52,23 @@ const MobileSections = [
   M6_Blog_A,
   M6_Blog_B,
   M7_Contact,
+]
+
+const techStack = [
+  "Node.js",
+  "Typescript",
+  "React",
+  "Next.js",
+  "Tailwind CSS",
+  "Vercel",
+  "Github Actions",
+  "React Query",
+  "Redux / Redux Toolkit",
+  "Jest",
+  "Cypress",
+  "React Testing Library",
+  "Playwright",
+  "Tailwind CSS",
 ]
 
 /** Helper function to join Tailwind CSS classNames. Filters out falsy values */
@@ -87,7 +105,8 @@ function DisplaySections({
                   placeholder="blur"
                 />
               </div>
-              {/* ========= INTRO ============ */}
+
+              {/* ========= INTRO SECTION ============ */}
               <div className="section bg-[#FFE366]">
                 <div className="h-screen">
                   <div className="h-5/6 flex flex-col">
@@ -98,7 +117,6 @@ function DisplaySections({
                         highly readable code.
                       </p>
                     </div>
-
                     {/* ========= ICON LINKS ============ */}
                     <div className="w-4/5 mx-auto pt-4 mt-auto">
                       <div className="w-3/4">
@@ -106,23 +124,192 @@ function DisplaySections({
                           fill={"#F38B57"}
                           flexSpacing={"justify-between"}
                         />
-                      <div className="border-t-2 border-[#d6bb61] mt-4"></div>
+                        <div className="border-t-2 border-[#d6bb61] mt-4"></div>
                       </div>
                     </div>
 
                     {/* ========= CLIENTS & LOGOs ============ */}
                     <div className="w-4/5 mx-auto mt-2">
-                      <p className="text-[#998F8F] text-2xl font-extralight pt-3 pb-3">Clients</p>
+                      <p className="text-[#998F8F] text-2xl font-extralight pt-3 pb-3">
+                        Clients
+                      </p>
                       <div className="flex w-full justify-between">
-                        <p className="w-1/4 text-[#998F8F] text-4xl font-medium">Logo</p>
-                        <p className="w-1/4 text-[#998F8F] text-4xl font-medium">Logo</p>
-                        <p className="w-1/4 text-[#998F8F] text-4xl font-medium">Logo</p>
-                        </div>
+                        <p className="w-1/4 text-[#998F8F] text-4xl font-medium">
+                          Logo
+                        </p>
+                        <p className="w-1/4 text-[#998F8F] text-4xl font-medium">
+                          Logo
+                        </p>
+                        <p className="w-1/4 text-[#998F8F] text-4xl font-medium">
+                          Logo
+                        </p>
+                      </div>
                     </div>
-
                   </div>
                 </div>
               </div>
+
+              {/*========= ABOUT SECTION ========= */}
+              <div className="section bg-[#b9e3ff]">
+                <div className="h-screen">
+                  <div className="w-4/5 mx-auto pt-4">
+                    <div className="w-4/5 pb-4">
+                      <h2 className="text-6xl">About</h2>
+                    </div>
+                    {/* ======= DR DEREK AUSTIN IMAGE ========= */}
+                    <div>
+                      <Image
+                        src={DrDerekAustin}
+                        alt="Dr Derek Austin"
+                        object-fit="contain"
+                      />
+                    </div>
+                    {/* ======== ABOUT TEXT ========= */}
+                    <div className="bg-[#FB70AA] rounded-tl-3xl relative bottom-5 left-4">
+                      <p className="text-white pt-3 pb-6 pl-4 pr-4 leading-7">
+                        {`Derek Austin, a Lead Frontend Developer and React Software Engineer, excels in web performance, accessible code, and intuitive interfaces. With expertise in Next.js, TypeScript, and Tailwind, he builds responsive apps, leads teams, and establishes best practices. Derek's solutions prioritize user needs, deliver high-quality code, and foster performance and maintainability. With a background in physical therapy and over 20 years of freelancing experience, his unique insights drive impactful results. Discover Derek's expertise in React, Agile processes, and full-stack architecture.`}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/*========= ABOUT SECTION WITH TECH STACK ========= */}
+              <div className="section bg-[#b9e3ff]">
+                <div className="h-screen">
+                  <div className="h-2/5">
+                    <div className="w-4/5 mx-auto">
+                      <div className="mb-auto pt-3">
+                        <h2 className="text-6xl">About</h2>
+                      </div>
+                      {/*========= DR DEREK AUSTIN IMAGE ========= */}
+                      <div className="pt-4">
+                        <Image
+                          src={DrDerekAustin}
+                          alt="Dr Derek Austin"
+                          object-fit="contain"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* ========= TECH STACK ============ */}
+                  <div className="h-3/5">
+                    <div className="w-4/5 mx-auto">
+                      <p className="pt-5 pb-3 text-2xl">Tech Stack</p>
+                    </div>
+                    <div className="w-4/5 mx-auto">
+                      <div className="flex flex-wrap gap-x-4 content-between w-5/6">
+                        {techStack.map((item: string) => (
+                          <p
+                            key={item}
+                            className="bg-[#FFE366] rounded-tr-xl pl-2 pr-2 py-1 text-xl mb-2"
+                          >
+                            {item}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/*========= WORK EXPERIENCE SECTION ========= */}
+              <div className="section bg-[#FFE366]">
+                <div className="h-screen">
+                  <div className="bg-[#89CFFD] py-2 px-2 rounded-bl-3xl">
+                    <div className="w-4/5 mx-auto">
+                      <div className="text-right">
+                        <h2 className="text-7xl">Work</h2>
+                        <h2 className="text-7xl">Experience</h2>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* ========= POSITION ============ */}
+                  <div className="h-4/6">
+                    <div className="w-4/5 mx-auto">
+                      <ul className="mt-7 work-exp">
+                        {/* ===== TOP POSITION ====== */}
+                        <li className="text-[#997f59] code-icon">
+                          01/2023 - Present
+                        </li>
+                        <li className="border-l-4 pl-5 ml-2 py-1 border-[#F38B57] text-[#311B4D] text-lg">
+                          Senior Full-Stack Developer
+                        </li>
+                        <li className="border-l-4 pl-5 ml-2 pb-3 border-[#F38B57] text-[#311B4D]">
+                          Premium
+                        </li>
+                        {/* ===== MIDDLE POSITION ====== */}
+                        <li className="text-[#997f59] code-icon">
+                          01/2023 - Present
+                        </li>
+                        <li className="border-l-4 pl-5 ml-2 py-1 border-[#F38B57] text-[#311B4D] text-lg">
+                          Senior Full-Stack Developer
+                        </li>
+                        <li className="border-l-4 pl-5 ml-2 pb-3 border-[#F38B57] text-[#311B4D]">
+                          Premium
+                        </li>
+                        {/* ===== BOTTOM POSITION ====== */}
+                        <li className="text-[#997f59] code-icon">
+                          08/2019 - Present
+                        </li>
+                        <li className="border-l-4 pl-5 ml-2 border-[#F38B57] text-[#311B4D] text-lg">
+                          React Technical Writer {`(JavaScript)`}
+                        </li>
+                        <li className="border-l-4 pl-5 border-b-4 pb-3 ml-2 rounded-bl-2xl border-[#F38B57] text-[#311B4D]">
+                          Medium
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/*========= PORTFOLIO SECTION ========= */}
+              <div className="section bg-[#FB70AA]">
+                <div className="h-screen">
+                  <div className="py-2 px-2">
+                    <div className="w-4/5 mx-auto border-2 border-black">
+                      <div className="text-center">
+                        <h2 className="text-7xl">Portfolio</h2>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="w-11/12 h-1/3 mx-auto mb-1 bg-white rounded-tr-3xl"></div>
+                  <div className="w-11/12 h-1/3 mx-auto bg-[#89CFFD] pt-2 pl-3 pr-3">
+                    <h3 className="text-3xl mb-2">
+                      Project Title Lorem Ipsum Dolor Sit Amet
+                    </h3>
+                    <p className="text-xl">
+                      Duis aute irure dolor in reprehenderit in volputate velit
+                      esse cillum dolore eu fugasdiate nulla pariateur.
+                      Excepteur sint occaecat cupidtat non proident, sunt in
+                      culpa qui offcia deserunt.
+                    </p>
+                    <div className="flex mt-3 flex-y-gap-1">
+                      <p className="bg-[#FFE366] rounded-tr-xl pl-2 pr-2 py-1 text-xl mb-2">
+                        Lorem
+                      </p>
+                      <p className="bg-[#FFE366] rounded-tr-xl pl-2 pr-2 py-1 text-xl mb-2">
+                        Ipsum
+                      </p>
+                      <p className="bg-[#FFE366] rounded-tr-xl pl-2 pr-2 py-1 text-xl mb-2">
+                        Dolor
+                      </p>
+                      <p className="bg-[#FFE366] rounded-tr-xl pl-2 pr-2 py-1 text-xl mb-2">
+                        Amet
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* ========= POSITION ============ */}
+                  <div className="">
+                    <div className="w-4/5 mx-auto"></div>
+                  </div>
+                </div>
+              </div>
+
               {/* {sections.map((section) => (
                 <div className="section" key={section.src}>
                   <Image
