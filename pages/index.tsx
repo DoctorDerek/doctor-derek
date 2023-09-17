@@ -26,6 +26,7 @@ import { useEffect, useState } from "react"
 import Layout from "@/components/layout"
 import IconLinks from "@/components/iconLinks"
 import DrDerekAustin from "@/images/DrDerekAustin.png"
+import JohnDoe from "@/images/johndoe.png"
 
 const DesktopSections = [
   D0_Intro_Animation,
@@ -269,15 +270,15 @@ function DisplaySections({
               {/*========= PORTFOLIO SECTION ========= */}
               <div className="section bg-[#FB70AA]">
                 <div className="h-screen">
-                  <div className="py-2 px-2">
-                    <div className="w-4/5 mx-auto border-2 border-black">
+                  <div className="py-4">
+                    <div className="w-4/5 mx-auto">
                       <div className="text-center">
                         <h2 className="text-7xl">Portfolio</h2>
                       </div>
                     </div>
                   </div>
                   <div className="w-11/12 h-1/3 mx-auto mb-1 bg-white rounded-tr-3xl"></div>
-                  <div className="w-11/12 h-1/3 mx-auto bg-[#89CFFD] pt-2 pl-3 pr-3">
+                  <div className="w-11/12  mx-auto bg-[#89CFFD] pt-2 pl-3 pr-3 pb-4">
                     <h3 className="text-3xl mb-2">
                       Project Title Lorem Ipsum Dolor Sit Amet
                     </h3>
@@ -287,7 +288,7 @@ function DisplaySections({
                       Excepteur sint occaecat cupidtat non proident, sunt in
                       culpa qui offcia deserunt.
                     </p>
-                    <div className="flex mt-3 flex-y-gap-1">
+                    <div className="flex mt-3 gap-x-2">
                       <p className="bg-[#FFE366] rounded-tr-xl pl-2 pr-2 py-1 text-xl mb-2">
                         Lorem
                       </p>
@@ -302,10 +303,56 @@ function DisplaySections({
                       </p>
                     </div>
                   </div>
+                </div>
+              </div>
 
-                  {/* ========= POSITION ============ */}
-                  <div className="">
-                    <div className="w-4/5 mx-auto"></div>
+              {/*========= TESIMONIALS SECTION ========= */}
+              <div className="section bg-[#FB70AA]">
+                <div className="h-screen flex flex-col">
+                  <div className="pt-4 px-2 mb-16">
+                    <div className="w-5/6 mx-auto">
+                      <div className=" text-white">
+                        <p className="text-lg">
+                          Consequat interdum varius sit amet mattis vulputate.
+                          Laoreet non curabitur gravida arcu ac tortor. Id
+                          semper risus in hendrerit gravida rutrum quisque non.
+                          Consectetur a erat nam at lectus. Venenatis tellus in
+                          metus vulputate eu. Pharetra massa massa ultricies mi
+                          quis hendrerit. Non sodales neque sodales ut etiam sit
+                          amet nisl. Cursus mattis molestie a iaculis at erat.
+                          Erat pellentesque adipiscing commodo elit at imperdiet
+                          dui accumsan. Nibh praesent tristique magna sit. Lorem
+                          ipsum dolor sit amet consectetur adipiscing elit
+                          pellentesque habitant.
+                        </p>
+
+                        <div className="mt-5">
+                          <div className="flex content-center py-1 ">
+                            <div className="py-3">
+                              <Image
+                                src={JohnDoe}
+                                alt="John Doe"
+                                objectFit="contain"
+                              />
+                            </div>
+
+                            <div className="ml-4 w-3/5">
+                              <h4>-John Doe</h4>
+                              <h5>Sr. Systems Design Manager at Lorem Ipsum</h5>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* ========= WHAT PEOPLE SAY ============ */}
+                  <div className="bg-[#89CFFD] rounded-tl-3xl h-1/4">
+                    <div className="w-5/6 mx-auto py-2 px-2">
+                      <h3 className="text-7xl mb-2 text-right">
+                        What People Say
+                      </h3>
+                    </div>
                   </div>
                 </div>
               </div>
