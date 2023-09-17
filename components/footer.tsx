@@ -35,7 +35,7 @@ export default function Footer() {
         {/* ======= FOOTER LINKS ========== */}
         <div className="bg-[#FB70AA] sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24">
           <div className="bg-[#FFE366]">
-            <IconLinks fill={"#F38B57"} />
+            <IconLinks flexSpacing={"justify-around"} fill={"#F38B57"} />
           </div>
         </div>
         </div>
