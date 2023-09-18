@@ -27,6 +27,7 @@ import Layout from "@/components/layout"
 import IconLinks from "@/components/iconLinks"
 import DrDerekAustin from "@/images/DrDerekAustin.png"
 import JohnDoe from "@/images/johndoe.png"
+import clock from "@/images/clock.png"
 import Link from "next/link"
 
 const DesktopSections = [
@@ -412,14 +413,55 @@ function DisplaySections({
                         </div>
                       </div>
 
-                      {/* ========== SIGN UP =========== */}
+                      {/* ========== READ POSTS ARROW =========== */}
                       <div className="mt-5 text-white">
-                          <div className="flex py-2">
-                              <p className="text-4xl">&darr;</p>                            
-                            {/* change to hyperlink */}
-                              <h4 className="ml-2 text-lg my-auto">Read posts</h4>
-                          </div>
+                        <div className="flex py-2">
+                          <p className="text-4xl">&darr;</p>
+                          {/* change to hyperlink */}
+                          <h4 className="ml-2 text-lg my-auto">Read posts</h4>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* ========= POSTS SECTION ============ */}
+              <div className="section bg-[#F38B57]">
+                <div className="h-screen">
+                  {/* ====== POST IMAGE ====== */}
+                  <div className="flex flex-col w-4/5 mx-auto">
+                    <div className="border-2 border-black mt-8">
+                      <div className="">
+                        <Image
+                          src={clock}
+                          alt="How to user Readonly in Typescript"
+                          objectFit="contain"
+                        />
+                      </div>
+                    </div>
+                    <div className="">
+                      <div className="">
+                        <p className="pl-3 text-white bg-[#FB70AA] w-3/4 py-4 rounded-tr-xl">
+                          How to use Readonly in Typescript
+                        </p>
+                      </div>
+                    </div>
+                    <div className="">
+                      <div className="w-5/6 bg-[#b9e3ff]">
+                        <p className="pl-3 py-2 ">
+                          Exploring the power of built-in utility types for
+                          safer code — TypeScript has introduced a variety of
+                          utility types, designed to help transform and
+                          manipulate ty...
+                        </p>
+                        <p className="pl-3 pb-2  text-[#747fa6]">6 min read | May 21, 2023</p>
+                      </div>
+                    </div>
+                    <div className="">
+                      <div className="w-5/6">
+                        
+                      </div>
                     </div>
                   </div>
                 </div>
