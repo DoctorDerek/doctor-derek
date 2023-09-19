@@ -91,6 +91,7 @@ function DisplaySections({
     <ReactFullpage
       credits={{ enabled: false }}
       navigation
+      fixedElements='#header' 
       render={() => {
         // We don't need any of the props here, but I list them for reference
         //  render={({ state, fullpageApi }) => {
@@ -98,6 +99,9 @@ function DisplaySections({
           <ReactFullpage.Wrapper>
             {/* ========= TOP IMAGE ============ */}
             <div className="section bg-[#FFE366]">
+              <div id="header">
+                <Navbar />
+              </div>
               <Image
                 src={M0_Intro_Animation}
                 alt={"MO_Intro_Animation"}
@@ -460,37 +464,30 @@ function DisplaySections({
             </div>
 
             {/* ========= CONTACT SECTION ============ */}
-            <div className="section bg-[#311B4D]">
-              <div className="h-[85vh]">
-                <div className="">
+            <div className="section">
+              <div className="h-[60vh] bg-[#311B4D]">
+                <div className="w-4/5 mx-auto">
                   <div className="">
-                    <div className="w-4/5 mx-auto">
-                      <div className="mb-auto pt-3">
-                        <h2 className="text-6xl text-[#FFE366]">Contact</h2>
-                      </div>
-                      {/*========= DR DEREK AUSTIN IMAGE ========= */}
-                      <div className="pt-4">
-                        <Image
-                          src={contactimage}
-                          alt="Contact Dr Derek Austin"
-                          object-fit="contain"
-                        />
-                      </div>
+                    <h2 className="text-6xl text-[#FFE366]">Contact</h2>
+                  </div>
+                  {/*========= DR DEREK AUSTIN IMAGE ========= */}
+                  <div className="">
+                    <Image
+                      src={contactimage}
+                      alt="Contact Dr Derek Austin"
+                      object-fit="contain"
+                    />
+                    <div className="">
+                      <p className="pt-3 pr-4 leading-7 text-[#89CFFD] text-lg w-5/6 ">
+                        Discover the power of versatile frontend developing with
+                        Derek Austin. Get in touch to discuss your next
+                        development project, or to simply chat.
+                      </p>
                     </div>
                   </div>
-
-                  <div className="mx-auto">
-                    <p className="pt-3 pl-4 pr-4 leading-7 text-[#89CFFD] text-lg w-5/6 mx-auto">
-                      Discover the power of versatile frontend developing with
-                      Derek Austin. Get in touch to discuss your next
-                      development project, or to simply chat.
-                    </p>
-                  </div>
                 </div>
-                <Footer />
               </div>
             </div>
-            
           </ReactFullpage.Wrapper>
         )
       }}
@@ -533,22 +530,20 @@ export default function Home() {
         className="pointer-events-none absolute inset-0 z-10 h-full w-full"
       />
       {/* <Rive src="https://rive.app/s/0PCnhbxltU_9fMHg94CxVg/embed" /> */}
-
+      
       {/* =======LAYOUT ===== */}
-      <Layout>
-        {width < 768 && (
-          <DisplaySections
-            sections={MobileSections}
-            aspect="aspect-[1500/2668]"
-          />
-        )}
-        {width >= 768 && (
-          <DisplaySections
-            sections={DesktopSections}
-            aspect="aspect-[5760/3200]"
-          />
-        )}
-      </Layout>
+      {width < 768 && (
+        <DisplaySections
+          sections={MobileSections}
+          aspect="aspect-[1500/2668]"
+        />
+      )}
+      {width >= 768 && (
+        <DisplaySections
+          sections={DesktopSections}
+          aspect="aspect-[5760/3200]"
+        />
+      )}
     </>
   )
 }
