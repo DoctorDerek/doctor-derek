@@ -31,6 +31,7 @@ import clock from "@/images/clock.png"
 import contactimage from "@/images/contactimage.png"
 import Footer from "@/components/footer"
 import Navbar from "@/components/navbar"
+import IntroSection from "@/components/introSection"
 
 const DesktopSections = [
   D0_Intro_Animation,
@@ -91,7 +92,7 @@ function DisplaySections({
     <ReactFullpage
       credits={{ enabled: false }}
       navigation
-      fixedElements='#header' 
+      fixedElements="#header"
       render={() => {
         // We don't need any of the props here, but I list them for reference
         //  render={({ state, fullpageApi }) => {
@@ -99,9 +100,6 @@ function DisplaySections({
           <ReactFullpage.Wrapper>
             {/* ========= TOP IMAGE ============ */}
             <div className="section bg-[#FFE366]">
-              <div id="header">
-                <Navbar />
-              </div>
               <Image
                 src={M0_Intro_Animation}
                 alt={"MO_Intro_Animation"}
@@ -117,43 +115,7 @@ function DisplaySections({
             {/* ========= INTRO SECTION ============ */}
             <div className="section bg-[#FFE366]">
               <div className="h-screen">
-                <div className="h-5/6 flex flex-col">
-                  <div className="w-4/5 mx-auto pt-4">
-                    <p className="text-[#FB70AA] text-3xl font-medium">
-                      React Software Engineer specializing in optimizing web
-                      performance, enhancing accessiblility, and crafting highly
-                      readable code.
-                    </p>
-                  </div>
-                  {/* ========= ICON LINKS ============ */}
-                  <div className="w-4/5 mx-auto pt-4 mt-auto">
-                    <div className="w-3/4">
-                      <IconLinks
-                        fill={"#F38B57"}
-                        flexSpacing={"justify-between"}
-                      />
-                      <div className="border-t-2 border-[#d6bb61] mt-4"></div>
-                    </div>
-                  </div>
-
-                  {/* ========= CLIENTS & LOGOs ============ */}
-                  <div className="w-4/5 mx-auto mt-2">
-                    <p className="text-[#998F8F] text-2xl font-extralight pt-3 pb-3">
-                      Clients
-                    </p>
-                    <div className="flex w-full justify-between">
-                      <p className="w-1/4 text-[#998F8F] text-4xl font-medium">
-                        Logo
-                      </p>
-                      <p className="w-1/4 text-[#998F8F] text-4xl font-medium">
-                        Logo
-                      </p>
-                      <p className="w-1/4 text-[#998F8F] text-4xl font-medium">
-                        Logo
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                  <IntroSection />
               </div>
             </div>
 
@@ -284,7 +246,9 @@ function DisplaySections({
                     </div>
                   </div>
                 </div>
-                <div className="w-11/12 h-1/3 mx-auto mb-1 bg-white rounded-tr-3xl"></div>
+                <div className="border-2 border-yellow-500 w-1/2 mx-auto">
+                </div>
+                {/* <div className="w-11/12 h-1/3 mx-auto mb-1 bg-white rounded-tr-3xl"></div>
                 <div className="w-11/12  mx-auto bg-[#89CFFD] pt-2 pl-3 pr-3 pb-4">
                   <h3 className="text-3xl mb-2">
                     Project Title Lorem Ipsum Dolor Sit Amet
@@ -309,7 +273,7 @@ function DisplaySections({
                       Amet
                     </p>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -530,7 +494,7 @@ export default function Home() {
         className="pointer-events-none absolute inset-0 z-10 h-full w-full"
       />
       {/* <Rive src="https://rive.app/s/0PCnhbxltU_9fMHg94CxVg/embed" /> */}
-      
+
       {/* =======LAYOUT ===== */}
       {width < 768 && (
         <DisplaySections
