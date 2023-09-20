@@ -25,13 +25,14 @@ import Image, { StaticImageData } from "next/image"
 import { useEffect, useState } from "react"
 import Layout from "@/components/layout"
 import IconLinks from "@/components/iconLinks"
-import DrDerekAustin from "@/images/DrDerekAustin.png"
 import JohnDoe from "@/images/johndoe.png"
 import clock from "@/images/clock.png"
 import contactimage from "@/images/contactimage.png"
 import Footer from "@/components/footer"
 import Navbar from "@/components/navbar"
 import IntroSection from "@/components/introSection"
+import AboutSection from "@/components/aboutSection"
+import DrDerekAustin from "@/images/DrDerekAustin.png"
 
 const DesktopSections = [
   D0_Intro_Animation,
@@ -115,33 +116,13 @@ function DisplaySections({
             {/* ========= INTRO SECTION ============ */}
             <div className="section bg-[#FFE366]">
               <div className="h-screen">
-                  <IntroSection />
+                <IntroSection />
               </div>
             </div>
 
             {/*========= ABOUT SECTION ========= */}
             <div className="section bg-[#b9e3ff]">
-              <div className="h-screen">
-                <div className="w-4/5 mx-auto pt-4">
-                  <div className="w-4/5 pb-4">
-                    <h2 className="text-6xl">About</h2>
-                  </div>
-                  {/* ======= DR DEREK AUSTIN IMAGE ========= */}
-                  <div>
-                    <Image
-                      src={DrDerekAustin}
-                      alt="Dr Derek Austin"
-                      object-fit="contain"
-                    />
-                  </div>
-                  {/* ======== ABOUT TEXT ========= */}
-                  <div className="bg-[#FB70AA] rounded-tl-3xl relative bottom-5 left-4">
-                    <p className="text-white pt-3 pb-6 pl-4 pr-4 leading-7">
-                      {`Derek Austin, a Lead Frontend Developer and React Software Engineer, excels in web performance, accessible code, and intuitive interfaces. With expertise in Next.js, TypeScript, and Tailwind, he builds responsive apps, leads teams, and establishes best practices. Derek's solutions prioritize user needs, deliver high-quality code, and foster performance and maintainability. With a background in physical therapy and over 20 years of freelancing experience, his unique insights drive impactful results. Discover Derek's expertise in React, Agile processes, and full-stack architecture.`}
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <AboutSection />
             </div>
 
             {/*========= ABOUT SECTION WITH TECH STACK ========= */}
@@ -246,8 +227,7 @@ function DisplaySections({
                     </div>
                   </div>
                 </div>
-                <div className="border-2 border-yellow-500 w-1/2 mx-auto">
-                </div>
+                <div className="border-2 border-yellow-500 w-1/2 mx-auto"></div>
                 {/* <div className="w-11/12 h-1/3 mx-auto mb-1 bg-white rounded-tr-3xl"></div>
                 <div className="w-11/12  mx-auto bg-[#89CFFD] pt-2 pl-3 pr-3 pb-4">
                   <h3 className="text-3xl mb-2">
