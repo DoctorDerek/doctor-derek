@@ -38,6 +38,8 @@ import WorkExperienceSection from "@/components/workExperienceSection"
 import Portfolio from "@/components/Portfolio"
 import Testimonials from "@/components/testimonials"
 import BlogSection from "@/components/blogSection"
+import ContactSection from "@/components/contactSection"
+import PostsSection from "@/components/PostsSection"
 
 const DesktopSections = [
   D0_Intro_Animation,
@@ -140,60 +142,12 @@ function DisplaySections({
 
             {/* ========= POSTS SECTION ============ */}
             <div className="section bg-[#F38B57]">
-              <div className="h-screen">
-                {/* ====== POST IMAGE ====== */}
-                <div className="flex flex-col w-4/5 mx-auto h-5/6">
-                  <div className="mt-8 relative w-3/4">
-                    <p className="bg-[#FFE366] rounded-tr-xl pl-3 pr-3 py-1 text-xl mb-2 absolute -top-3 left-4 font-light">
-                      Typescript
-                    </p>
-                    <Image
-                      src={clock}
-                      alt="How to user Readonly in Typescript"
-                      style={{ objectFit: "cover" }}
-                    />
-                    <p className="pl-3 py-2 pr-3 text-white text-xl bg-[#FB70AA] w-4/5 rounded-tr-xl absolute -bottom-6">
-                      How to use Readonly in Typescript
-                    </p>
-                  </div>
-                  <div className="w-3/4 bg-[#b9e3ff]">
-                    <p className="pl-3 pb-2 pt-7 px-2 text-medium">
-                      Exploring the power of built-in utility types for safer
-                      code — TypeScript has introduced a variety of utility
-                      types, designed to help transform and manipulate ty...
-                    </p>
-                    <p className="pl-3 pb-2 text-[#747fa6]">
-                      6 min read | May 21, 2023
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <PostsSection />
             </div>
 
             {/* ========= CONTACT SECTION ============ */}
             <div className="section">
-              <div className="h-[60vh] bg-[#311B4D]">
-                <div className="w-4/5 mx-auto">
-                  <div className="">
-                    <h2 className="text-6xl text-[#FFE366]">Contact</h2>
-                  </div>
-                  {/*========= DR DEREK AUSTIN IMAGE ========= */}
-                  <div className="">
-                    <Image
-                      src={contactimage}
-                      alt="Contact Dr Derek Austin"
-                      object-fit="contain"
-                    />
-                    <div className="">
-                      <p className="pt-3 pr-4 leading-7 text-[#89CFFD] text-lg w-5/6 ">
-                        Discover the power of versatile frontend developing with
-                        Derek Austin. Get in touch to discuss your next
-                        development project, or to simply chat.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <ContactSection />
             </div>
           </ReactFullpage.Wrapper>
         )
