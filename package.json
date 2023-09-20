@@ -19,6 +19,7 @@
     "@heroicons/react": "2.0.18",
     "@rive-app/react-canvas": "^4.2.1",
     "@xstate/react": "3.2.2",
+    "keen-slider": "^6.8.6",
     "next": "^13.4.19",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
