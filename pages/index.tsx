@@ -34,6 +34,7 @@ import IntroSection from "@/components/introSection"
 import AboutSection from "@/components/aboutSection"
 import DrDerekAustin from "@/images/DrDerekAustin.png"
 import TechStackSection from "@/components/techStackSection"
+import WorkExperienceSection from "@/components/workExperienceSection"
 
 const DesktopSections = [
   D0_Intro_Animation,
@@ -116,54 +117,7 @@ function DisplaySections({
 
             {/*========= WORK EXPERIENCE SECTION ========= */}
             <div className="section bg-[#FFE366]">
-              <div className="h-screen">
-                <div className="bg-[#89CFFD] py-2 px-2 rounded-bl-3xl">
-                  <div className="w-4/5 mx-auto">
-                    <div className="text-right">
-                      <h2 className="text-7xl">Work</h2>
-                      <h2 className="text-7xl">Experience</h2>
-                    </div>
-                  </div>
-                </div>
-
-                {/* ========= POSITION ============ */}
-                <div className="h-4/6">
-                  <div className="w-4/5 mx-auto">
-                    <ul className="mt-7 work-exp">
-                      {/* ===== TOP POSITION ====== */}
-                      <li className="text-[#997f59] code-icon">
-                        01/2023 - Present
-                      </li>
-                      <li className="border-l-4 pl-5 ml-2 py-1 border-[#F38B57] text-[#311B4D] text-lg">
-                        Senior Full-Stack Developer
-                      </li>
-                      <li className="border-l-4 pl-5 ml-2 pb-3 border-[#F38B57] text-[#311B4D]">
-                        Premium
-                      </li>
-                      {/* ===== MIDDLE POSITION ====== */}
-                      <li className="text-[#997f59] code-icon">
-                        01/2023 - Present
-                      </li>
-                      <li className="border-l-4 pl-5 ml-2 py-1 border-[#F38B57] text-[#311B4D] text-lg">
-                        Senior Full-Stack Developer
-                      </li>
-                      <li className="border-l-4 pl-5 ml-2 pb-3 border-[#F38B57] text-[#311B4D]">
-                        Premium
-                      </li>
-                      {/* ===== BOTTOM POSITION ====== */}
-                      <li className="text-[#997f59] code-icon">
-                        08/2019 - Present
-                      </li>
-                      <li className="border-l-4 pl-5 ml-2 border-[#F38B57] text-[#311B4D] text-lg">
-                        React Technical Writer {`(JavaScript)`}
-                      </li>
-                      <li className="border-l-4 pl-5 border-b-4 pb-3 ml-2 rounded-bl-2xl border-[#F38B57] text-[#311B4D]">
-                        Medium
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+              <WorkExperienceSection />
             </div>
 
             {/*========= PORTFOLIO SECTION ========= */}
@@ -176,8 +130,8 @@ function DisplaySections({
                     </div>
                   </div>
                 </div>
-                <div className="border-2 border-yellow-500 w-1/2 mx-auto"></div>
-                {/* <div className="w-11/12 h-1/3 mx-auto mb-1 bg-white rounded-tr-3xl"></div>
+                <div className="w-1/2 mx-auto"></div>
+                <div className="w-11/12 h-1/3 mx-auto mb-1 bg-white rounded-tr-3xl"></div>
                 <div className="w-11/12  mx-auto bg-[#89CFFD] pt-2 pl-3 pr-3 pb-4">
                   <h3 className="text-3xl mb-2">
                     Project Title Lorem Ipsum Dolor Sit Amet
@@ -202,7 +156,7 @@ function DisplaySections({
                       Amet
                     </p>
                   </div>
-                </div> */}
+                </div>
               </div>
             </div>
 
