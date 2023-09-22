@@ -5,13 +5,13 @@ import "keen-slider/keen-slider.min.css"
 const WorkExperienceSection = () => {
   const [sliderRef, slider] = useKeenSlider({
     loop: true,
-    duration: 3000, // animation duration in ms
-    dragStart: () => {
-      setPause(true)
-    },
-    dragEnd: () => {
-      setPause(false)
-    },
+    // duration: 3000, // animation duration in ms
+    // dragStart: () => {
+    //   setPause(true)
+    // },
+    // dragEnd: () => {
+    //   setPause(false)
+    // },
   })
 
   /* DATA FOR WORK EXPERIENCE SLIDER */
