@@ -2,7 +2,7 @@ import IconLinks from "./iconLinks"
 
 export default function Footer() {
   return (
-    <footer className="pb-2 h-[40vh]" aria-labelledby="footer-heading">
+    <footer className="mt-auto" aria-labelledby="footer-heading">
       <div className="mx-auto max-w-7xl sm:pt-24 lg:px-8 lg:pt-32">
         <div className="bg-[#311B4D]">
           {/* ======= SIGN UP ========== */}
