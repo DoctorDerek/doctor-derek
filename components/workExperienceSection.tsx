@@ -78,40 +78,61 @@ const WorkExperienceSection = () => {
 
   return (
     <div className="h-screen">
-      <div className="bg-[#89CFFD] py-2 px-2 rounded-bl-3xl">
-        <div className="w-4/5 mx-auto">
+      <div className="rounded-bl-3xl bg-[#89CFFD] px-2 py-2">
+        <div className="mx-auto w-4/5">
           <div className="text-right">
             <h2 className="text-7xl">Work</h2>
             <h2 className="text-7xl">Experience</h2>
           </div>
         </div>
       </div>
-      <div className="w-5/6 mx-auto">
+      <div className="mx-auto w-5/6">
         {/* ========= SLIDER ======= */}
         <div
           ref={sliderRef}
-          className="sm:h-80 md:h-112 lg:h-112 xl:h-128 keen-slider hover:cursor-grab"
+          className="keen-slider hover:cursor-grab sm:h-80 md:h-112 lg:h-112 xl:h-128"
         >
           {/* ========= FIRST SLIDE ============ */}
-          <div className="grid grid-cols-1 space-x-0.5 sm:space-x-1 md:space-x-1.5 xl:space-x-2 transform-gpu keen-slider__slide">
+          <div className="keen-slider__slide grid transform-gpu grid-cols-1 space-x-0.5 sm:space-x-1 md:space-x-1.5 xl:space-x-2">
             <div className="">
               <div className="mx-auto">
-                <ul className="mt-7 work-exp rounded-bl-2xl">
+                <ul className="work-exp mt-7 rounded-bl-2xl">
                   {workExperienceList.firstSlide.map(
-                    (item: {
-                      duration: string
-                      position: string
-                      company: string
-                    }, index: number) => {
+                    (
+                      item: {
+                        duration: string
+                        /**
+                         * duration: timespan within the position
+                         */
+                        position: string
+                        /**
+                         * position: position worked in the company
+                         */
+                        company: string
+                        /**
+                         * company: name of the company
+                         */
+                      },
+                      index: number,
+                      /**
+                       * index: used to check if the item is the last item in the array to add CSS styles
+                       */
+                    ) => {
                       return (
                         <Fragment key={item.position}>
-                          <li className="text-[#997f59] code-icon">
+                          <li className="code-icon text-[#997f59]">
                             {item.duration}
                           </li>
-                          <li className="border-l-4 pl-5 ml-2 py-1 border-[#F38B57] text-[#311B4D] text-lg">
+                          <li className="ml-2 border-l-4 border-[#F38B57] py-1 pl-5 text-lg text-[#311B4D]">
                             {item.position}
                           </li>
-                          <li className={`border-l-4 pl-5 ml-2 pb-3 border-[#F38B57] text-[#311B4D] ${index === workExperienceList.firstSlide.length - 1 ? 'border-b-4' : ''}`}>
+                          <li
+                            className={`ml-2 border-l-4 border-[#F38B57] pb-3 pl-5 text-[#311B4D] ${
+                              index === workExperienceList.firstSlide.length - 1
+                                ? "border-b-4"
+                                : ""
+                            }`}
+                          >
                             {item.company}
                           </li>
                         </Fragment>
@@ -123,25 +144,35 @@ const WorkExperienceSection = () => {
             </div>
           </div>
           {/* ========= SECOND SLIDE ============ */}
-          <div className="grid grid-cols-1 space-x-0.5 sm:space-x-1 md:space-x-1.5 xl:space-x-2 transform-gpu keen-slider__slide">
+          <div className="keen-slider__slide grid transform-gpu grid-cols-1 space-x-0.5 sm:space-x-1 md:space-x-1.5 xl:space-x-2">
             <div className="">
               <div className="mx-auto">
-                <ul className="mt-7 work-exp rounded-bl-2xl">
+                <ul className="work-exp mt-7 rounded-bl-2xl">
                   {workExperienceList.secondSlide.map(
-                    (item: {
-                      duration: string
-                      position: string
-                      company: string
-                    }, index: number) => {
+                    (
+                      item: {
+                        duration: string
+                        position: string
+                        company: string
+                      },
+                      index: number,
+                    ) => {
                       return (
                         <Fragment key={item.position}>
-                          <li className="text-[#997f59] code-icon">
+                          <li className="code-icon text-[#997f59]">
                             {item.duration}
                           </li>
-                          <li className="border-l-4 pl-5 ml-2 py-1 border-[#F38B57] text-[#311B4D] text-lg">
+                          <li className="ml-2 border-l-4 border-[#F38B57] py-1 pl-5 text-lg text-[#311B4D]">
                             {item.position}
                           </li>
-                          <li className={`border-l-4 pl-5 ml-2 pb-3 border-[#F38B57] text-[#311B4D] ${index === workExperienceList.secondSlide.length - 1 ? 'border-b-4' : ''}`}>
+                          <li
+                            className={`ml-2 border-l-4 border-[#F38B57] pb-3 pl-5 text-[#311B4D] ${
+                              index ===
+                              workExperienceList.secondSlide.length - 1
+                                ? "border-b-4"
+                                : ""
+                            }`}
+                          >
                             {item.company}
                           </li>
                         </Fragment>
@@ -153,25 +184,35 @@ const WorkExperienceSection = () => {
             </div>
           </div>
           {/* ========= THIRD SLIDE ============ */}
-          <div className="grid grid-cols-1 space-x-0.5 sm:space-x-1 md:space-x-1.5 xl:space-x-2 transform-gpu keen-slider__slide">
+          <div className="keen-slider__slide grid transform-gpu grid-cols-1 space-x-0.5 sm:space-x-1 md:space-x-1.5 xl:space-x-2">
             <div className="">
               <div className="mx-auto">
-                <ul className="mt-7 work-exp rounded-bl-2xl">
+                <ul className="work-exp mt-7 rounded-bl-2xl">
                   {workExperienceList.thirdSlide.map(
-                    (item: {
-                      duration: string
-                      position: string
-                      company: string
-                    }, index: number) => {
+                    (
+                      item: {
+                        duration: string
+                        position: string
+                        company: string
+                      },
+                      index: number,
+                    ) => {
                       return (
                         <Fragment key={item.position}>
-                          <li className="text-[#997f59] code-icon">
+                          <li className="code-icon text-[#997f59]">
                             {item.duration}
                           </li>
-                          <li className="border-l-4 pl-5 ml-2 py-1 border-[#F38B57] text-[#311B4D] text-lg">
+                          <li className="ml-2 border-l-4 border-[#F38B57] py-1 pl-5 text-lg text-[#311B4D]">
                             {item.position}
                           </li>
-                          <li className={`border-l-4 pl-5 ml-2 pb-3 border-[#F38B57] text-[#311B4D] ${index === workExperienceList.secondSlide.length - 1 ? 'border-b-4' : ''}`}>
+                          <li
+                            className={`ml-2 border-l-4 border-[#F38B57] pb-3 pl-5 text-[#311B4D] ${
+                              index ===
+                              workExperienceList.secondSlide.length - 1
+                                ? "border-b-4"
+                                : ""
+                            }`}
+                          >
                             {item.company}
                           </li>
                         </Fragment>
@@ -183,25 +224,35 @@ const WorkExperienceSection = () => {
             </div>
           </div>
           {/* ========= FOURTH SLIDE ============ */}
-          <div className="grid grid-cols-1 space-x-0.5 sm:space-x-1 md:space-x-1.5 xl:space-x-2 transform-gpu keen-slider__slide">
+          <div className="keen-slider__slide grid transform-gpu grid-cols-1 space-x-0.5 sm:space-x-1 md:space-x-1.5 xl:space-x-2">
             <div className="">
               <div className="mx-auto">
-                <ul className="mt-7 work-exp rounded-bl-2xl">
+                <ul className="work-exp mt-7 rounded-bl-2xl">
                   {workExperienceList.fourthSlide.map(
-                    (item: {
-                      duration: string
-                      position: string
-                      company: string
-                    }, index: number) => {
+                    (
+                      item: {
+                        duration: string
+                        position: string
+                        company: string
+                      },
+                      index: number,
+                    ) => {
                       return (
                         <Fragment key={item.position}>
-                          <li className="text-[#997f59] code-icon">
+                          <li className="code-icon text-[#997f59]">
                             {item.duration}
                           </li>
-                          <li className="border-l-4 pl-5 ml-2 py-1 border-[#F38B57] text-[#311B4D] text-lg">
+                          <li className="ml-2 border-l-4 border-[#F38B57] py-1 pl-5 text-lg text-[#311B4D]">
                             {item.position}
                           </li>
-                          <li className={`border-l-4 pl-5 ml-2 pb-3 border-[#F38B57] text-[#311B4D] ${index === workExperienceList.secondSlide.length - 1 ? 'border-b-4' : ''}`}>
+                          <li
+                            className={`ml-2 border-l-4 border-[#F38B57] pb-3 pl-5 text-[#311B4D] ${
+                              index ===
+                              workExperienceList.secondSlide.length - 1
+                                ? "border-b-4"
+                                : ""
+                            }`}
+                          >
                             {item.company}
                           </li>
                         </Fragment>
@@ -212,7 +263,6 @@ const WorkExperienceSection = () => {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
