@@ -20,7 +20,7 @@ const techStack = [
 
 const TechStackSection = () => {
     return (
-        <div className="h-screen">
+        <div className="bg-[#b9e3ff] h-[90vh]">
         <div className="h-2/5">
           <div className="w-4/5 mx-auto">
             <div className="mb-auto pt-3">

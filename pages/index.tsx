@@ -100,9 +100,9 @@ function DisplaySections({
             </SectionContainer>
 
             {/*===== ABOUT SECTION WITH TECH STACK ====== */}
-            <div className="section bg-[#b9e3ff]">
+            <SectionContainer>
               <TechStackSection />
-            </div>
+            </SectionContainer>
 
             {/*========= WORK EXPERIENCE SECTION ========= */}
             <div className="section bg-[#FFE366]">
