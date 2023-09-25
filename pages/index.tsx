@@ -95,11 +95,11 @@ function DisplaySections({
             </SectionContainer>
 
             {/*========= ABOUT SECTION ========= */}
-            <div className="section bg-[#b9e3ff]">
+            <SectionContainer>
               <AboutSection />
-            </div>
+            </SectionContainer>
 
-            {/*========= ABOUT SECTION WITH TECH STACK ========= */}
+            {/*===== ABOUT SECTION WITH TECH STACK ====== */}
             <div className="section bg-[#b9e3ff]">
               <TechStackSection />
             </div>
