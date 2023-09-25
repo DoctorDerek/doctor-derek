@@ -1,6 +1,7 @@
 import Image from "next/image"
 import M0_Intro_Animation from "@/images/M0_Intro_Animation.jpg"
 
+/** Helper function to join Tailwind CSS classNames. Filters out falsy values */
 const classNames = (...args: string[]) => args.filter(Boolean).join(" ")
 
 export default function TopSection({
@@ -16,7 +17,7 @@ export default function TopSection({
         alt={"MO_Intro_Animation"}
         className={classNames(
           // We use "bg-yellow" to fill in the background (sides)
-          "h-[80dvh] w-full object-contain",
+          "h-[90dvh] w-full object-contain",
           aspect,
         )}
         placeholder="blur"

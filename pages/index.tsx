@@ -90,11 +90,9 @@ function DisplaySections({
             </SectionContainer>
 
             {/* ========= INTRO SECTION ============ */}
-            <div className="section bg-[#FFE366]">
-              <div className="h-screen">
-                <IntroSection />
-              </div>
-            </div>
+            <SectionContainer>
+              <IntroSection />
+            </SectionContainer>
 
             {/*========= ABOUT SECTION ========= */}
             <div className="section bg-[#b9e3ff]">
