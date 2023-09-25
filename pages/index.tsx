@@ -34,6 +34,8 @@ import Testimonials from "@/components/testimonials"
 import BlogSection from "@/components/blogSection"
 import ContactSection from "@/components/contactSection"
 import PostsSection from "@/components/PostsSection"
+import SectionContainer from "@/components/sectionContainer"
+import TopSection from "@/components/topSection"
 
 const DesktopSections = [
   D0_Intro_Animation,
@@ -83,19 +85,9 @@ function DisplaySections({
         return (
           <ReactFullpage.Wrapper>
             {/* ========= TOP IMAGE ============ */}
-            <div className="section bg-[#FFE366]">
-              <Navbar />
-              <Image
-                src={M0_Intro_Animation}
-                alt={"MO_Intro_Animation"}
-                className={classNames(
-                  // We use "bg-yellow" to fill in the background (sides)
-                  "h-[80dvh] w-full object-contain",
-                  aspect,
-                )}
-                placeholder="blur"
-              />
-            </div>
+            <SectionContainer>
+              <TopSection aspect="aspect-[5760/3200]" />
+            </SectionContainer>
 
             {/* ========= INTRO SECTION ============ */}
             <div className="section bg-[#FFE366]">

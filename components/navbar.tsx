@@ -18,7 +18,7 @@ export default function Navbar() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
-    <div className="h-[20vh]">
+    <div className="h-[10vh] border-2 border-red-500">
       {/* ======== MOBILE NAVBAR ======= */}
       <div className="lg:pl-72">
         <div className="bg-[#FFE366] sticky top-0 z-40 flex h-16 shrink-0 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8 ">
