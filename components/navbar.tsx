@@ -1,6 +1,5 @@
 import { Fragment, useState } from "react"
-import { Bars3Icon, HomeIcon, XMarkIcon } from "@heroicons/react/24/outline"
-import { ChevronDownIcon } from "@heroicons/react/20/solid"
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"
 import Image from "next/image"
 import Logo from "images/Logo.png"
 import Link from "next/link"
@@ -19,7 +18,7 @@ export default function Navbar() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
-    <div className="">
+    <div className="h-[20vh]">
       {/* ======== MOBILE NAVBAR ======= */}
       <div className="lg:pl-72">
         <div className="bg-[#FFE366] sticky top-0 z-40 flex h-16 shrink-0 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8 ">

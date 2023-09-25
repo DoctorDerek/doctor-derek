@@ -24,6 +24,7 @@ import M7_Contact from "@/images/M7_Contact.jpg"
 import Image, { StaticImageData } from "next/image"
 import { useEffect, useState } from "react"
 import Layout from "@/components/layout"
+import Navbar from "@/components/navbar"
 import IntroSection from "@/components/introSection"
 import AboutSection from "@/components/aboutSection"
 import TechStackSection from "@/components/techStackSection"
@@ -76,7 +77,6 @@ function DisplaySections({
     <ReactFullpage
       credits={{ enabled: false }}
       navigation
-      fixedElements="#header"
       render={() => {
         // We don't need any of the props here, but I list them for reference
         //  render={({ state, fullpageApi }) => {
@@ -84,12 +84,13 @@ function DisplaySections({
           <ReactFullpage.Wrapper>
             {/* ========= TOP IMAGE ============ */}
             <div className="section bg-[#FFE366]">
+              <Navbar />
               <Image
                 src={M0_Intro_Animation}
                 alt={"MO_Intro_Animation"}
                 className={classNames(
                   // We use "bg-yellow" to fill in the background (sides)
-                  "h-[100dvh] w-full object-contain",
+                  "h-[80dvh] w-full object-contain",
                   aspect,
                 )}
                 placeholder="blur"
@@ -185,7 +186,7 @@ export default function Home() {
       />
       {/* <Rive src="https://rive.app/s/0PCnhbxltU_9fMHg94CxVg/embed" /> */}
 
-      {/* =======LAYOUT ===== */}
+      {/* ======= LAYOUT ===== */}
       {width < 768 && (
         <DisplaySections
           sections={MobileSections}
