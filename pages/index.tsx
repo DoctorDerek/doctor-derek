@@ -49,7 +49,7 @@ const DesktopSections = [
 ]
 
 const MobileSections = [
-  // M0_Intro_Animation,
+  M0_Intro_Animation,
   M1_Intro,
   M2_About_A,
   M2_About_B,

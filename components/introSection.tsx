@@ -3,14 +3,14 @@ import IconLinks from "./iconLinks"
 const IntroSection = () => {
   return (
     <div className="flex flex-col h-[90vh]">
-      <div className="w-4/5 mx-auto pt-4">
-        <p className="text-[#FB70AA] text-3xl font-medium">
+      <div className="w-4/5 md:w-[90%] mx-auto pt-4">
+        <p className="text-[#FB70AA] text-3xl font-medium md:text-5xl">
           React Software Engineer specializing in optimizing web performance,
           enhancing accessiblility, and crafting highly readable code.
         </p>
       </div>
       {/* ========= ICON LINKS ============ */}
-      <div className="w-4/5 mx-auto pt-4 mt-auto">
+      <div className="w-4/5 md:w-[90%] mx-auto pt-4 mt-auto">
         <div className="w-3/4">
           <IconLinks fill={"#F38B57"} flexSpacing={"justify-between"} />
           <div className="border-t-2 border-[#d6bb61] mt-4"/>
