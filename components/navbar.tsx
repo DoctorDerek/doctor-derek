@@ -61,7 +61,7 @@ export default function Navbar() {
                     <a
                       href={item.href}
                       className={
-                        "block p-2 md:p-1 text-5xl md:text-7xl md:pr-12 md:text-end font-semibold"
+                        "block p-2 md:p-1 text-5xl md:text-7xl md:pr-12 md:text-end font-semibold md:restora-bold"
                       }
                     >
                       {item.name}

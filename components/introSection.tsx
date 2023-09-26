@@ -4,7 +4,7 @@ const IntroSection = () => {
   return (
     <div className="flex flex-col h-[90vh]">
       <div className="w-4/5 md:w-[90%] mx-auto pt-4">
-        <p className="text-[#FB70AA] text-3xl font-medium md:text-5xl">
+        <p className="text-[#FB70AA] text-3xl md:text-5xl">
           React Software Engineer specializing in optimizing web performance,
           enhancing accessiblility, and crafting highly readable code.
         </p>
