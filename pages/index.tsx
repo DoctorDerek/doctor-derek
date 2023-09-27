@@ -90,9 +90,9 @@ function DisplaySections({
             </SectionContainer>
 
             {/* ========= INTRO SECTION ============ */}
-            <SectionContainer>
+            <div className="section h-screen bg-[#FFE366] flex flex-col md:flex-row">
               <IntroSection />
-            </SectionContainer>
+            </div>
 
             {/*========= ABOUT SECTION ========= */}
             <SectionContainer>
