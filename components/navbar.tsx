@@ -4,6 +4,7 @@ import Image from "next/image"
 import Logo from "images/Logo.png"
 import Link from "next/link"
 import IconLinks from "./iconLinks"
+import NavIcons from "./navIcons"
 
 const navigation = [
   { name: "About", href: "#", current: true },
@@ -22,21 +23,26 @@ export default function Navbar() {
       {/* ======== MOBILE NAVBAR ======= */}
       <div className="sticky top-0 z-40 flex h-full bg-[#FFE366] shadow-sm sm:gap-x-6 sm:px-6 md:h-screen md:px-0">
         <div className="flex w-full md:flex-col">
-          <div className="w-1/4 pl-3 pt-3 md:h-[40vh] md:w-full md:pt-0 md:order-2 md:pl-0">
-            <Link
-              href="/"
-              className="md:block md:h-1/2 md:pt-4 md:w-full"
-            >
-              <Image src={Logo} object-fit="contain" alt="Logo" className="md:-rotate-90 md:py-4 " />
+          <div className="w-1/4 pl-3 pt-3 md:order-2 md:h-[40vh] md:w-full md:pl-0 md:pt-0">
+            <Link href="/" className="md:block md:h-1/2 md:w-full md:pt-4">
+              <Image
+                src={Logo}
+                object-fit="contain"
+                alt="Logo"
+                className="md:-rotate-90 md:py-4 "
+              />
             </Link>
           </div>
           <button
             type="button"
-            className="text-[#FFE366]md:mt-60 ml-auto bg-[#89cffd] p-3.5 md:ml-0 md:order-1"
+            className="text-[#FFE366]md:mt-60 ml-auto bg-[#89cffd] p-3.5 md:order-1 md:ml-0"
             onClick={() => setSidebarOpen(!sidebarOpen)}
           >
             {sidebarOpen ? (
-              <XMarkIcon className="h-6 w-6 text-[#FFE366]" aria-hidden="true" />
+              <XMarkIcon
+                className="h-6 w-6 text-[#FFE366]"
+                aria-hidden="true"
+              />
             ) : (
               <Bars3Icon
                 className="h-6 w-6 text-[#FFE366]"
@@ -55,7 +61,7 @@ export default function Navbar() {
           <div className="h-14" />
           {/* =========== NAVIGATION LINKS ========== */}
           <nav
-            className={`md:h-11/12 flex h-full flex-col rounded-tr-3xl duration-500 md:mt-auto ${
+            className={`md:h-11/12 flex h-full flex-col rounded-tr-3xl duration-500 md:mt-auto md:flex-row ${
               sidebarOpen ? "translate-x-0" : "-translate-x-full"
             } `}
           >
@@ -78,6 +84,7 @@ export default function Navbar() {
                 <IconLinks fill={"white"} flexSpacing={"justify-around"} />
               </div>
             </div>
+          <NavIcons fill={"#f38B57"} flexSpacing={"justify-center"} />
           </nav>
         </div>
       </div>
