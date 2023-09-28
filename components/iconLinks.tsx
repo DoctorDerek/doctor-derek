@@ -18,12 +18,13 @@ export default function IconLinks({
    * */
   flexSpacing: "justify-between" | "justify-around" // | union type, valid values
 }) {
+
   return (
-    <div className={classNames(`rounded-tl-2xl flex py-4`, flexSpacing)}>
+    <div className={classNames(`flex rounded-tl-2xl py-4`, flexSpacing)}>
       {/* ======== EMAIL ICON LINK ======== */}
       <a
         href="mailto:derekraustin@gmail.com"
-        className="text-gray-500 hover:text-gray-400"
+        className="flex items-center"
       >
         <svg
           width="35"
@@ -39,13 +40,14 @@ export default function IconLinks({
             fill={`${fill}`}
           />
         </svg>
+        <span className="hidden md:block md:mx-2 md:text-[#f38b57]">Email</span>
       </a>
 
       {/* =========== LINKEDIN ICON LINK =========== */}
       <a
         href="https://www.linkedin.com/in/derek-austin/"
         target="_blank"
-        className="text-gray-500 hover:text-gray-400"
+        className="flex items-center"
       >
         <svg
           width="35"
@@ -53,6 +55,7 @@ export default function IconLinks({
           viewBox="0 0 35 35"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          className="mr-1"
         >
           <path
             fillRule="evenodd"
@@ -61,10 +64,14 @@ export default function IconLinks({
             fill={`${fill}`}
           />
         </svg>
+        <span className="hidden md:block md:mx-2 md:text-[#f38b57]">Linkedin</span>
       </a>
 
       {/* =========== RESUME ICON LINK =========== */}
-      <a href="#" className="text-gray-500 hover:text-gray-400">
+      <a
+        href="#"
+        className="flex items-center"
+      >
         <svg
           width="35"
           height="35"
@@ -79,13 +86,14 @@ export default function IconLinks({
             fill={`${fill}`}
           />
         </svg>
+        <span className="hidden md:block md:mx-2 md:text-[#f38b57]">Resume</span>
       </a>
 
       {/* =========== GITHUB ICON LINK =========== */}
       <a
         href="https://github.com/DoctorDerek"
         target="_blank"
-        className="text-gray-500 hover:text-gray-400"
+        className="flex items-center"
       >
         <svg
           width="35"
@@ -101,13 +109,14 @@ export default function IconLinks({
             fill={`${fill}`}
           />
         </svg>
+        <span className="hidden md:block md:mx-2 md:text-[#f38b57]">Github</span>
       </a>
 
       {/* =========== MEDIUM ICON LINK =========== */}
       <a
         href="https://doctorderek.medium.com/"
         target="_blank"
-        className="text-gray-500 hover:text-gray-400"
+        className="flex items-center"
       >
         <svg
           width="35"
@@ -123,10 +132,15 @@ export default function IconLinks({
             fill={`${fill}`}
           />
         </svg>
+        <span className="hidden md:block md:mx-2 md:text-[#f38b57]">Medium</span>
       </a>
 
-      {/* =========== COPY ICON LINK =========== */}
-      <a href="#" className="text-gray-500 hover:text-gray-400">
+      {/* =========== BOOK LINK =========== */}
+      <a
+        href="https://www.amazon.com/dp/B0BRJDLJ43"
+        target="_blank"
+        className="flex items-center"
+      >
         <svg
           width="35"
           height="35"
@@ -141,6 +155,7 @@ export default function IconLinks({
             fill={`${fill}`}
           />
         </svg>
+        <span className="hidden md:block md:mx-2 md:text-[#f38b57]">Book</span>
       </a>
     </div>
   )

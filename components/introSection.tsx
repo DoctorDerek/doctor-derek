@@ -12,13 +12,13 @@ const IntroSection = () => {
       {/* ========= ICON LINKS ============ */}
       <div className="w-4/5 md:w-[90%] mx-auto pt-4 mt-auto">
         <div className="w-3/4">
-          <IconLinks fill={"#F38B57"} flexSpacing={"justify-between"} />
-          <div className="border-t-2 border-[#d6bb61] mt-4"/>
+          <IconLinks fill={"#f38B57"} flexSpacing={"justify-between"} />
+          <div className="border-t-2 border-[#d6bb61] mt-4 md:w-5/12"/>
         </div>
       </div>
 
       {/* ========= CLIENTS & LOGOs ============ */}
-      <div className="w-4/5 mx-auto mt-2 mb-10">
+      <div className="w-4/5 mx-auto  md:w-[90%] mt-2 mb-10">
         <p className="text-[#998F8F] text-2xl font-extralight pt-3 pb-3">
           Clients
         </p>
