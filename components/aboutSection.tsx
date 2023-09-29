@@ -3,17 +3,16 @@ import Image from "next/image"
 
 const AboutSection = () => {
   return (
-    <div className="bg-[#b9e3ff] h-[90vh]">
+    <div className="h-[90vh] md:h-screen">
       <div className="w-4/5 mx-auto pt-4">
         <div className="w-4/5 pb-4">
           <h2 className="text-6xl">About</h2>
         </div>
         {/* ======= DR DEREK AUSTIN IMAGE ========= */}
-        <div>
+        <div className="">
           <Image
             src={DrDerekAustin}
             alt="Dr Derek Austin"
-            object-fit="contain"
           />
         </div>
         {/* ======== ABOUT TEXT ========= */}
