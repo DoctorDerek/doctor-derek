@@ -26,8 +26,12 @@ body {
     RESTORA FONT
   ===================== */
 @font-face {
-  font-family: "Restora";
+  font-family: Restora;
   src: url('../asset/Fonts/restora-1.otf');
+}
+@font-face {
+  font-family: Restorabold;
+  src: url('../asset/Fonts/restoraextrabold-1.otf');
 }
 a,
 p, 
@@ -36,6 +40,10 @@ h3,
 h4, 
 button {
   font-family: "Restora";
+}
+
+.restorabold {
+  font-family: "Restorabold";
 }
 
 /* Remove the fullPage.js watermark from the last slide */

@@ -19,9 +19,9 @@ export default function Navbar() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
-    <div className="h-[10vh] md:w-14">
-      {/* ======== MOBILE NAVBAR ======= */}
-      <div className="sticky top-0 z-40 flex h-full bg-[#FFE366] shadow-sm sm:gap-x-6 sm:px-6 md:h-screen md:px-0">
+    <div className="h-[10vh]">
+      {/* ======== NAVBAR ======= */}
+      <div className="sticky top-0 z-40 flex h-full bg-[#FFE366] shadow-sm sm:gap-x-6 sm:px-6 md:h-screen md:px-0 md:w-14">
         <div className="flex w-full md:flex-col">
           <div className="w-1/4 pl-3 pt-3 md:order-2 md:h-[40vh] md:w-full md:pl-0 md:pt-0">
             <Link href="/" className="md:block md:h-1/2 md:w-full md:pt-4">
@@ -58,7 +58,7 @@ export default function Navbar() {
         {/* =========== SIDEBAR MOBILE MENU =========== */}
         <div className="flex grow flex-col overflow-y-auto">
           {/* ========= div creates spacing between links and navbar */}
-          <div className="h-14" />
+          <div className="h-14 md:hidden" />
           {/* =========== NAVIGATION LINKS ========== */}
           <nav
             className={`md:h-11/12 flex h-full flex-col rounded-tr-3xl duration-500 md:mt-auto md:flex-row ${
@@ -87,7 +87,7 @@ export default function Navbar() {
           <NavIcons fill={"#f38B57"} flexSpacing={"justify-center"} />
           </nav>
         </div>
-      </div>
+      </div>     
     </div>
   )
 }
