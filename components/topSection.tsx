@@ -13,7 +13,7 @@ export default function TopSection({
   aspect: "aspect-[5760/3200]" | "aspect-[1500/2668]"
 }) {
   return (
-    <div className="md:h-[100vh]">
+    <div className="md:h-[100vh] intro">
       <Navbar />
         <Image
           src={M0_Intro_Animation}
@@ -21,16 +21,6 @@ export default function TopSection({
           className={classNames(
             // We use "bg-yellow" to fill in the background (sides)
             "h-[90dvh] w-full object-contain md:hidden",
-            aspect,
-          )}
-          placeholder="blur"
-        />
-        <Image
-          src={D0_Intro_Animation}
-          alt={"Intro_Animation"}
-          className={classNames(
-            // We use "bg-yellow" to fill in the background (sides)
-            "hidden md:inline h-[90dvh] w-full object-cover",
             aspect,
           )}
           placeholder="blur"

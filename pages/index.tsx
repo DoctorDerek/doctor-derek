@@ -90,7 +90,7 @@ function DisplaySections({
             </div>
 
             {/* ========= INTRO SECTION ============ */}
-            <div className="section h-screen bg-[#FFE366] flex flex-col md:flex-row">
+            <div className="section h-screen bg-[#FFE366] flex flex-col md:flex-row intro">
               <IntroSection />
             </div>
 

@@ -2,7 +2,7 @@ import IconLinks from "./iconLinks"
 
 const IntroSection = () => {
   return (
-    <div className="flex flex-col h-[90vh] intro md:h-screen">
+    <div className="flex flex-col h-[90vh] yw-bg-img md:h-screen">
       <div className="w-4/5 md:w-[90%] mx-auto pt-4">
         <p className="text-[#FB70AA] text-3xl md:text-5xl lg:text-7xl">
           React Software Engineer specializing in optimizing web performance,

@@ -64,7 +64,22 @@ button {
 ============================== */
 @media (min-width: 768px) {
   .intro {
+    background-image: url("../images/D0_Intro_Animation.jpg");
+  }
+  .yw-bg-img {
     background-image: url("../images/Intro-Animation.jpg");
+  }
+  .blue-bg-img {
+    background-image: url("../images/blue-bg-img.jpg");
+  }
+  .pink-bg-img {
+    background-image: url("../images/pink-bg-img.jpg");
+  }
+
+  .intro,
+  .yw-bg-img, 
+  .blue-bg-img,
+  .pink-bg-img {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
