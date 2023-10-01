@@ -2,6 +2,7 @@ import DerekAustin from "@/images/DerekAustin.png"
 import Image from "next/image"
 
 const AboutSection = () => {
+  /* TECHNOLOGIES USED, IN YELLOW BACKGROUND */
   const techStack = [
     "Node.js",
     "Typescript",

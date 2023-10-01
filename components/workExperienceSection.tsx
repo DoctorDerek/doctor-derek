@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, Fragment } from "react"
+import React, { Fragment } from "react"
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 
@@ -79,11 +79,9 @@ const WorkExperienceSection = () => {
   return (
     <div className="h-screen">
       <div className="rounded-bl-3xl bg-[#89CFFD] px-2 py-2">
-        <div className="mx-auto w-4/5">
-          <div className="text-right">
-            <h2 className="text-7xl">Work</h2>
-            <h2 className="text-7xl">Experience</h2>
-          </div>
+        <div className="mx-auto w-[85%] border-2 border-red-500">
+          <h2 className="text-right text-7xl">Work</h2>
+          <h2 className="text-right text-7xl">Experience</h2>
         </div>
       </div>
       <div className="mx-auto w-5/6">

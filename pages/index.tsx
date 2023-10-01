@@ -100,7 +100,7 @@ function DisplaySections({
             </div>
 
             {/*===== ABOUT SECTION WITH TECH STACK ====== */}
-            <div className="section h-screen bg-[#b9e3ff] flex flex-col md:flex-row">
+            <div className="section h-screen bg-[#b9e3ff] flex flex-col md:hidden">
               <TechStackSection />
             </div>
 
