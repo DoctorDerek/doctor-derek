@@ -3,16 +3,7 @@ import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 
 const WorkExperienceSection = () => {
-  const [sliderRef, slider] = useKeenSlider({
-    loop: true,
-    // duration: 3000, // animation duration in ms
-    // dragStart: () => {
-    //   setPause(true)
-    // },
-    // dragEnd: () => {
-    //   setPause(false)
-    // },
-  })
+  const [sliderRef, slider] = useKeenSlider({ loop: true })
 
   /* DATA FOR WORK EXPERIENCE SLIDER */
   const workExperienceList = {
@@ -75,25 +66,24 @@ const WorkExperienceSection = () => {
       },
     ],
   }
+  /* DISPLAYS DATA FOR MEDIUM & LARGE BREAKPOINTS */
+
 
   return (
     <div className="h-screen">
-      <div className="rounded-bl-3xl bg-[#89CFFD] px-2 py-2">
-        <div className="mx-auto w-[85%] border-2 border-red-500">
-          <h2 className="text-right text-7xl">Work</h2>
+      <div className="rounded-bl-3xl bg-[#89CFFD] px-2 py-6">
+        <div className="mx-auto w-[90%]">
+          <h2 className="text-right text-7xl ">Work</h2>
           <h2 className="text-right text-7xl">Experience</h2>
         </div>
       </div>
-      <div className="mx-auto w-5/6">
+      <div className="ml-auto w-[95%]">
         {/* ========= SLIDER ======= */}
-        <div
-          ref={sliderRef}
-          className="keen-slider hover:cursor-grab sm:h-80 md:h-112 lg:h-112 xl:h-128"
-        >
+        <div ref={sliderRef} className="keen-slider hover:cursor-grab">
           {/* ========= FIRST SLIDE ============ */}
-          <div className="keen-slider__slide grid transform-gpu grid-cols-1 space-x-0.5 sm:space-x-1 md:space-x-1.5 xl:space-x-2">
-            <div className="">
-              <div className="mx-auto">
+          <div className="keen-slider__slide grid transform-gpu grid-cols-1 space-x-0.5 sm:space-x-1 md:space-x-1.5">
+            <div>
+              <div className="">
                 <ul className="work-exp mt-7 rounded-bl-2xl">
                   {workExperienceList.firstSlide.map(
                     (
@@ -121,17 +111,21 @@ const WorkExperienceSection = () => {
                           <li className="code-icon text-[#997f59]">
                             {item.duration}
                           </li>
-                          <li className="ml-2 border-l-4 border-[#F38B57] py-1 pl-5 text-lg text-[#311B4D]">
-                            {item.position}
+                          <li className="restorabold ml-2 border-l-4 border-[#F38B57] py-1 pl-5 text-lg text-[#311B4D]">
+                            <p className="restorabold text-lg">
+                              {item.position}
+                            </p>
                           </li>
                           <li
-                            className={`ml-2 border-l-4 border-[#F38B57] pb-3 pl-5 text-[#311B4D] ${
+                            className={`restorabold ml-2 border-l-4 border-[#F38B57] pb-3 pl-5 text-[#311B4D] ${
                               index === workExperienceList.firstSlide.length - 1
                                 ? "border-b-4"
                                 : ""
                             }`}
                           >
-                            {item.company}
+                            <p className="restorabold text-lg">
+                              {item.company}
+                            </p>
                           </li>
                         </Fragment>
                       )
@@ -160,18 +154,22 @@ const WorkExperienceSection = () => {
                           <li className="code-icon text-[#997f59]">
                             {item.duration}
                           </li>
-                          <li className="ml-2 border-l-4 border-[#F38B57] py-1 pl-5 text-lg text-[#311B4D]">
-                            {item.position}
+                          <li className="restorabold ml-2 border-l-4 border-[#F38B57] py-1 pl-5 text-lg text-[#311B4D]">
+                            <p className="restorabold text-lg">
+                              {item.position}
+                            </p>{" "}
                           </li>
                           <li
-                            className={`ml-2 border-l-4 border-[#F38B57] pb-3 pl-5 text-[#311B4D] ${
+                            className={`restorabold ml-2 border-l-4 border-[#F38B57] pb-3 pl-5 text-[#311B4D] ${
                               index ===
                               workExperienceList.secondSlide.length - 1
                                 ? "border-b-4"
                                 : ""
                             }`}
                           >
-                            {item.company}
+                            <p className="restorabold text-lg">
+                              {item.company}
+                            </p>
                           </li>
                         </Fragment>
                       )
@@ -201,7 +199,9 @@ const WorkExperienceSection = () => {
                             {item.duration}
                           </li>
                           <li className="ml-2 border-l-4 border-[#F38B57] py-1 pl-5 text-lg text-[#311B4D]">
-                            {item.position}
+                            <p className="restorabold text-lg">
+                              {item.position}
+                            </p>
                           </li>
                           <li
                             className={`ml-2 border-l-4 border-[#F38B57] pb-3 pl-5 text-[#311B4D] ${
@@ -211,7 +211,9 @@ const WorkExperienceSection = () => {
                                 : ""
                             }`}
                           >
-                            {item.company}
+                            <p className="restorabold text-lg">
+                              {item.company}
+                            </p>
                           </li>
                         </Fragment>
                       )
@@ -226,37 +228,19 @@ const WorkExperienceSection = () => {
             <div className="">
               <div className="mx-auto">
                 <ul className="work-exp mt-7 rounded-bl-2xl">
-                  {workExperienceList.fourthSlide.map(
-                    (
-                      item: {
-                        duration: string
-                        position: string
-                        company: string
-                      },
-                      index: number,
-                    ) => {
-                      return (
-                        <Fragment key={item.position}>
-                          <li className="code-icon text-[#997f59]">
-                            {item.duration}
-                          </li>
-                          <li className="ml-2 border-l-4 border-[#F38B57] py-1 pl-5 text-lg text-[#311B4D]">
-                            {item.position}
-                          </li>
-                          <li
-                            className={`ml-2 border-l-4 border-[#F38B57] pb-3 pl-5 text-[#311B4D] ${
-                              index ===
-                              workExperienceList.secondSlide.length - 1
-                                ? "border-b-4"
-                                : ""
-                            }`}
-                          >
-                            {item.company}
-                          </li>
-                        </Fragment>
-                      )
-                    },
-                  )}
+                  <li className="code-icon text-[#997f59]">
+                    09/2019 - 11/2019
+                  </li>
+                  <li className="restorabold ml-2 border-l-4 border-[#F38B57] py-1 pl-5 text-lg text-[#311B4D]">
+                    <p className="restorabold text-lg">
+                      Front-End Developer (React)
+                    </p>
+                  </li>
+                  <li className="restorabold ml-2 border-l-4 border-[#F38B57] py-1 pl-5 text-lg text-[#311B4D]">
+                    <p className="restorabold text-lg">
+                      Brookbush Institute of Human Movement Science
+                    </p>
+                  </li>
                 </ul>
               </div>
             </div>
