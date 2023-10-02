@@ -117,7 +117,7 @@ const WorkExperienceSection = () => {
           <div className="keen-slider__slide grid transform-gpu grid-cols-1 space-x-0.5 sm:space-x-1 md:space-x-1.5">
             <div>
               <div className="">
-                <ul className="work-exp mt-7 rounded-bl-2xl">
+                <ul className="mt-7 rounded-bl-2xl">
                   {workExperienceList.firstSlide.map(
                     (
                       item: {
@@ -284,7 +284,7 @@ const WorkExperienceSection = () => {
       {/* ========= DISPLAYS WORK EXPERIENCE ON LARGE DEVICES ======= */}
       <section className="mx-auto hidden lg:block lg:h-[65%] lg:w-11/12">
         <div className="h-full w-3/4 lg:relative">
-          <ul className="work-exp-grid absolute -top-[25%] right-0 mx-auto grid h-[70vh] w-[60%] border-2 border-red-500">
+          <ul className="work-exp-grid absolute -top-[25%] right-0 mx-auto grid h-[70vh] w-[60%]">
             {combinedLists.map(
               (
                 item: {
@@ -294,8 +294,16 @@ const WorkExperienceSection = () => {
                 },
                 index: number,
               ) => {
+                /* TERNARY OPERATORS ADDS CSS BORDERS BASED ON INDEX */
                 return (
-                  <li className="border-l-4 border-b-4 border-[#F38B57] py-1 pl-5 text-lg" key={item.company}>
+                  <li className={`
+                    ${index < getHalfNum || index > getHalfNum + 3 ? 'border-l-4 code-icon' : ''} 
+                    ${index === getHalfNum - 1 || index === getHalfNum - 2 || index === getHalfNum - 3  ? 'border-r-4 mr-8' : ''} 
+                    ${index === getHalfNum - 1 ? ' rounded-br-3xl' : ''} 
+                    ${index + 1 === getHalfNum ? 'border-b-4 rounded-bl-3xl' : ''} 
+                    ${index === 2 ? 'line' : ''} 
+                    border-[#F38B57] py-1 pl-5 text-lg relative`} 
+                    key={item.company}>
                     <p className="restorabold text-lg">{item.duration}</p>
                     <p className="restorabold text-lg">{item.position}</p>
                     <p className={`${item.company.includes('placeholder') ? 'invisible' : ''} restorabold text-lg`}>{item.company}</p>
