@@ -90,19 +90,21 @@ function DisplaySections({
             </div>
 
             {/* ========= INTRO SECTION ============ */}
-            <div className="section h-screen bg-[#FFE366] flex flex-col md:flex-row intro">
+            <div className="section intro flex h-screen flex-col bg-[#FFE366] md:flex-row">
               <IntroSection />
             </div>
 
             {/*========= ABOUT SECTION ========= */}
-            <div className="section h-screen bg-[#b9e3ff] flex flex-col md:flex-row">
+            <div className="section flex h-screen flex-col bg-[#b9e3ff] md:flex-row">
               <AboutSection />
             </div>
 
             {/*===== ABOUT SECTION WITH TECH STACK ====== */}
-            <div className="section h-screen bg-[#b9e3ff] flex flex-col md:hidden">
-              <TechStackSection />
-            </div>
+            {/* <div className="lg:hidden">
+              <div className="section flex h-screen flex-col bg-[#b9e3ff] md:hidden">
+                <TechStackSection />
+              </div>
+            </div> */}
 
             {/*========= WORK EXPERIENCE SECTION ========= */}
             <div className="section bg-[#FFE366]">

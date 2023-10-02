@@ -66,19 +66,52 @@ const WorkExperienceSection = () => {
       },
     ],
   }
-  /* DISPLAYS DATA FOR MEDIUM & LARGE BREAKPOINTS */
-
+  /* DISPLAYS WORK EXPERIENCE FOR LARGE BREAKPOINTS */
+  const combinedLists = workExperienceList.firstSlide.concat(
+    workExperienceList.secondSlide,
+    workExperienceList.thirdSlide,
+    workExperienceList.fourthSlide,
+  )
+  /* NUMBER OF ITEMS IN combinedLists DIVIDED 2 USED TO FILL SPACE */
+  const getHalfNum = Math.floor(combinedLists.length / 2)
+  //ITEMS IN GRID USED FOR LAYOUT
+  combinedLists.splice(
+    getHalfNum,
+    0,
+    {
+      duration: " ",
+      position: " ",
+      company: "placeholder 1",
+    },
+    {
+      duration: " ",
+      position: " ",
+      company: "placeholder 2",
+    },
+    {
+      duration: " ",
+      position: " ",
+      company: "placeholder 3",
+    },
+    {
+      duration: " ",
+      position: " ",
+      company: "placeholder 4",
+    },
+  )
 
   return (
-    <div className="h-screen">
-      <div className="rounded-bl-3xl bg-[#89CFFD] px-2 py-6">
+    <div className="yw-bg-img h-screen">
+      <div className="rounded-bl-[3rem] bg-[#89CFFD] px-2 py-6 lg:ml-auto lg:h-[30%] lg:w-[45%]">
         <div className="mx-auto w-[90%]">
-          <h2 className="text-right text-7xl ">Work</h2>
-          <h2 className="text-right text-7xl">Experience</h2>
+          <h2 className="text-right text-7xl md:text-8xl lg:text-9xl">Work</h2>
+          <h2 className="text-right text-7xl md:text-8xl lg:text-9xl">
+            Experience
+          </h2>
         </div>
       </div>
-      <div className="ml-auto w-[95%]">
-        {/* ========= SLIDER ======= */}
+      {/* ========= SLIDER ======= */}
+      <div className="ml-auto w-[95%] lg:hidden">
         <div ref={sliderRef} className="keen-slider hover:cursor-grab">
           {/* ========= FIRST SLIDE ============ */}
           <div className="keen-slider__slide grid transform-gpu grid-cols-1 space-x-0.5 sm:space-x-1 md:space-x-1.5">
@@ -247,6 +280,32 @@ const WorkExperienceSection = () => {
           </div>
         </div>
       </div>
+
+      {/* ========= DISPLAYS WORK EXPERIENCE ON LARGE DEVICES ======= */}
+      <section className="mx-auto hidden lg:block lg:h-[65%] lg:w-11/12">
+        <div className="h-full w-3/4 lg:relative">
+          <ul className="work-exp-grid absolute -top-[25%] right-0 mx-auto grid h-[70vh] w-[60%] border-2 border-red-500">
+            {combinedLists.map(
+              (
+                item: {
+                  duration: string
+                  position: string
+                  company: string
+                },
+                index: number,
+              ) => {
+                return (
+                  <li className="border-l-4 border-b-4 border-[#F38B57] py-1 pl-5 text-lg" key={item.company}>
+                    <p className="restorabold text-lg">{item.duration}</p>
+                    <p className="restorabold text-lg">{item.position}</p>
+                    <p className={`${item.company.includes('placeholder') ? 'invisible' : ''} restorabold text-lg`}>{item.company}</p>
+                  </li>
+                )
+              },
+            )}
+          </ul>
+        </div>
+      </section>
     </div>
   )
 }
