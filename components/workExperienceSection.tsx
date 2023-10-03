@@ -321,12 +321,12 @@ const WorkExperienceSection = () => {
             )}
           </ul>
           <div className="hidden absolute lg:grid grid-rows-3 grid-cols-2 left-[10%] top-2/3 gap-y-4 gap-x-6">
-              <EmailIcon fill='#F38B57' />
-              <LinkedinIcon fill='#F38B57' />
-              <ResumeIcon fill='#F38B57' />
-              <GithubIcon fill='#F38B57' />
-              <MediumIcon fill='#F38B57' />
-              <BookLinkIcon fill='#F38B57' />
+              <EmailIcon fill="#F38B57" />
+              <LinkedinIcon fill="#F38B57"/>
+              <ResumeIcon fill="#F38B57" />
+              <GithubIcon fill="#F38B57" />
+              <MediumIcon fill="#F38B57" />
+              <BookLinkIcon fill="#F38B57" />
           </div>
         </div>
       </section>
