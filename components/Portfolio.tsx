@@ -38,19 +38,13 @@ const Portfolio = () => {
         "Duis aute irure dolor in reprehenderit in volputate velit esse cillum dolore eu fugasdiate nulla pariateur. Excepteur sint occaecat cupidtat non proident, sunt in culpa qui offcia deserunt.",
       tech: ["Lorem", "Ipsum", "Dolor", "Amet"],
     },
-    {
-      projectTitle: "6th item",
-      details:
-        "Duis aute irure dolor in reprehenderit in volputate velit esse cillum dolore eu fugasdiate nulla pariateur. Excepteur sint occaecat cupidtat non proident, sunt in culpa qui offcia deserunt.",
-      tech: ["Lorem", "Ipsum", "Dolor", "Amet"],
-    },
   ]
 
   return (
-    <div className="h-screen">
+    <div className="h-screen pink-bg-img">
       <div className="py-4 md:h-[15vh]">
         <div className="mx-auto w-4/5 text-center">
-          <h2 className="text-7xl">Portfolio</h2>
+          <h2 className="text-7xl lg:text-9xl">Portfolio</h2>
         </div>
       </div>
       {/* ========= SLIDER ======= */}
@@ -95,21 +89,29 @@ const Portfolio = () => {
         </div>
       </div>
 
-      <div className="hidden md:mx-auto md:block md:h-[85vh] md:w-11/12">
-        <div className="md:flex justify-between bg-[#89cffd] md:h-1/4 rounded-tr-3xl">
-          <div className="md:w-1/4">
-            <h3>Project Title Lorem Ipsum Dolor Sit Amet</h3>
+      {/* DISPLAYS PORTFOLIO WORK ON MEDIUM AND LARGE DEVICES */}      
+      <div className="hidden md:mx-auto md:block md:h-[85vh] md:w-full">
+        {portfolioWork.map((item: {
+          projectTitle: string,
+          details: string,
+          tech: string[]
+        }) => {
+          return (
+        <div key={`portfolio-work${item.projectTitle}`} className="md:flex hover:bg-[#B9E3FF] justify-around items-center bg-[#89cffd] md:h-1/6 rounded-tr-3xl px-2 mb-1">
+          <div className="md:w-[15%] border-2 border-red-500">
+            <h3 className="restorabold text-xl lg:text-2xl">{item.projectTitle}</h3>
           </div>
-          <div className="md:w-[45%]">
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugasdiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+          <div className="md:w-[45%] lg:w-1/3">
+            <p className="lg:text-lg">{item.details}</p>
           </div>
-          <div className="md:flex md:w-1/4 md:flex-wrap">
-            <p className="bg-[#FFE366] rounded-tr-xl pl-2 pr-2 py-1 self-start md:ml-auto">Lorem</p>
-            <p className="bg-[#FFE366] rounded-tr-xl pl-2 pr-2 py-1 self-start">Lorem</p>
-            <p className="bg-[#FFE366] rounded-tr-xl pl-2 pr-2 py-1 self-start">Lorem</p>
-            <p className="bg-[#FFE366] rounded-tr-xl pl-2 pr-2 py-1 self-start">Lorem</p>
+          <div className="border-2 border-black flex flex-end flex-wrap md:gap-x-1.5 md:w-1/4 lg:justify-center">
+            {item.tech.map((str: string, index: number) => {
+              return <p key={`${item.projectTitle + str + index}`} className="bg-[#FFE366] rounded-tr-xl pl-2 pr-2 py-1 mb-2 lg:mb-0 lg:text-lg">{str}</p>
+            })}
           </div>
-        </div>
+        </div>            
+          )
+        })}
       </div>
     </div>
   )

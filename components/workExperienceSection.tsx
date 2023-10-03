@@ -291,7 +291,7 @@ const WorkExperienceSection = () => {
       {/* ========= DISPLAYS WORK EXPERIENCE ON LARGE DEVICES ======= */}
       <section className="mx-auto hidden lg:block lg:h-[65%] lg:w-11/12">
         <div className="h-full w-3/4 lg:relative">
-          <ul className="work-exp-grid absolute -top-[20%] right-10 mx-auto grid h-[70vh] w-[60%]">
+          <ul className="work-exp-grid absolute -top-[30%] right-10 mx-auto grid h-[70vh] w-[60%]">
             {combinedLists.map(
               (
                 item: {
@@ -305,6 +305,7 @@ const WorkExperienceSection = () => {
                 return (
                   <li className={`
                     ${index < getHalfNum || index > getHalfNum + 3 ? 'border-l-4 code-icon' : ''} 
+                    ${combinedLists.length - 1 === index? 'border-l-0' : ''} 
                     ${index === getHalfNum - 1 || index === getHalfNum - 2 || index === getHalfNum - 3  ? 'border-r-4 mr-8' : ''} 
                     ${index === getHalfNum - 1 ? ' rounded-br-3xl' : ''} 
                     ${index + 1 === getHalfNum ? 'border-b-4 rounded-bl-3xl' : ''} 
@@ -313,7 +314,7 @@ const WorkExperienceSection = () => {
                     key={item.company}>
                     <p className="restorabold text-xl">{item.duration}</p>
                     <p className="restorabold text-xl py-2">{item.position}</p>
-                    <p className={`${item.company.includes('placeholder') ? 'invisible' : ''} restorabold text-lg`}>{item.company}</p>
+                    <p className={`${item.company.includes('placeholder') ? 'invisible' : ''} restorabold text-lg pb-2`}>{item.company}</p>
                   </li>
                 )
               },
