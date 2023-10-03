@@ -1,6 +1,13 @@
 import React, { Fragment } from "react"
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
+import IconLinks from "./iconLinks"
+import EmailIcon from "./emailIcon"
+import LinkedinIcon from "./linkedinIcon"
+import ResumeIcon from "./resumeIcon"
+import GithubIcon from "./githubIcon"
+import MediumIcon from "./mediumIcon"
+import BookLinkIcon from "./bookLinkIcon"
 
 const WorkExperienceSection = () => {
   const [sliderRef, slider] = useKeenSlider({ loop: true })
@@ -284,7 +291,7 @@ const WorkExperienceSection = () => {
       {/* ========= DISPLAYS WORK EXPERIENCE ON LARGE DEVICES ======= */}
       <section className="mx-auto hidden lg:block lg:h-[65%] lg:w-11/12">
         <div className="h-full w-3/4 lg:relative">
-          <ul className="work-exp-grid absolute -top-[25%] right-0 mx-auto grid h-[70vh] w-[60%]">
+          <ul className="work-exp-grid absolute -top-[20%] right-10 mx-auto grid h-[70vh] w-[60%]">
             {combinedLists.map(
               (
                 item: {
@@ -302,16 +309,24 @@ const WorkExperienceSection = () => {
                     ${index === getHalfNum - 1 ? ' rounded-br-3xl' : ''} 
                     ${index + 1 === getHalfNum ? 'border-b-4 rounded-bl-3xl' : ''} 
                     ${index === 2 ? 'line' : ''} 
-                    border-[#F38B57] py-1 pl-5 text-lg relative`} 
+                    border-[#F38B57] pr-1 pl-5 text-xl relative`} 
                     key={item.company}>
-                    <p className="restorabold text-lg">{item.duration}</p>
-                    <p className="restorabold text-lg">{item.position}</p>
+                    <p className="restorabold text-xl">{item.duration}</p>
+                    <p className="restorabold text-xl py-2">{item.position}</p>
                     <p className={`${item.company.includes('placeholder') ? 'invisible' : ''} restorabold text-lg`}>{item.company}</p>
                   </li>
                 )
               },
             )}
           </ul>
+          <div className="hidden absolute lg:grid grid-rows-3 grid-cols-2 left-[10%] top-2/3 gap-y-4 gap-x-6">
+              <EmailIcon fill='#F38B57' />
+              <LinkedinIcon fill='#F38B57' />
+              <ResumeIcon fill='#F38B57' />
+              <GithubIcon fill='#F38B57' />
+              <MediumIcon fill='#F38B57' />
+              <BookLinkIcon fill='#F38B57' />
+          </div>
         </div>
       </section>
     </div>
