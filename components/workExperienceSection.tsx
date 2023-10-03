@@ -12,7 +12,8 @@ import BookLinkIcon from "./bookLinkIcon"
 const WorkExperienceSection = () => {
   const [sliderRef, slider] = useKeenSlider({ loop: true })
 
-  /* DATA FOR WORK EXPERIENCE SLIDER */
+  /* Data for work experience slider
+  */
   const workExperienceList = {
     firstSlide: [
       {
@@ -73,15 +74,15 @@ const WorkExperienceSection = () => {
       },
     ],
   }
-  /* DISPLAYS WORK EXPERIENCE FOR LARGE BREAKPOINTS */
+  /* Displays work experience for large breakpoints */
   const combinedLists = workExperienceList.firstSlide.concat(
     workExperienceList.secondSlide,
     workExperienceList.thirdSlide,
     workExperienceList.fourthSlide,
   )
-  /* NUMBER OF ITEMS IN combinedLists DIVIDED 2 USED TO FILL SPACE */
+  /* Number of items in combinedLists divided 2 used to fill space */
   const getHalfNum = Math.floor(combinedLists.length / 2)
-  //ITEMS IN GRID USED FOR LAYOUT
+  //Items in gird used for layout
   combinedLists.splice(
     getHalfNum,
     0,
@@ -117,10 +118,10 @@ const WorkExperienceSection = () => {
           </h2>
         </div>
       </div>
-      {/* ========= SLIDER ======= */}
+      {/* ========= Slider ======= */}
       <div className="ml-auto w-[95%] lg:hidden">
         <div ref={sliderRef} className="keen-slider hover:cursor-grab">
-          {/* ========= FIRST SLIDE ============ */}
+          {/* ========= First Slide ============ */}
           <div className="keen-slider__slide grid transform-gpu grid-cols-1 space-x-0.5 sm:space-x-1 md:space-x-1.5">
             <div>
               <div className="">
@@ -175,7 +176,7 @@ const WorkExperienceSection = () => {
               </div>
             </div>
           </div>
-          {/* ========= SECOND SLIDE ============ */}
+          {/* ========= Second Slide ============ */}
           <div className="keen-slider__slide grid transform-gpu grid-cols-1 space-x-0.5 sm:space-x-1 md:space-x-1.5 xl:space-x-2">
             <div className="">
               <div className="mx-auto">
@@ -219,7 +220,7 @@ const WorkExperienceSection = () => {
               </div>
             </div>
           </div>
-          {/* ========= THIRD SLIDE ============ */}
+          {/* ========= Third Slide ============ */}
           <div className="keen-slider__slide grid transform-gpu grid-cols-1 space-x-0.5 sm:space-x-1 md:space-x-1.5 xl:space-x-2">
             <div className="">
               <div className="mx-auto">
@@ -263,7 +264,7 @@ const WorkExperienceSection = () => {
               </div>
             </div>
           </div>
-          {/* ========= FOURTH SLIDE ============ */}
+          {/* ========= Fourth Slide ============ */}
           <div className="keen-slider__slide grid transform-gpu grid-cols-1 space-x-0.5 sm:space-x-1 md:space-x-1.5 xl:space-x-2">
             <div className="">
               <div className="mx-auto">
@@ -288,7 +289,7 @@ const WorkExperienceSection = () => {
         </div>
       </div>
 
-      {/* ========= DISPLAYS WORK EXPERIENCE ON LARGE DEVICES ======= */}
+      {/* ========= Displays work experince on large devices ======= */}
       <section className="mx-auto hidden lg:block lg:h-[65%] lg:w-11/12">
         <div className="h-full w-3/4 lg:relative">
           <ul className="work-exp-grid absolute -top-[30%] right-10 mx-auto grid h-[70vh] w-[60%]">
@@ -301,7 +302,7 @@ const WorkExperienceSection = () => {
                 },
                 index: number,
               ) => {
-                /* TERNARY OPERATORS ADDS CSS BORDERS BASED ON INDEX */
+                /* Ternary operators adds CSS borders based on index */
                 return (
                   <li className={`
                     ${index < getHalfNum || index > getHalfNum + 3 ? 'border-l-4 code-icon' : ''} 
