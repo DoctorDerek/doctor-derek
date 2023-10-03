@@ -1,11 +1,11 @@
 export default function MediumIcon ({
-    fill,
-  }: {
-    fill: string
-    /**
-     * Fill is for the svg icon color, hex color
-     */
-  }) {
+  fill,
+}: {
+  fill: "#F38B57" | "white"
+  /**
+   * Fill is for svg icon color
+   */
+}) {
     return (
         <a
         href="https://doctorderek.medium.com/"

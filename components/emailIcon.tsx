@@ -1,9 +1,9 @@
 export default function EmailIcon ({
   fill,
 }: {
-  fill: string
+  fill: "#F38B57" | "white"
   /**
-   * Fill is for the svg icon color, hex color
+   * Fill is for svg icon color
    */
 }) {
   return (

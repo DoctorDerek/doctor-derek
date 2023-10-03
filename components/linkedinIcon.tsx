@@ -1,11 +1,11 @@
-export default function LinkedinIcon  ({
-    fill,
-  }: {
-    fill: string
-    /**
-     * Fill is for the svg icon color, hex color
-     */
-  })  {
+export default function LinkedinIcon ({
+  fill,
+}: {
+  fill: "#F38B57" | "white"
+  /**
+   * Fill is for svg icon color
+   */
+}) {
     return (
         <a
         href="https://www.linkedin.com/in/derek-austin/"
