@@ -107,10 +107,10 @@ const Portfolio = () => {
               return (
                 <div
                   key={item.projectTitle}
-                  className="keen-slider__slide grid transform-gpu grid-cols-1 space-x-0.5 sm:space-x-1 md:space-x-1.5 xl:space-x-2"
+                  className="mx-auto keen-slider__slide grid transform-gpu grid-cols-1 space-x-0.5 sm:space-x-1"
                 >
-                  <div>
-                    <div className="mx-auto">
+                  <div className="mx-auto">
+                    <div>
                       {/* white space used as a placeholder for project image */}
                       <div className="mx-auto mb-1 h-[30vh] w-11/12 rounded-tr-3xl bg-white"></div>
                       <div className="mx-auto w-11/12 bg-[#89CFFD] pb-4 pl-3 pr-3 pt-2">
