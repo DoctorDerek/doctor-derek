@@ -1,56 +1,103 @@
-import React, { useState, Fragment } from "react"
+import React, { useState } from "react"
 import { useKeenSlider } from "keen-slider/react"
+import Modal from "./modal"
+
+/** Item in the array is each slide in the slider */
+const projects = [
+  {
+    projectTitle: "Project Title Lorem Ipsum Dolor Sit Amet",
+    details:
+      "Duis aute irure dolor in reprehenderit in volputate velit esse cillum dolore eu fugasdiate nulla pariateur. Excepteur sint occaecat cupidtat non proident, sunt in culpa qui offcia deserunt.",
+    tech: ["Lorem", "Ipsum", "Dolor", "Amet"],
+    isClicked: false,
+  },
+  {
+    projectTitle: "2nd item",
+    details:
+      "Duis aute irure dolor in reprehenderit in volputate velit esse cillum dolore eu fugasdiate nulla pariateur. Excepteur sint occaecat cupidtat non proident, sunt in culpa qui offcia deserunt.",
+    tech: ["Lorem", "Ipsum", "Dolor", "Amet"],
+    isClicked: false,
+  },
+  {
+    projectTitle: "3rd item",
+    details:
+      "Duis aute irure dolor in reprehenderit in volputate velit esse cillum dolore eu fugasdiate nulla pariateur. Excepteur sint occaecat cupidtat non proident, sunt in culpa qui offcia deserunt.",
+    tech: ["Lorem", "Ipsum", "Dolor", "Amet"],
+    isClicked: false,
+  },
+  {
+    projectTitle: "4th item",
+    details:
+      "Duis aute irure dolor in reprehenderit in volputate velit esse cillum dolore eu fugasdiate nulla pariateur. Excepteur sint occaecat cupidtat non proident, sunt in culpa qui offcia deserunt.",
+    tech: ["Lorem", "Ipsum", "Dolor", "Amet"],
+    isClicked: false,
+  },
+  {
+    projectTitle: "5th item",
+    details:
+      "Duis aute irure dolor in reprehenderit in volputate velit esse cillum dolore eu fugasdiate nulla pariateur. Excepteur sint occaecat cupidtat non proident, sunt in culpa qui offcia deserunt.",
+    tech: ["Lorem", "Ipsum", "Dolor", "Amet"],
+    isClicked: false,
+  },
+  {
+    projectTitle: "6th item",
+    details:
+      "Duis aute irure dolor in reprehenderit in volputate velit esse cillum dolore eu fugasdiate nulla pariateur. Excepteur sint occaecat cupidtat non proident, sunt in culpa qui offcia deserunt.",
+    tech: ["Lorem", "Ipsum", "Dolor", "Amet"],
+    isClicked: false,
+  },
+]
 
 const Portfolio = () => {
+  const [portfolioWork, setPortfolioWork] = useState(projects)
+  const [showModal, setShowModal] = useState<Boolean>(false)
   const [sliderRef, slider] = useKeenSlider({
     loop: true,
   })
 
-  /** ITEM IN THE ARRAY IS EACH SLIDE IN THE SLIDER */
-  const portfolioWork = [
-    {
-      projectTitle: "Project Title Lorem Ipsum Dolor Sit Amet",
-      details:
-        "Duis aute irure dolor in reprehenderit in volputate velit esse cillum dolore eu fugasdiate nulla pariateur. Excepteur sint occaecat cupidtat non proident, sunt in culpa qui offcia deserunt.",
-      tech: ["Lorem", "Ipsum", "Dolor", "Amet"],
-    },
-    {
-      projectTitle: "2nd item",
-      details:
-        "Duis aute irure dolor in reprehenderit in volputate velit esse cillum dolore eu fugasdiate nulla pariateur. Excepteur sint occaecat cupidtat non proident, sunt in culpa qui offcia deserunt.",
-      tech: ["Lorem", "Ipsum", "Dolor", "Amet"],
-    },
-    {
-      projectTitle: "3rd item",
-      details:
-        "Duis aute irure dolor in reprehenderit in volputate velit esse cillum dolore eu fugasdiate nulla pariateur. Excepteur sint occaecat cupidtat non proident, sunt in culpa qui offcia deserunt.",
-      tech: ["Lorem", "Ipsum", "Dolor", "Amet"],
-    },
-    {
-      projectTitle: "4th item",
-      details:
-        "Duis aute irure dolor in reprehenderit in volputate velit esse cillum dolore eu fugasdiate nulla pariateur. Excepteur sint occaecat cupidtat non proident, sunt in culpa qui offcia deserunt.",
-      tech: ["Lorem", "Ipsum", "Dolor", "Amet"],
-    },
-    {
-      projectTitle: "5th item",
-      details:
-        "Duis aute irure dolor in reprehenderit in volputate velit esse cillum dolore eu fugasdiate nulla pariateur. Excepteur sint occaecat cupidtat non proident, sunt in culpa qui offcia deserunt.",
-      tech: ["Lorem", "Ipsum", "Dolor", "Amet"],
-    },
-  ]
+  /* Opens and closes modal */
+  const handleModal = (
+    projectName: string,
+    /**
+     * projectName: a string for name of the project that was clicked
+     */
+  ) => {
+    setShowModal(true)
+    /* Updates the hook and displays the object that is set truthy */
+    const selectProject = portfolioWork.map(
+      (item: {
+        projectTitle: string
+        /**
+         * projectTitle: a string for name of the project
+         */
+        details: string
+        /**
+         * details: a string for a brief description of the project
+         */
+        tech: string[]
+        /**
+         * tech: an array of strings for the technologies used for the project
+         */
+      }) => {
+        if (item.projectTitle === projectName) {
+          return { ...item, isClicked: true }
+        }
+        return { ...item, isClicked: false }
+      },
+    )
+    setPortfolioWork(selectProject)
+  }
 
   return (
-    <div className="h-screen pink-bg-img">
+    <div className="pink-bg-img h-screen">
       <div className="py-4 md:h-[15vh]">
         <div className="mx-auto w-4/5 text-center">
           <h2 className="text-7xl lg:text-9xl">Portfolio</h2>
         </div>
       </div>
-      {/* ========= SLIDER ======= */}
+      {/* ========= Slider, displays only on small devices ======= */}
       <div className="md:hidden">
         <div ref={sliderRef} className="keen-slider hover:cursor-grab">
-          {/* ======= PROJECT SLIDE ======= */}
           {portfolioWork.map(
             (item: {
               projectTitle: string
@@ -62,7 +109,7 @@ const Portfolio = () => {
                   key={item.projectTitle}
                   className="keen-slider__slide grid transform-gpu grid-cols-1 space-x-0.5 sm:space-x-1 md:space-x-1.5 xl:space-x-2"
                 >
-                  <div className="">
+                  <div>
                     <div className="mx-auto">
                       {/* white space used as a placeholder for project image */}
                       <div className="mx-auto mb-1 h-[30vh] w-11/12 rounded-tr-3xl bg-white"></div>
@@ -89,30 +136,56 @@ const Portfolio = () => {
         </div>
       </div>
 
-      {/* DISPLAYS PORTFOLIO WORK ON MEDIUM AND LARGE DEVICES */}      
-      <div className="hidden md:mx-auto md:block md:h-[85vh] md:w-full">
-        {portfolioWork.map((item: {
-          projectTitle: string,
-          details: string,
-          tech: string[]
-        }) => {
-          return (
-        <div key={`portfolio-work${item.projectTitle}`} className="md:flex hover:bg-[#B9E3FF] justify-around items-center bg-[#89cffd] md:h-1/6 rounded-tr-3xl px-2 mb-1">
-          <div className="md:w-[15%] border-2 border-red-500">
-            <h3 className="restorabold text-xl lg:text-2xl">{item.projectTitle}</h3>
-          </div>
-          <div className="md:w-[45%] lg:w-1/3">
-            <p className="lg:text-lg">{item.details}</p>
-          </div>
-          <div className="border-2 border-black flex flex-end flex-wrap md:gap-x-1.5 md:w-1/4 lg:justify-center">
-            {item.tech.map((str: string, index: number) => {
-              return <p key={`${item.projectTitle + str + index}`} className="bg-[#FFE366] rounded-tr-xl pl-2 pr-2 py-1 mb-2 lg:mb-0 lg:text-lg">{str}</p>
-            })}
-          </div>
-        </div>            
-          )
-        })}
+      {/* Displays portfolio work on medium and large devices */}
+      <div className="hidden gap-y-1 md:mx-auto md:flex md:h-[85vh] md:w-full md:flex-col">
+        {portfolioWork.map(
+          (item: {
+            projectTitle: string
+            /**
+             * projectTitle: a string for name of the project
+             */
+            details: string
+            /**
+             * details: a string for a brief description of the project
+             */
+            tech: string[]
+            /**
+             * tech: an array of strings for the technologies used for the project
+             */
+          }) => {
+            return (
+              <div
+                key={`portfolio-work${item.projectTitle}`}
+                onClick={() => handleModal(item.projectTitle)}
+                className="h-1/6 items-center justify-around rounded-tr-3xl bg-[#89cffd] px-2 hover:cursor-pointer hover:bg-[#B9E3FF] md:flex md:shrink"
+              >
+                <div className="md:w-[15%]">
+                  <h3 className="restorabold text-lg lg:text-2xl">
+                    {item.projectTitle}
+                  </h3>
+                </div>
+                <div className="md:w-[45%] lg:w-1/3">
+                  <p className="lg:text-lg">{item.details}</p>
+                </div>
+                <div className="flex-end flex flex-wrap md:w-1/4 md:gap-x-1.5 lg:justify-center">
+                  {item.tech.map((str: string, index: number) => {
+                    return (
+                      <p
+                        key={`${item.projectTitle + str + index}`}
+                        className="mb-2 rounded-tr-xl bg-[#FFE366] py-1 pl-2 pr-2 lg:mb-0 lg:text-lg"
+                      >
+                        {str}
+                      </p>
+                    )
+                  })}
+                </div>
+              </div>
+            )
+          },
+        )}
       </div>
+      {/* ======= Modal window component ======== */}
+      <Modal portfolioWork={portfolioWork} showModal={showModal} setShowModal={setShowModal} />
     </div>
   )
 }
