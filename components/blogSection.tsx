@@ -58,6 +58,7 @@ const BlogSection = () => {
             {/* ========== Sign Up =========== */}
             <div className="rounded-tl-2xl py-6">
               <div className="">
+                {/* Line divider */}
                 <div className="mb-7 mt-2 w-4/5 border-t-2 border-[#cd7656]"></div>
                 <h3 className="pb-3 text-xl">
                   Join over 160 email subscribers
