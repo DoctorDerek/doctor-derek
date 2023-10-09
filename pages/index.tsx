@@ -36,6 +36,7 @@ import ContactSection from "@/components/contactSection"
 import PostsSection from "@/components/PostsSection"
 import SectionContainer from "@/components/sectionContainer"
 import TopSection from "@/components/topSection"
+import MedLrgDevices from "@/components/medLrgDevices"
 
 const DesktopSections = [
   D0_Intro_Animation,
@@ -100,11 +101,11 @@ function DisplaySections({
             </div>
 
             {/*===== ABOUT SECTION WITH TECH STACK ====== */}
-            {/* <div className="lg:hidden">
+            {/* <div className="lg:hidden"> */}
               <div className="section flex h-screen flex-col bg-[#b9e3ff] md:hidden">
                 <TechStackSection />
               </div>
-            </div> */}
+            {/* </div> */}
 
             {/*========= WORK EXPERIENCE SECTION ========= */}
             <div className="section bg-[#FFE366]">
@@ -186,8 +187,7 @@ export default function Home() {
         />
       )}
       {width >= 768 && (
-        <DisplaySections
-          sections={DesktopSections}
+        <MedLrgDevices
           aspect="aspect-[5760/3200]"
         />
       )}
