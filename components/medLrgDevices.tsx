@@ -1,4 +1,3 @@
-import Head from "next/head"
 import ReactFullpage from "@fullpage/react-fullpage"
 import Image, { StaticImageData } from "next/image"
 import { useEffect, useState } from "react"
@@ -11,10 +10,7 @@ import BlogSection from "@/components/blogSection"
 import ContactSection from "@/components/contactSection"
 import TopSection from "@/components/topSection"
 
-/** Helper function to join Tailwind CSS classNames. Filters out falsy values */
-const classNames = (...args: string[]) => args.filter(Boolean).join(" ")
-
-/* Displays section of the based on screen size */
+/* Displays sections based on medium or large screen size */
 export default function MedLrgDevices({
   aspect,
 }: {

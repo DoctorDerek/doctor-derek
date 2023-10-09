@@ -101,12 +101,10 @@ function DisplaySections({
             </div>
 
             {/*===== ABOUT SECTION WITH TECH STACK ====== */}
-            {/* <div className="lg:hidden"> */}
-              <div className="section flex h-screen flex-col bg-[#b9e3ff] md:hidden">
+              <div className="section flex h-screen flex-col bg-[#b9e3ff]">
                 <TechStackSection />
               </div>
-            {/* </div> */}
-
+            
             {/*========= WORK EXPERIENCE SECTION ========= */}
             <div className="section bg-[#FFE366]">
               <WorkExperienceSection />
