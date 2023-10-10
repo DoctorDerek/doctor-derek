@@ -27,7 +27,7 @@ export default function MedLrgDevices({
         return (
           <ReactFullpage.Wrapper>
             {/* ========= TOP IMAGE ============ */}
-            <div className={`section h-screen bg-[#FFE366]`}>
+            <div className="section h-screen bg-[#FFE366]">
               <TopSection aspect="aspect-[5760/3200]" />
             </div>
 

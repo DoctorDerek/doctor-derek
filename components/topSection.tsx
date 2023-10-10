@@ -1,5 +1,5 @@
 import Image from "next/image"
-import M0_Intro_Animation from "@/images/M0_Intro_Animation.jpg"
+import Logo from "@/images/Logo.svg"
 import Navbar from "./navbar"
 
 /** Helper function to join Tailwind CSS classNames. Filters out falsy values */
@@ -12,18 +12,19 @@ export default function TopSection({
   aspect: "aspect-[5760/3200]" | "aspect-[1500/2668]"
 }) {
   return (
-    <div className="intro md:h-[100vh]">
+    <div className="yw-bg-img md:h-[100vh]">
       <Navbar />
+      <div className="h-[93dvh] w-full flex flex-col justify-center">
       <Image
-        src={M0_Intro_Animation}
+        src={Logo}
         alt={"Intro_Animation"}
         className={classNames(
           // We use "bg-yellow" to fill in the background (sides)
-          "h-[93dvh] w-full object-contain md:hidden",
+          "object-contain block mx-auto",
           aspect,
         )}
-        placeholder="blur"
       />
+      </div>
     </div>
   )
 }
