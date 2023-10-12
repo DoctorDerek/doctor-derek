@@ -117,7 +117,7 @@ button {
   }
 
   /* contact section image flip effect */
-  .flip {
+  .perspective {
     perspective: 700px;
   }
   .front,
@@ -125,11 +125,11 @@ button {
     backface-visibility: hidden;
   }
   .wrapper {
-    transition: transform 1s ease-out;
+    transition: transform 1.4s ease-out;
     transform-style: preserve-3d;
   }
   .wrapper:hover,
-   .back{
+  .back{
     transform: rotateY(180deg);
   }
 }
