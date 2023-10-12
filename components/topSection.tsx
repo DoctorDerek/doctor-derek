@@ -20,7 +20,7 @@ export default function TopSection({
         alt={"Intro_Animation"}
         className={classNames(
           // We use "bg-yellow" to fill in the background (sides)
-          "object-contain block mx-auto",
+          "object-contain block mx-auto md:mb-16",
           aspect,
         )}
       />
