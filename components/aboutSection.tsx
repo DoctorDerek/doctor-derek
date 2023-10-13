@@ -21,7 +21,7 @@ const AboutSection = () => {
   ]
 
   return (
-    <div className="h-screen blue-bg-img">    
+    <div className="blue-bg-img h-screen">
       <div className="mx-auto w-4/5 md:w-[90%] lg:w-3/4">
         <div className="py-4 md:relative md:py-8 lg:pb-10 lg:pt-14">
           <h2 className="text-7xl md:text-8xl lg:text-9xl lg:font-semibold">
@@ -33,14 +33,27 @@ const AboutSection = () => {
               <p className="pb-3 text-xl">Tech Stack</p>
             </div>
             <div className="flex flex-wrap content-between gap-x-4">
-              {techStack.map((item: string) => (
-                <p
-                  key={`${item}-tech-stack-key`}
-                  className="mb-2 rounded-tr-xl bg-[#FFE366] py-1 pl-2 pr-2 md:text-sm md:font-semibold lg:text-lg"
-                >
-                  {item}
-                </p>
-              ))}
+              {techStack.map(
+                (
+                  /**
+                   * item: string value of the tech stack previously used
+                   */
+                  item: string,
+                  /**
+                   * index: number value, to create unique React keys
+                   */
+                  index: number,
+                ) => {
+                  return (
+                    <p
+                      key={`${item}-tech-stack-key${index}`}
+                      className="mb-2 rounded-tr-xl bg-[#FFE366] py-1 pl-2 pr-2 md:text-sm md:font-semibold lg:text-lg"
+                    >
+                      {item}
+                    </p>
+                  )
+                },
+              )}
             </div>
           </div>
         </div>
