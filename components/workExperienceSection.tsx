@@ -150,7 +150,11 @@ const WorkExperienceSection = () => {
                       return (
                         <li
                           key={item.position}
-                          className={`relative border-l-4 border-[#F38B57] pb-4 pl-4 ${index === workExperienceList.firstSlide.length - 1 ? "border-b-4 rounded-bl-xl" : ""}`}
+                          className={`relative border-l-4 border-[#F38B57] pb-4 pl-4 ${
+                            index === workExperienceList.firstSlide.length - 1
+                              ? "rounded-bl-xl border-b-4"
+                              : ""
+                          }`}
                         >
                           {/* Code icon */}
                           <Image
@@ -208,7 +212,9 @@ const WorkExperienceSection = () => {
                       return (
                         <li
                           key={item.position}
-                          className={`relative border-l-4 border-[#F38B57] pb-4 pl-4 ${index === 2 ? "border-b-4 rounded-bl-xl" : ''}`}
+                          className={`relative border-l-4 border-[#F38B57] pb-4 pl-4 ${
+                            index === 2 ? "rounded-bl-xl border-b-4" : ""
+                          }`}
                         >
                           {/* Code icon */}
                           <Image
@@ -267,7 +273,9 @@ const WorkExperienceSection = () => {
                       return (
                         <li
                           key={item.position}
-                          className={`relative border-l-4 border-[#F38B57] pb-4 pl-4 ${index === 2 ? "border-b-4 rounded-bl-xl" : ''}`}
+                          className={`relative border-l-4 border-[#F38B57] pb-4 pl-4 ${
+                            index === 2 ? "rounded-bl-xl border-b-4" : ""
+                          }`}
                         >
                           {/* Code icon */}
                           <Image
@@ -326,7 +334,9 @@ const WorkExperienceSection = () => {
                       return (
                         <li
                           key={item.position}
-                          className={`relative border-l-4 border-[#F38B57] pb-4 pl-4 ${index === 2 ? "border-b-4 rounded-bl-xl" : ''}`}
+                          className={`relative border-l-4 border-[#F38B57] pb-4 pl-4 ${
+                            index === 2 ? "rounded-bl-xl border-b-4" : ""
+                          }`}
                         >
                           {/* Code icon */}
                           <Image
@@ -359,9 +369,9 @@ const WorkExperienceSection = () => {
       </div>
 
       {/* ========= Displays work experince on large devices ======= */}
-      <section className="mx-auto h-1/3 lg:block lg:h-[65%] lg:w-11/12">
-        <div className="h-full w-4/5 flex flex-col lg:relative">
-          <ul className="hidden work-exp-grid absolute -top-[30%] right-10 mx-auto lg:grid h-[70vh] w-[60%]">
+      <div className="mx-auto lg:block lg:h-[65%] lg:w-11/12">
+        <div className="flex h-[35vh] w-full flex-col md:h-[30vh] lg:relative lg:h-full">
+          <ul className="work-exp-grid hidden h-full w-1/2 lg:absolute lg:-top-[30%] lg:left-1/4 lg:grid">
             {combinedLists.map(
               (
                 item: {
@@ -371,54 +381,68 @@ const WorkExperienceSection = () => {
                 },
                 index: number,
               ) => {
-                /* Ternary operators adds CSS borders based on index */
+                /* Ternary operators adds CSS borders */
                 return (
                   <li
-                    className={`
-                    ${
-                      index < getHalfNum || index > getHalfNum + 3
-                        ? "border-l-4"
-                        : ""
-                    } 
-                    ${combinedLists.length - 1 === index ? "border-l-0" : ""} 
+                    className={`pl-4 
                     ${
                       index === getHalfNum - 1 ||
                       index === getHalfNum - 2 ||
                       index === getHalfNum - 3
                         ? "mr-8 border-r-4"
                         : ""
-                    } 
-                    ${index === getHalfNum - 1 ? " rounded-br-3xl" : ""} 
+                    }
+                    ${index === getHalfNum - 1 && "rounded-b-3xl border-b-4"} 
                     ${
-                      index + 1 === getHalfNum
-                        ? "rounded-bl-3xl border-b-4"
+                      index < getHalfNum || index > getHalfNum + 3
+                        ? "border-l-4 border-[#F38B57]"
                         : ""
-                    } 
-                    ${index === 2 ? "line" : ""} 
-                    relative border-[#F38B57] pl-5 pr-1 text-xl`}
-                    key={item.company}
+                    }
+                    ${index === combinedLists.length - 1 && "border-l-0"}
+                    ${index === 2 && "relative"}
+                    `}
+                    key={`${item.duration} ${index}`}
                   >
-                    <p className="restorabold text-xl">{item.duration}</p>
-                    <p className="restorabold py-2 text-xl">{item.position}</p>
-                    <p
-                      className={`${
-                        item.company.includes("placeholder") ? "invisible" : ""
-                      } restorabold pb-2 text-lg`}
-                    >
-                      {item.company}
-                    </p>
+                    <div className="relative flex flex-col">
+                      {/* Hides code icon if item.company string contains placeholder */}
+                      {!item.company.includes("placeholder") && (
+                        <Image
+                          src={codeIcon}
+                          className="absolute -left-8 top-0 h-6 w-6 bg-[#FFE366]"
+                          alt="code icon"
+                        />
+                      )}
+                      <p className="restorabold text-xl">{item.duration}</p>
+                      <p className="restorabold py-2 text-xl">
+                        {item.position}
+                      </p>
+                      <p
+                        className={`${
+                          item.company.includes("placeholder")
+                            ? "invisible"
+                            : ""
+                        } restorabold pb-2 text-lg`}
+                      >
+                        {item.company}
+                      </p>
+                    </div>
+                    {/* Horizontal connecting line for the 3rd item in */}
+                    {index === 2 && (
+                      <div className="absolute -right-8 top-0 w-8 border-b-2 border-t-2 border-[#F38B57]"></div>
+                    )}
                   </li>
                 )
               },
             )}
           </ul>
-          <div className="ml-6 flex mt-auto md:absolute left-[10%] top-2/3 grid-cols-2 grid-rows-3 gap-x-6 gap-y-4 lg:grid">
+          {/* Icons with links */}
+          <div className="mb-2 ml-6 mt-auto flex w-[65%] justify-between gap-y-4 md:ml-12 md:w-[50%] lg:mb-28 lg:ml-32 lg:grid lg:w-1/5 lg:grid-cols-2 lg:grid-rows-3 lg:gap-x-6">
             <a
-              className="text-lg text-[#311B4D] md:flex lg:text-xl"
+              className="text-[#311B4D] md:flex lg:text-xl"
               href="mailto:derekraustin@gmail.com"
             >
               <EmailIcon fill="#F38B57" />
-              <span className="ml-2 hidden pt-1 md:block">Email</span>
+              <span className="ml-2 hidden pt-1 lg:block">Email</span>
             </a>
             <a
               className="text-lg text-[#311B4D] md:flex lg:text-xl"
@@ -426,11 +450,11 @@ const WorkExperienceSection = () => {
               target="_blank"
             >
               <LinkedinIcon fill="#F38B57" />
-              <span className="ml-2 hidden pt-1 md:block">Linkedin</span>
+              <span className="ml-1 hidden pt-1 lg:block">Linkedin</span>
             </a>
             <a href="#" className="text-lg  text-[#311B4D] md:flex lg:text-xl">
               <ResumeIcon fill="#F38B57" />
-              <span className="ml-2 hidden pt-1 md:block">Resume</span>
+              <span className="ml-1 hidden pt-1 lg:block">Resume</span>
             </a>
             <a
               href="https://github.com/DoctorDerek"
@@ -438,7 +462,7 @@ const WorkExperienceSection = () => {
               target="_blank"
             >
               <GithubIcon fill="#F38B57" />
-              <span className="ml-2 hidden pt-1 md:block">Github</span>
+              <span className="ml-1 hidden pt-1 lg:block">Github</span>
             </a>
             <a
               href="https://doctorderek.medium.com/"
@@ -446,19 +470,19 @@ const WorkExperienceSection = () => {
               target="_blank"
             >
               <MediumIcon fill="#F38B57" />
-              <span className="ml-2 hidden pt-1 md:block ">Medium</span>
+              <span className="ml-1 hidden pt-1 lg:block ">Medium</span>
             </a>
             <a
-              className="lg:xl text-lg text-[#311B4D] md:flex"
+              className="text-[#311B4D] md:flex lg:text-xl"
               href="https://www.amazon.com/dp/B0BRJDLJ43"
               target="_blank"
             >
               <BookLinkIcon fill="#F38B57" />
-              <span className="ml-2 hidden pt-1 md:block">Book</span>
+              <span className="ml-1 hidden pt-1 lg:block">Book</span>
             </a>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   )
 }

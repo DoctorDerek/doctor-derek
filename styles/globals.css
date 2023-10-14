@@ -45,7 +45,6 @@ h4,
 button {
   font-family: "Restora";
 }
-
 .restoramedium {
   font-family: "Restoramedium";
 }
@@ -64,15 +63,6 @@ button {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(7, 1fr);
   grid-auto-flow: column;
-}
-.line:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: -2.5rem;
-  height: 4px;
-  width: 2.5rem;
-  border: 2px solid #F38B57;
 }
 
 /* =========================== 
@@ -100,14 +90,6 @@ button {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-  }
-
-  /* work experience code icon */
-  .code-icon::before {
-    position: absolute;
-    top: 0;
-    left: -1rem;
-    background-color: #FFE366; 
   }
 
   /* contact section image flip effect */
