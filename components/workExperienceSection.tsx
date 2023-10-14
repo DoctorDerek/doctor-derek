@@ -1,7 +1,8 @@
 import React, { Fragment } from "react"
+import Image from "next/image"
+import codeIcon from "images/codeIcon.svg"
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
-import IconLinks from "./iconLinks"
 import EmailIcon from "./emailIcon"
 import LinkedinIcon from "./linkedinIcon"
 import ResumeIcon from "./resumeIcon"
@@ -12,8 +13,7 @@ import BookLinkIcon from "./bookLinkIcon"
 const WorkExperienceSection = () => {
   const [sliderRef, slider] = useKeenSlider({ loop: true })
 
-  /* Data for work experience slider
-  */
+  /** Data for work experience slider */
   const workExperienceList = {
     firstSlide: [
       {
@@ -74,15 +74,15 @@ const WorkExperienceSection = () => {
       },
     ],
   }
-  /* Displays work experience for large breakpoints */
+  /**Displays work experience for large breakpoints */
   const combinedLists = workExperienceList.firstSlide.concat(
     workExperienceList.secondSlide,
     workExperienceList.thirdSlide,
     workExperienceList.fourthSlide,
   )
-  /* Number of items in combinedLists divided 2 used to fill space */
+  /** Number of items in combinedLists divided 2 used to fill space */
   const getHalfNum = Math.floor(combinedLists.length / 2)
-  //Items in gird used for layout
+  //Items in grid used for layout
   combinedLists.splice(
     getHalfNum,
     0,
@@ -122,53 +122,56 @@ const WorkExperienceSection = () => {
       <div className="ml-auto w-[95%] lg:hidden">
         <div ref={sliderRef} className="keen-slider hover:cursor-grab">
           {/* ========= First Slide ============ */}
-          <div className="keen-slider__slide grid transform-gpu grid-cols-1 space-x-0.5 sm:space-x-1 md:space-x-1.5">
+          <div className="keen-slider__slide">
             <div>
-              <div className="">
-                <ul className="mt-7 rounded-bl-2xl">
+              <div className="pl-3">
+                <ul className="mt-12 pl-1">
                   {workExperienceList.firstSlide.map(
                     (
                       item: {
+                        /**
+                         * duration: string value of the timespan within the position and used as React keys
+                         */
                         duration: string
                         /**
-                         * duration: timespan within the position
+                         * position: string value of the position worked in the company
                          */
                         position: string
                         /**
-                         * position: position worked in the company
+                         * company: string value of name of the company
                          */
                         company: string
-                        /**
-                         * company: name of the company
-                         */
                       },
-                      index: number,
                       /**
-                       * index: used to check if the item is the last item in the array to add CSS styles
+                       * index: number value used to determine whether to add css styles
                        */
+                      index: number,
                     ) => {
                       return (
-                        <Fragment key={item.position}>
-                          <li className="code-icon text-[#997f59]">
-                            {item.duration}
-                          </li>
-                          <li className="restorabold ml-2 border-l-4 border-[#F38B57] py-1 pl-5 text-lg text-[#311B4D]">
-                            <p className="restorabold text-lg">
+                        <li
+                          key={item.position}
+                          className={`relative border-l-4 border-[#F38B57] pb-4 pl-4 ${index === workExperienceList.firstSlide.length - 1 ? "border-b-4 rounded-bl-xl" : ""}`}
+                        >
+                          {/* Code icon */}
+                          <Image
+                            src={codeIcon}
+                            className="absolute -left-4 top-0 h-6 w-6 bg-[#FFE366]"
+                            alt="code icon"
+                          />
+                          <div className="">
+                            <p className="text-[#997f59]">{item.duration}</p>
+                          </div>
+                          <div className="py-1">
+                            <p className="restorabold text-lg text-[#311B4D]">
                               {item.position}
                             </p>
-                          </li>
-                          <li
-                            className={`restorabold ml-2 border-l-4 border-[#F38B57] pb-3 pl-5 text-[#311B4D] ${
-                              index === workExperienceList.firstSlide.length - 1
-                                ? "border-b-4"
-                                : ""
-                            }`}
-                          >
+                          </div>
+                          <div>
                             <p className="restorabold text-lg">
                               {item.company}
                             </p>
-                          </li>
-                        </Fragment>
+                          </div>
+                        </li>
                       )
                     },
                   )}
@@ -177,42 +180,56 @@ const WorkExperienceSection = () => {
             </div>
           </div>
           {/* ========= Second Slide ============ */}
-          <div className="keen-slider__slide grid transform-gpu grid-cols-1 space-x-0.5 sm:space-x-1 md:space-x-1.5 xl:space-x-2">
-            <div className="">
-              <div className="mx-auto">
-                <ul className="work-exp mt-7 rounded-bl-2xl">
+          <div className="keen-slider__slide">
+            <div>
+              <div className="pl-4">
+                <ul className="mt-7 pl-1">
                   {workExperienceList.secondSlide.map(
                     (
                       item: {
+                        /**
+                         * duration: string value of the timespan within the position and used as React keys
+                         */
                         duration: string
+                        /**
+                         * position: string value of the position worked in the company
+                         */
                         position: string
+                        /**
+                         * company: string value of name of the company
+                         */
                         company: string
                       },
+                      /**
+                       * index: number value used to determine whether to add css styles
+                       */
                       index: number,
                     ) => {
                       return (
-                        <Fragment key={item.position}>
-                          <li className="code-icon text-[#997f59]">
-                            {item.duration}
-                          </li>
-                          <li className="restorabold ml-2 border-l-4 border-[#F38B57] py-1 pl-5 text-lg text-[#311B4D]">
-                            <p className="restorabold text-lg">
+                        <li
+                          key={item.position}
+                          className={`relative border-l-4 border-[#F38B57] pb-4 pl-4 ${index === 2 ? "border-b-4 rounded-bl-xl" : ''}`}
+                        >
+                          {/* Code icon */}
+                          <Image
+                            src={codeIcon}
+                            className="absolute -left-4 top-0 h-6 w-6 bg-[#FFE366]"
+                            alt="code icon"
+                          />
+                          <div className="">
+                            <p className="text-[#997f59]">{item.duration}</p>
+                          </div>
+                          <div className="py-1">
+                            <p className="restorabold text-lg text-[#311B4D]">
                               {item.position}
-                            </p>{" "}
-                          </li>
-                          <li
-                            className={`restorabold ml-2 border-l-4 border-[#F38B57] pb-3 pl-5 text-[#311B4D] ${
-                              index ===
-                              workExperienceList.secondSlide.length - 1
-                                ? "border-b-4"
-                                : ""
-                            }`}
-                          >
+                            </p>
+                          </div>
+                          <div>
                             <p className="restorabold text-lg">
                               {item.company}
                             </p>
-                          </li>
-                        </Fragment>
+                          </div>
+                        </li>
                       )
                     },
                   )}
@@ -220,43 +237,58 @@ const WorkExperienceSection = () => {
               </div>
             </div>
           </div>
+
           {/* ========= Third Slide ============ */}
-          <div className="keen-slider__slide grid transform-gpu grid-cols-1 space-x-0.5 sm:space-x-1 md:space-x-1.5 xl:space-x-2">
-            <div className="">
-              <div className="mx-auto">
-                <ul className="work-exp mt-7 rounded-bl-2xl">
+          <div className="keen-slider__slide">
+            <div>
+              <div className="pl-4">
+                <ul className="mt-7 pl-1">
                   {workExperienceList.thirdSlide.map(
                     (
                       item: {
+                        /**
+                         * duration: string value of the timespan within the position and used as React keys
+                         */
                         duration: string
+                        /**
+                         * position: string value of the position worked in the company
+                         */
                         position: string
+                        /**
+                         * company: string value of name of the company
+                         */
                         company: string
                       },
+                      /**
+                       * index: number value used to determine whether to add css styles
+                       */
                       index: number,
                     ) => {
                       return (
-                        <Fragment key={item.position}>
-                          <li className="code-icon text-[#997f59]">
-                            {item.duration}
-                          </li>
-                          <li className="ml-2 border-l-4 border-[#F38B57] py-1 pl-5 text-lg text-[#311B4D]">
-                            <p className="restorabold text-lg">
+                        <li
+                          key={item.position}
+                          className={`relative border-l-4 border-[#F38B57] pb-4 pl-4 ${index === 2 ? "border-b-4 rounded-bl-xl" : ''}`}
+                        >
+                          {/* Code icon */}
+                          <Image
+                            src={codeIcon}
+                            className="absolute -left-4 top-0 h-6 w-6 bg-[#FFE366]"
+                            alt="code icon"
+                          />
+                          <div className="">
+                            <p className="text-[#997f59]">{item.duration}</p>
+                          </div>
+                          <div className="py-1">
+                            <p className="restorabold text-lg text-[#311B4D]">
                               {item.position}
                             </p>
-                          </li>
-                          <li
-                            className={`ml-2 border-l-4 border-[#F38B57] pb-3 pl-5 text-[#311B4D] ${
-                              index ===
-                              workExperienceList.secondSlide.length - 1
-                                ? "border-b-4"
-                                : ""
-                            }`}
-                          >
+                          </div>
+                          <div>
                             <p className="restorabold text-lg">
                               {item.company}
                             </p>
-                          </li>
-                        </Fragment>
+                          </div>
+                        </li>
                       )
                     },
                   )}
@@ -264,24 +296,61 @@ const WorkExperienceSection = () => {
               </div>
             </div>
           </div>
+
           {/* ========= Fourth Slide ============ */}
-          <div className="keen-slider__slide grid transform-gpu grid-cols-1 space-x-0.5 sm:space-x-1 md:space-x-1.5 xl:space-x-2">
-            <div className="">
-              <div className="mx-auto">
-                <ul className="work-exp mt-7 rounded-bl-2xl">
-                  <li className="code-icon text-[#997f59]">
-                    09/2019 - 11/2019
-                  </li>
-                  <li className="restorabold ml-2 border-l-4 border-[#F38B57] py-1 pl-5 text-lg text-[#311B4D]">
-                    <p className="restorabold text-lg">
-                      Front-End Developer (React)
-                    </p>
-                  </li>
-                  <li className="restorabold ml-2 border-l-4 border-[#F38B57] py-1 pl-5 text-lg text-[#311B4D]">
-                    <p className="restorabold text-lg">
-                      Brookbush Institute of Human Movement Science
-                    </p>
-                  </li>
+          <div className="keen-slider__slide">
+            <div>
+              <div className="pl-4">
+                <ul className="mt-7 pl-1">
+                  {workExperienceList.fourthSlide.map(
+                    (
+                      item: {
+                        /**
+                         * duration: string value of the timespan within the position and used as React keys
+                         */
+                        duration: string
+                        /**
+                         * position: string value of the position worked in the company
+                         */
+                        position: string
+                        /**
+                         * company: string value of name of the company
+                         */
+                        company: string
+                      },
+                      /**
+                       * index: number value used to determine whether to add css styles
+                       */
+                      index: number,
+                    ) => {
+                      return (
+                        <li
+                          key={item.position}
+                          className={`relative border-l-4 border-[#F38B57] pb-4 pl-4 ${index === 2 ? "border-b-4 rounded-bl-xl" : ''}`}
+                        >
+                          {/* Code icon */}
+                          <Image
+                            src={codeIcon}
+                            className="absolute -left-4 top-0 h-6 w-6 bg-[#FFE366]"
+                            alt="code icon"
+                          />
+                          <div className="">
+                            <p className="text-[#997f59]">{item.duration}</p>
+                          </div>
+                          <div className="py-1">
+                            <p className="restorabold text-lg text-[#311B4D]">
+                              {item.position}
+                            </p>
+                          </div>
+                          <div>
+                            <p className="restorabold text-lg">
+                              {item.company}
+                            </p>
+                          </div>
+                        </li>
+                      )
+                    },
+                  )}
                 </ul>
               </div>
             </div>
@@ -290,9 +359,9 @@ const WorkExperienceSection = () => {
       </div>
 
       {/* ========= Displays work experince on large devices ======= */}
-      <section className="mx-auto hidden lg:block lg:h-[65%] lg:w-11/12">
-        <div className="h-full w-3/4 lg:relative">
-          <ul className="work-exp-grid absolute -top-[30%] right-10 mx-auto grid h-[70vh] w-[60%]">
+      <section className="mx-auto h-1/3 lg:block lg:h-[65%] lg:w-11/12">
+        <div className="h-full w-4/5 flex flex-col lg:relative">
+          <ul className="hidden work-exp-grid absolute -top-[30%] right-10 mx-auto lg:grid h-[70vh] w-[60%]">
             {combinedLists.map(
               (
                 item: {
@@ -304,30 +373,89 @@ const WorkExperienceSection = () => {
               ) => {
                 /* Ternary operators adds CSS borders based on index */
                 return (
-                  <li className={`
-                    ${index < getHalfNum || index > getHalfNum + 3 ? 'border-l-4 code-icon' : ''} 
-                    ${combinedLists.length - 1 === index? 'border-l-0' : ''} 
-                    ${index === getHalfNum - 1 || index === getHalfNum - 2 || index === getHalfNum - 3  ? 'border-r-4 mr-8' : ''} 
-                    ${index === getHalfNum - 1 ? ' rounded-br-3xl' : ''} 
-                    ${index + 1 === getHalfNum ? 'border-b-4 rounded-bl-3xl' : ''} 
-                    ${index === 2 ? 'line' : ''} 
-                    border-[#F38B57] pr-1 pl-5 text-xl relative`} 
-                    key={item.company}>
+                  <li
+                    className={`
+                    ${
+                      index < getHalfNum || index > getHalfNum + 3
+                        ? "border-l-4"
+                        : ""
+                    } 
+                    ${combinedLists.length - 1 === index ? "border-l-0" : ""} 
+                    ${
+                      index === getHalfNum - 1 ||
+                      index === getHalfNum - 2 ||
+                      index === getHalfNum - 3
+                        ? "mr-8 border-r-4"
+                        : ""
+                    } 
+                    ${index === getHalfNum - 1 ? " rounded-br-3xl" : ""} 
+                    ${
+                      index + 1 === getHalfNum
+                        ? "rounded-bl-3xl border-b-4"
+                        : ""
+                    } 
+                    ${index === 2 ? "line" : ""} 
+                    relative border-[#F38B57] pl-5 pr-1 text-xl`}
+                    key={item.company}
+                  >
                     <p className="restorabold text-xl">{item.duration}</p>
-                    <p className="restorabold text-xl py-2">{item.position}</p>
-                    <p className={`${item.company.includes('placeholder') ? 'invisible' : ''} restorabold text-lg pb-2`}>{item.company}</p>
+                    <p className="restorabold py-2 text-xl">{item.position}</p>
+                    <p
+                      className={`${
+                        item.company.includes("placeholder") ? "invisible" : ""
+                      } restorabold pb-2 text-lg`}
+                    >
+                      {item.company}
+                    </p>
                   </li>
                 )
               },
             )}
           </ul>
-          <div className="hidden absolute lg:grid grid-rows-3 grid-cols-2 left-[10%] top-2/3 gap-y-4 gap-x-6">
+          <div className="ml-6 flex mt-auto md:absolute left-[10%] top-2/3 grid-cols-2 grid-rows-3 gap-x-6 gap-y-4 lg:grid">
+            <a
+              className="text-lg text-[#311B4D] md:flex lg:text-xl"
+              href="mailto:derekraustin@gmail.com"
+            >
               <EmailIcon fill="#F38B57" />
-              <LinkedinIcon fill="#F38B57"/>
+              <span className="ml-2 hidden pt-1 md:block">Email</span>
+            </a>
+            <a
+              className="text-lg text-[#311B4D] md:flex lg:text-xl"
+              href="https://www.linkedin.com/in/derek-austin/"
+              target="_blank"
+            >
+              <LinkedinIcon fill="#F38B57" />
+              <span className="ml-2 hidden pt-1 md:block">Linkedin</span>
+            </a>
+            <a href="#" className="text-lg  text-[#311B4D] md:flex lg:text-xl">
               <ResumeIcon fill="#F38B57" />
+              <span className="ml-2 hidden pt-1 md:block">Resume</span>
+            </a>
+            <a
+              href="https://github.com/DoctorDerek"
+              className="text-lg text-[#311B4D] md:flex lg:text-xl"
+              target="_blank"
+            >
               <GithubIcon fill="#F38B57" />
+              <span className="ml-2 hidden pt-1 md:block">Github</span>
+            </a>
+            <a
+              href="https://doctorderek.medium.com/"
+              className="text-lg text-[#311B4D] md:flex lg:text-xl"
+              target="_blank"
+            >
               <MediumIcon fill="#F38B57" />
+              <span className="ml-2 hidden pt-1 md:block ">Medium</span>
+            </a>
+            <a
+              className="lg:xl text-lg text-[#311B4D] md:flex"
+              href="https://www.amazon.com/dp/B0BRJDLJ43"
+              target="_blank"
+            >
               <BookLinkIcon fill="#F38B57" />
+              <span className="ml-2 hidden pt-1 md:block">Book</span>
+            </a>
           </div>
         </div>
       </section>
