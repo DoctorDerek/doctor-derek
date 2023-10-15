@@ -9,6 +9,7 @@ import ResumeIcon from "./resumeIcon"
 import GithubIcon from "./githubIcon"
 import MediumIcon from "./mediumIcon"
 import BookLinkIcon from "./bookLinkIcon"
+import WorkExpSlider from "./workExpSlider"
 
 const WorkExperienceSection = () => {
   const [sliderRef, slider] = useKeenSlider({ loop: true })
@@ -119,66 +120,14 @@ const WorkExperienceSection = () => {
         </div>
       </div>
       {/* ========= Slider ======= */}
-      <div className="ml-auto w-[95%] lg:hidden">
+      <div className="h-[42vh] ml-auto w-[95%] lg:hidden">
         <div ref={sliderRef} className="keen-slider hover:cursor-grab">
           {/* ========= First Slide ============ */}
           <div className="keen-slider__slide">
             <div>
               <div className="pl-3">
-                <ul className="mt-12 pl-1">
-                  {workExperienceList.firstSlide.map(
-                    (
-                      item: {
-                        /**
-                         * duration: string value of the timespan within the position and used as React keys
-                         */
-                        duration: string
-                        /**
-                         * position: string value of the position worked in the company
-                         */
-                        position: string
-                        /**
-                         * company: string value of name of the company
-                         */
-                        company: string
-                      },
-                      /**
-                       * index: number value used to determine whether to add css styles
-                       */
-                      index: number,
-                    ) => {
-                      return (
-                        <li
-                          key={item.position}
-                          className={`relative border-l-4 border-[#F38B57] pb-4 pl-4 ${
-                            index === workExperienceList.firstSlide.length - 1
-                              ? "rounded-bl-xl border-b-4"
-                              : ""
-                          }`}
-                        >
-                          {/* Code icon */}
-                          <Image
-                            src={codeIcon}
-                            className="absolute -left-4 top-0 h-6 w-6 bg-[#FFE366]"
-                            alt="code icon"
-                          />
-                          <div className="">
-                            <p className="text-[#997f59]">{item.duration}</p>
-                          </div>
-                          <div className="py-1">
-                            <p className="restorabold text-lg text-[#311B4D]">
-                              {item.position}
-                            </p>
-                          </div>
-                          <div>
-                            <p className="restorabold text-lg">
-                              {item.company}
-                            </p>
-                          </div>
-                        </li>
-                      )
-                    },
-                  )}
+                <ul className="mt-2 pl-1">
+                  <WorkExpSlider arry={workExperienceList.firstSlide} />
                 </ul>
               </div>
             </div>
@@ -188,57 +137,7 @@ const WorkExperienceSection = () => {
             <div>
               <div className="pl-4">
                 <ul className="mt-7 pl-1">
-                  {workExperienceList.secondSlide.map(
-                    (
-                      item: {
-                        /**
-                         * duration: string value of the timespan within the position and used as React keys
-                         */
-                        duration: string
-                        /**
-                         * position: string value of the position worked in the company
-                         */
-                        position: string
-                        /**
-                         * company: string value of name of the company
-                         */
-                        company: string
-                      },
-                      /**
-                       * index: number value used to determine whether to add css styles
-                       */
-                      index: number,
-                    ) => {
-                      return (
-                        <li
-                          key={item.position}
-                          className={`relative border-l-4 border-[#F38B57] pb-4 pl-4 ${
-                            index === 2 ? "rounded-bl-xl border-b-4" : ""
-                          }`}
-                        >
-                          {/* Code icon */}
-                          <Image
-                            src={codeIcon}
-                            className="absolute -left-4 top-0 h-6 w-6 bg-[#FFE366]"
-                            alt="code icon"
-                          />
-                          <div className="">
-                            <p className="text-[#997f59]">{item.duration}</p>
-                          </div>
-                          <div className="py-1">
-                            <p className="restorabold text-lg text-[#311B4D]">
-                              {item.position}
-                            </p>
-                          </div>
-                          <div>
-                            <p className="restorabold text-lg">
-                              {item.company}
-                            </p>
-                          </div>
-                        </li>
-                      )
-                    },
-                  )}
+                  <WorkExpSlider arry={workExperienceList.secondSlide} />
                 </ul>
               </div>
             </div>
@@ -249,57 +148,7 @@ const WorkExperienceSection = () => {
             <div>
               <div className="pl-4">
                 <ul className="mt-7 pl-1">
-                  {workExperienceList.thirdSlide.map(
-                    (
-                      item: {
-                        /**
-                         * duration: string value of the timespan within the position and used as React keys
-                         */
-                        duration: string
-                        /**
-                         * position: string value of the position worked in the company
-                         */
-                        position: string
-                        /**
-                         * company: string value of name of the company
-                         */
-                        company: string
-                      },
-                      /**
-                       * index: number value used to determine whether to add css styles
-                       */
-                      index: number,
-                    ) => {
-                      return (
-                        <li
-                          key={item.position}
-                          className={`relative border-l-4 border-[#F38B57] pb-4 pl-4 ${
-                            index === 2 ? "rounded-bl-xl border-b-4" : ""
-                          }`}
-                        >
-                          {/* Code icon */}
-                          <Image
-                            src={codeIcon}
-                            className="absolute -left-4 top-0 h-6 w-6 bg-[#FFE366]"
-                            alt="code icon"
-                          />
-                          <div className="">
-                            <p className="text-[#997f59]">{item.duration}</p>
-                          </div>
-                          <div className="py-1">
-                            <p className="restorabold text-lg text-[#311B4D]">
-                              {item.position}
-                            </p>
-                          </div>
-                          <div>
-                            <p className="restorabold text-lg">
-                              {item.company}
-                            </p>
-                          </div>
-                        </li>
-                      )
-                    },
-                  )}
+                  <WorkExpSlider arry={workExperienceList.thirdSlide} />
                 </ul>
               </div>
             </div>
@@ -310,57 +159,7 @@ const WorkExperienceSection = () => {
             <div>
               <div className="pl-4">
                 <ul className="mt-7 pl-1">
-                  {workExperienceList.fourthSlide.map(
-                    (
-                      item: {
-                        /**
-                         * duration: string value of the timespan within the position and used as React keys
-                         */
-                        duration: string
-                        /**
-                         * position: string value of the position worked in the company
-                         */
-                        position: string
-                        /**
-                         * company: string value of name of the company
-                         */
-                        company: string
-                      },
-                      /**
-                       * index: number value used to determine whether to add css styles
-                       */
-                      index: number,
-                    ) => {
-                      return (
-                        <li
-                          key={item.position}
-                          className={`relative border-l-4 border-[#F38B57] pb-4 pl-4 ${
-                            index === 2 ? "rounded-bl-xl border-b-4" : ""
-                          }`}
-                        >
-                          {/* Code icon */}
-                          <Image
-                            src={codeIcon}
-                            className="absolute -left-4 top-0 h-6 w-6 bg-[#FFE366]"
-                            alt="code icon"
-                          />
-                          <div className="">
-                            <p className="text-[#997f59]">{item.duration}</p>
-                          </div>
-                          <div className="py-1">
-                            <p className="restorabold text-lg text-[#311B4D]">
-                              {item.position}
-                            </p>
-                          </div>
-                          <div>
-                            <p className="restorabold text-lg">
-                              {item.company}
-                            </p>
-                          </div>
-                        </li>
-                      )
-                    },
-                  )}
+                  <WorkExpSlider arry={workExperienceList.fourthSlide} />
                 </ul>
               </div>
             </div>
@@ -370,7 +169,7 @@ const WorkExperienceSection = () => {
 
       {/* ========= Displays work experince on large devices ======= */}
       <div className="mx-auto lg:block lg:h-[65%] lg:w-11/12">
-        <div className="flex h-[35vh] w-full flex-col md:h-[30vh] lg:relative lg:h-full">
+        <div className="flex h-[30vh] w-full flex-col md:h-[30vh] lg:relative lg:h-full">
           <ul className="work-exp-grid hidden h-full w-1/2 lg:absolute lg:-top-[30%] lg:left-1/4 lg:grid">
             {combinedLists.map(
               (
@@ -426,7 +225,7 @@ const WorkExperienceSection = () => {
                         {item.company}
                       </p>
                     </div>
-                    {/* Horizontal connecting line for the 3rd item in */}
+                    {/* Horizontal connecting line for the 3rd item in work experience */}
                     {index === 2 && (
                       <div className="absolute -right-8 top-0 w-8 border-b-2 border-t-2 border-[#F38B57]"></div>
                     )}
