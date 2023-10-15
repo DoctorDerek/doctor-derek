@@ -40,14 +40,25 @@ const TechStackSection = () => {
             </div>
             {/* ========= TECH STACK ============ */}
             <div className="flex w-5/6 flex-wrap content-between gap-x-2">
-              {techStack.map((item: string) => (
-                <p
-                  key={item}
-                  className="mb-3 rounded-tr-xl bg-[#FFE366] py-1 pl-2 pr-2 text-xl"
-                >
-                  {item}
-                </p>
-              ))}
+              {techStack.map(
+                (
+                  /**
+                   * item: string value of the technologies used and to create unique React keys with index
+                   */
+                  item: string,
+                  /**
+                   * index: number value used with item to create unique React keys
+                   */
+                  index: number,
+                ) => (
+                  <p
+                    key={`techstack${item + index}reactkey`}
+                    className="mb-3 rounded-tr-xl bg-[#FFE366] py-1 pl-2 pr-2 text-xl"
+                  >
+                    {item}
+                  </p>
+                ),
+              )}
             </div>
           </div>
         </div>
