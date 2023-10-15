@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React from "react"
 import Image from "next/image"
 import codeIcon from "images/codeIcon.svg"
 import { useKeenSlider } from "keen-slider/react"
@@ -81,7 +81,7 @@ const WorkExperienceSection = () => {
     workExperienceList.thirdSlide,
     workExperienceList.fourthSlide,
   )
-  /** Number of items in combinedLists divided 2 used to fill space */
+  /** Number of items in combinedLists divided by 2 for placeholder space */
   const getHalfNum = Math.floor(combinedLists.length / 2)
   //Items in grid used for layout
   combinedLists.splice(
@@ -120,7 +120,7 @@ const WorkExperienceSection = () => {
         </div>
       </div>
       {/* ========= Slider ======= */}
-      <div className="h-[42vh] ml-auto w-[95%] lg:hidden">
+      <div className="ml-auto h-[42vh] w-[95%] lg:hidden">
         <div ref={sliderRef} className="keen-slider hover:cursor-grab">
           {/* ========= First Slide ============ */}
           <div className="keen-slider__slide">
@@ -173,11 +173,26 @@ const WorkExperienceSection = () => {
           <ul className="work-exp-grid hidden h-full w-1/2 lg:absolute lg:-top-[30%] lg:left-1/4 lg:grid">
             {combinedLists.map(
               (
+                /**
+                 * item: object of string key value pairs
+                 */
                 item: {
+                  /**
+                   * duration: string value of the timespan in a position and used as React keys
+                   */
                   duration: string
+                  /**
+                   * position: string value of the role worked in a company
+                   */
                   position: string
+                  /**
+                   * company: string value of name of the company
+                   */
                   company: string
                 },
+                /**
+                 * index: number value to add CSS styles
+                 */
                 index: number,
               ) => {
                 /* Ternary operators adds CSS borders */

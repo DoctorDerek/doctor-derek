@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React from "react"
 import Image from "next/image"
 import codeIcon from "images/codeIcon.svg"
 
