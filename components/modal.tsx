@@ -7,35 +7,33 @@ export default function Modal({
   showModal,
   setShowModal,
 }: {
-  portfolioWork: /**
-   * portfolioWork: array of objects, each object is 1 project
-   */
+  portfolioWork: 
   {
+    /**
+     * projectTitle: string value for name of the project
+     */
     projectTitle: string
     /**
-     * projectTitle: a string for name of the project
+     * details: string value for a brief description of the project
      */
     details: string
     /**
-     * details: a string for a brief description of the project
+     * tech: array of strings for the technologies used for the project
      */
     tech: string[]
     /**
-     * tech: an array of strings for the technologies used for the project
+     * isClicked: Boolean value, used to determine which project should be displayed in the modal
      */
     isClicked: Boolean
-    /**
-     * isClicked: Boolean value displayed in the modal
-     */
   }[]
-  showModal: Boolean
   /**
    * showModal: Hook boolean value displays or hides the modal
    */
-  setShowModal: Function
+  showModal: Boolean
   /**
    * setShowModal: function that updates hook boolean value
    */
+  setShowModal: Function
 }) {
   return (
     <Transition.Root show={showModal ? true : false} as={Fragment}>
@@ -71,13 +69,15 @@ export default function Modal({
                 <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
                   <button
                     type="button"
-                    className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                    className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2"
                     onClick={() => setShowModal(false)}
                   >
+                    {/* X icon to close modal window */}
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
                 </div>
-
+                
+                {/* Project information */}
                 <div className="mt-5 sm:mt-4 sm:flex">
                   {portfolioWork.map((item) => {
                     return (
