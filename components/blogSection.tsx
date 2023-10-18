@@ -3,8 +3,17 @@ import clock from "@/images/clock.png"
 import { useKeenSlider } from "keen-slider/react"
 
 const BlogSection = () => {
+  /* Slider styling and options */
   const [sliderRef, slider] = useKeenSlider({
     loop: true,
+    slides: {
+      spacing: 0,
+    },
+    breakpoints: {
+      "(min-width: 1040px)": {
+        slides: { perView: 3 }
+      },
+    }
   })
   /* Array of objects, each object is a article */
   const articlePosts = [
@@ -29,10 +38,18 @@ const BlogSection = () => {
         "Exploring the power of built-in utility types for safer code — TypeScript has introduced a variety of utility types, designed to help transform and manipulate ty...",
       time: "6 min read | May 21, 2023",
     },
+    {
+      header: "Typescript",
+      title: "4th slide",
+      details:
+        "Exploring the power of built-in utility types for safer code — TypeScript has introduced a variety of utility types, designed to help transform and manipulate ty...",
+      time: "6 min read | May 21, 2023",
+    },
   ]
+
   return (
-    <div className="h-screen">
-      <div className="h-full md:flex md:pt-24 lg:pt-16">
+    <div className="org-bg-img h-screen">
+      <div className="h-full md:flex md:pt-20 lg:pt-0 ">
         <div className="flex h-full flex-col text-[#311B4D] md:mx-auto md:w-1/2 lg:mx-0 lg:w-1/3">
           <div className="mx-auto w-4/5 pt-2 md:w-11/12 lg:mt-auto lg:w-4/5">
             <h2 className="text-7xl lg:text-9xl">Blog</h2>
@@ -45,10 +62,13 @@ const BlogSection = () => {
 
           <div className="mx-auto mt-6 w-4/5 md:w-11/12 lg:mb-auto lg:w-4/5">
             <div className="w-[40%]">
-              {/* p element needs to be changed to a hyperlink */}
-              <p className="rounded-tr-2xl bg-[#FFE366] px-1 py-4 text-center text-lg font-medium">
+              <a
+                href="#"
+                target="_blank"
+                className="block rounded-tr-2xl bg-[#FFE366] px-1 py-4 text-center text-lg font-medium"
+              >
                 View All Posts
-              </p>
+              </a>
             </div>
 
             <div className="mt-3">
@@ -97,65 +117,62 @@ const BlogSection = () => {
         </div>
 
         {/* ========== Slider =========== */}
-        <div className="hidden h-full md:block md:w-1/2 lg:flex lg:w-2/3 lg:flex-col">
-          <div className="mt-4 w-[95%] lg:mb-auto lg:mt-auto lg:w-1/2">
+        <div className="hidden h-full md:block md:w-1/2 md:pl-4 lg:flex lg:flex-col lg:w-2/3">
+          <div className="mt-4 w-[95%] lg:mb-auto lg:mt-auto lg:w-4/5">
             <div className="lg:my-auto">
               <div ref={sliderRef} className="keen-slider hover:cursor-grab">
                 {/* ========== Article posts ========== */}
                 {articlePosts.map(
                   (article: {
+                    /**
+                     * header: string value, subject of the article in yellow
+                     */
                     header: string
                     /**
-                     * header top part of the article in yellow
+                     * title: string value name of the article in pink and used to create unique React keys
                      */
                     title: string
                     /**
-                     * title: name of the article in pink
+                     * details: string value, preview of the article in blue
                      */
                     details: string
                     /**
-                     * details: preview of the article in blue
+                     * time: string value, date of the post & estimated time to read the entire article
                      */
                     time: string
-                    /**
-                     * time: string value of date & estimated time to read the entire article
-                     */
                   }) => {
                     return (
-                      <article
-                        key={article.title}
-                        className="keen-slider__slide mx-auto"
-                      >
-                        <div
-                          key={article.header}
-                          className="mx-auto w-3/4 lg:w-1/2"
-                        >
-                          <div className="relative mt-8">
-                            <p className="absolute -top-3 left-4 mb-2 rounded-tr-xl bg-[#FFE366] py-1 pl-3 pr-3 text-xl font-light">
-                              {article.header}
-                            </p>
-                            {/* ====== POST IMAGE ====== */}
-                            <div className="w-full">
-                              <Image
-                                src={clock}
-                                alt="How to user Readonly in Typescript"
-                                className="w-full object-cover"
-                              />
+                      <div key={article.title} className="keen-slider__slide">
+                        <div className="">
+                          <div className="">
+                            <div
+                              key={article.header}
+                              className="mt-20 h-full w-11/12"
+                            >
+                              <div className="relative w-11/12">
+                                <p className="absolute -top-3 left-4 rounded-tr-xl bg-[#FFE366] py-1 pl-3 pr-3 text-2xl">
+                                  {article.header}
+                                </p>
+                                {/* ====== POST IMAGE ====== */}
+                                <Image
+                                  src={clock}
+                                  alt="How to user Readonly in Typescript"
+                                  className="lg:h-[30vh] w-full"
+                                />
+                                <p className="absolute -bottom-4 w-11/12 rounded-tr-xl bg-[#FB70AA] py-2 pl-3 pr-3 text-lg text-white">
+                                  {article.title}
+                                </p>
+                              </div>
+                              <div className="w-11/12 bg-[#b9e3ff] pb-4 pl-4 pt-8">
+                                <p className="lg:text-xl">{article.details}</p>
+                                <p className="mt-4 text-[#747fa6]">
+                                  {article.time}
+                                </p>
+                              </div>
                             </div>
-                            <p className="absolute -bottom-6 w-4/5 rounded-tr-xl bg-[#FB70AA] py-2 pl-3 pr-3 text-lg text-white">
-                              {article.title}
-                            </p>
-                          </div>
-                          <div className="bg-[#b9e3ff]">
-                            <p className="text-medium px-2 pb-2 pl-3 pt-7">
-                              {article.details}
-                            </p>
-                            <p className="pb-2 pl-3 text-[#2b2f40]">
-                              {article.time}
-                            </p>
                           </div>
                         </div>
-                      </article>
+                      </div>
                     )
                   },
                 )}
