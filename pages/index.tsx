@@ -24,7 +24,19 @@ import M7_Contact from "@/images/M7_Contact.jpg"
 import Image, { StaticImageData } from "next/image"
 import { useEffect, useState } from "react"
 import Layout from "@/components/layout"
-import IconLinks from "@/components/iconLinks"
+import Navbar from "@/components/navbar"
+import IntroSection from "@/components/introSection"
+import AboutSection from "@/components/aboutSection"
+import TechStackSection from "@/components/techStackSection"
+import WorkExperienceSection from "@/components/workExperienceSection"
+import Portfolio from "@/components/Portfolio"
+import Testimonials from "@/components/testimonials"
+import BlogSection from "@/components/blogSection"
+import ContactSection from "@/components/contactSection"
+import PostsSection from "@/components/PostsSection"
+import SectionContainer from "@/components/sectionContainer"
+import TopSection from "@/components/topSection"
+import MedLrgDevices from "@/components/medLrgDevices"
 
 const DesktopSections = [
   D0_Intro_Animation,
@@ -38,7 +50,7 @@ const DesktopSections = [
 ]
 
 const MobileSections = [
-  // M0_Intro_Animation,
+  M0_Intro_Animation,
   M1_Intro,
   M2_About_A,
   M2_About_B,
@@ -73,70 +85,55 @@ function DisplaySections({
         //  render={({ state, fullpageApi }) => {
         return (
           <ReactFullpage.Wrapper>
-            <Layout>
-              {/* ========= TOP IMAGE ============ */}
-              <div className="section bg-[#FFE366]">
-                <Image
-                  src={M0_Intro_Animation}
-                  alt={"MO_Intro_Animation"}
-                  className={classNames(
-                    // We use "bg-yellow" to fill in the background (sides)
-                    "h-[100dvh] w-full object-contain",
-                    aspect,
-                  )}
-                  placeholder="blur"
-                />
+            {/* ========= TOP IMAGE ============ */}
+            <div className={`section h-screen bg-[#FFE366]`}>
+              <TopSection aspect="aspect-[5760/3200]" />
+            </div>
+
+            {/* ========= INTRO SECTION ============ */}
+            <div className="section intro flex h-screen flex-col bg-[#FFE366] md:flex-row">
+              <IntroSection />
+            </div>
+
+            {/*========= ABOUT SECTION ========= */}
+            <div className="section flex h-screen flex-col bg-[#b9e3ff] md:flex-row">
+              <AboutSection />
+            </div>
+
+            {/*===== ABOUT SECTION WITH TECH STACK ====== */}
+              <div className="section flex h-screen flex-col bg-[#b9e3ff]">
+                <TechStackSection />
               </div>
-              {/* ========= INTRO ============ */}
-              <div className="section bg-[#FFE366]">
-                <div className="h-screen">
-                  <div className="border-red-400 border-2 h-5/6 flex flex-col">
-                    <div className="w-4/5 mx-auto pt-4">
-                      <p className="text-[#FB70AA] text-3xl">
-                        React Software Engineer specializing in optimizing web
-                        performance, enhancing accessiblility, and crafting
-                        highly readable code.
-                      </p>
-                    </div>
+            
+            {/*========= WORK EXPERIENCE SECTION ========= */}
+            <div className="section bg-[#FFE366]">
+              <WorkExperienceSection />
+            </div>
 
-                    {/* ========= ICON LINKS ============ */}
-                    <div className="w-4/5 mx-auto pt-4 mt-auto">
-                      <div className="w-3/4 border-2 border-red-500">
-                        <IconLinks
-                          fill={"#F38B57"}
-                          flexSpacing={"justify-between"}
-                        />
-                      <div className="border-2 border-[#d6bb61]"></div>
-                      </div>
-                    </div>
+            {/*========= PORTFOLIO SECTION ========= */}
+            <div className="section bg-[#FB70AA]">
+              <Portfolio />
+            </div>
 
-                    <div className="mt-auto">
-                      <p className="text-[#FB70AA] text-3xl">Clients</p>
-                      <div className="flex w-full justify-between">
-                        <div className="pt-2 pb-2 pl-2 pr-2 w-1/4 border-2 border-black"></div>
-                        <div className="pt-2 pb-2 pl-2 pr-2 w-1/4 border-2 border-black"></div>
-                        <div className="pt-2 pb-2 pl-2 pr-2 w-1/4 border-2 border-black"></div>
-                      </div>
-                    </div>
+            {/*========= TESIMONIALS SECTION ========= */}
+            <div className="section bg-[#FB70AA]">
+              <Testimonials />
+            </div>
 
-                  </div>
-                </div>
-              </div>
-              {/* {sections.map((section) => (
-                <div className="section" key={section.src}>
-                  <Image
-                    src={section}
-                    alt={section.src}
-                    className={classNames(
-                      // We use "bg-yellow" to fill in the background (sides)
-                      "absolute top-0 h-[100dvh] w-full bg-[#FFE366] object-contain",
-                      aspect,
-                    )}
-                    placeholder="blur"
-                  />
-                </div>
-              ))} */}
-            </Layout>
+            {/* ========= BLOG SECTION ============ */}
+            <div className="section bg-[#F38B57]">
+              <BlogSection />
+            </div>
+
+            {/* ========= POSTS SECTION ============ */}
+            <div className="section bg-[#F38B57]">
+              <PostsSection />
+            </div>
+
+            {/* ========= CONTACT SECTION ============ */}
+            <div className="section">
+              <ContactSection />
+            </div>
           </ReactFullpage.Wrapper>
         )
       }}
@@ -180,21 +177,18 @@ export default function Home() {
       />
       {/* <Rive src="https://rive.app/s/0PCnhbxltU_9fMHg94CxVg/embed" /> */}
 
-      <Layout>
-        {/* =======LAYOUT ===== */}
-        {width < 768 && (
-          <DisplaySections
-            sections={MobileSections}
-            aspect="aspect-[1500/2668]"
-          />
-        )}
-        {width >= 768 && (
-          <DisplaySections
-            sections={DesktopSections}
-            aspect="aspect-[5760/3200]"
-          />
-        )}
-      </Layout>
+      {/* ======= LAYOUT ===== */}
+      {width < 768 && (
+        <DisplaySections
+          sections={MobileSections}
+          aspect="aspect-[1500/2668]"
+        />
+      )}
+      {width >= 768 && (
+        <MedLrgDevices
+          aspect="aspect-[5760/3200]"
+        />
+      )}
     </>
   )
 }

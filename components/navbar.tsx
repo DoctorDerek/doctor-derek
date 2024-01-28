@@ -1,10 +1,15 @@
-import { Fragment, useState } from "react"
-import { Bars3Icon, HomeIcon, XMarkIcon } from "@heroicons/react/24/outline"
-import { ChevronDownIcon } from "@heroicons/react/20/solid"
+import { useState } from "react"
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"
 import Image from "next/image"
 import Logo from "images/Logo.png"
+import medLrgLogo from "images/medLrgLogo.svg"
 import Link from "next/link"
-import IconLinks from "./iconLinks"
+import EmailIcon from "./emailIcon"
+import LinkedinIcon from "./linkedinIcon"
+import ResumeIcon from "./resumeIcon"
+import GithubIcon from "./githubIcon"
+import MediumIcon from "./mediumIcon"
+import BookLinkIcon from "./bookLinkIcon"
 
 const navigation = [
   { name: "About", href: "#", current: true },
@@ -19,105 +24,130 @@ export default function Navbar() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
-    <div className="">
-      {/* ======== MOBILE NAVBAR ======= */}
-      <div className="lg:pl-72">
-        <div className="bg-[#FFE366] sticky top-0 z-40 flex h-16 shrink-0 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8 ">
-          <div className="flex w-full">
-            <Link href="/" className="w-1/4 pt-3 pl-3 block">
-              <Image src={Logo} object-fit="contain" alt="Logo" />
+    <div className="h-[7vh]">
+      {/* ======== NAVBAR ======= */}
+      <div className="sticky top-0 z-40 flex h-full bg-[#FFE366] shadow-sm sm:gap-x-6 sm:px-6 md:h-screen md:w-14 md:px-0">
+        <div className="flex w-full md:flex-col">
+          <div className="w-1/4 pl-3 pt-3 md:order-2 md:h-[40vh] md:w-full md:pl-0 md:pt-0">
+            <Link href="/" className="md:block md:h-1/2 md:w-full md:pt-4">
+              {/* Displays logo on small devices */}
+              <Image
+                src={Logo}
+                object-fit="contain"
+                alt="Logo"
+                className="md:hidden"
+              />
+               {/* Displays logo on medium and large devices */}
+              <Image
+                src={medLrgLogo}
+                alt="Logo"
+                className="hidden md:block md:mx-auto"
+              />
+
             </Link>
-            <button
-              type="button"
-              className="ml-auto p-3.5 text-[#FFE366] lg:hidden bg-[#89cffd]"
-              onClick={() => setSidebarOpen(!sidebarOpen)}
-            >
-              {sidebarOpen ? (
-                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-              ) : (
-                <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-              )}
-            </button>
           </div>
-          {/* ======== SCROLL INDICATOR ======= */}
-
-        </div>
-      </div>
-
-      <div className="fixed inset-0 flex">
-        {/* <div className="absolute left-full top-0 flex w-16 justify-center pt-5">
           <button
             type="button"
-            className="m-2.5 p-2.5"
-            onClick={() => setSidebarOpen(false)}
+            className="text-[#FFE366]md:mt-60 ml-auto bg-[#89cffd] px-3.5 pt-1 md:order-1 md:ml-0 md:py-3"
+            onClick={() => setSidebarOpen(!sidebarOpen)}
           >
-            <XMarkIcon className="h-6 w-6 text-white" aria-hidden="true" />
+            {sidebarOpen ? (
+              <XMarkIcon
+                className="h-6 w-6 text-[#FFE366]"
+                aria-hidden="true"
+              />
+            ) : (
+              <Bars3Icon
+                className="h-6 w-6 text-[#FFE366]"
+                aria-hidden="true"
+              />
+            )}
           </button>
-        </div> */}
+        </div>
+        {/* ======== SCROLL INDICATOR ======= */}
+      </div>
 
+      <div className="fixed inset-0 mt-auto flex h-[90%]">
         {/* =========== SIDEBAR MOBILE MENU =========== */}
-        <div className="flex grow flex-col overflow-y-auto ">
+        <div className="flex grow flex-col overflow-y-auto">
           {/* ========= div creates spacing between links and navbar */}
-          <div className="h-16"></div>
+          <div className="h-14 md:hidden" />
           {/* =========== NAVIGATION LINKS ========== */}
           <nav
-            className={`flex flex-1 flex-col duration-500 ${
+            className={`md:h-11/12 flex h-full flex-col rounded-tr-3xl duration-500 md:mt-auto md:flex-row ${
               sidebarOpen ? "translate-x-0" : "-translate-x-full"
             } `}
           >
-            <div className="w-11/12 rounded-tr-3xl bg-[#89cffd]  h-full flex-col">
-            <ul
-              role="list"
-              className="flex flex-1 flex-col pt-8"
-            >
-              <li>
-                <ul role="list" className="mx-2 space-y-3">
-                  {navigation.map((item) => (
-                    <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className={
-                          "group flex gap-x-3 rounded-md p-2 text-5xl leading-8 font-semibold"
-                        }
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            </ul>
-            <div className="mt-auto mb-2 w-10/12">
-            <IconLinks fill={'white'} flexSpacing={"justify-around"} />
+            <div className="flex h-full w-11/12 flex-col content-between rounded-tr-2xl bg-[#89cffd] pl-5 md:w-3/4">
+              <ul role="list" className="pt-8">
+                {navigation.map((item) => (
+                  <li className="hover:text-white" key={item.name}>
+                    <a
+                      href={item.href}
+                      className={
+                        "md:restora-bold block py-2 text-5xl font-semibold md:p-1 md:pr-12 md:text-end md:text-7xl lg:text-8xl"
+                      }
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              {/* Sidebar, displays icon links on small devices */}
+              <div className="mt-auto w-10/12 pb-6 md:hidden">
+                <div className="flex justify-between">
+                  <a href="mailto:derekraustin@gmail.com">
+                    <EmailIcon fill="white" />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/derek-austin/"
+                    target="_blank"
+                  >
+                    <LinkedinIcon fill="white" />
+                  </a>
+                  <a href="">
+                    <ResumeIcon fill="white" />
+                  </a>
+                  <a href="https://github.com/DoctorDerek" target="_blank">
+                    <GithubIcon fill="white" />
+                  </a>
+                  <a href="https://doctorderek.medium.com/" target="_blank">
+                    <MediumIcon fill="white" />
+                  </a>
+                  <a
+                    href="https://www.amazon.com/dp/B0BRJDLJ43"
+                    target="_blank"
+                  >
+                    <BookLinkIcon fill="white" />
+                  </a>
+                </div>
+              </div>
             </div>
-            </div>            
-          </nav>
-        </div>
-      </div>
-
-      {/* Static sidebar for desktop */}
-      <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
-        <div className="flex grow flex-col gap-y-5 overflow-y-auto px-6 pb-4">
-          <div className="flex h-16 shrink-0 items-center"></div>
-          <nav className="flex flex-1 flex-col">
-            <ul role="list" className="flex flex-1 flex-col gap-y-7">
-              <li>
-                {/* <ul role="list" className="-mx-2 space-y-1">
-                  {navigation.map((item) => (
-                    <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className={
-                          "bg-indigo-700 text-indigo-200 hover:text-white hover:bg-indigo-700 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
-                        }
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul> */}
-              </li>
-            </ul>
+             {/* Displays icons in sidebar on medium and large devices */}
+            <div className="mx-auto my-auto hidden flex-col justify-between gap-y-4 md:flex">
+              <a className="block mb-2" href="mailto:derekraustin@gmail.com">
+                <EmailIcon fill="#F38B57" />
+              </a>
+              <a
+              className="block mb-2"
+                href="https://www.linkedin.com/in/derek-austin/"
+                target="_blank"
+              >
+                <LinkedinIcon fill="#F38B57" />
+              </a>
+              <a className="block mb-2" href="">
+                <ResumeIcon fill="#F38B57" />
+              </a>
+              <a className="block mb-2" href="https://github.com/DoctorDerek" target="_blank">
+                <GithubIcon fill="#F38B57" />
+              </a>
+              <a className="block mb-2" href="https://doctorderek.medium.com/" target="_blank">
+                <MediumIcon fill="#F38B57" />
+              </a>
+              <a className="block mb-2" href="https://www.amazon.com/dp/B0BRJDLJ43" target="_blank">
+                <BookLinkIcon fill="#F38B57" />
+              </a>
+            </div>
           </nav>
         </div>
       </div>

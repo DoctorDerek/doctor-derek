@@ -22,7 +22,94 @@ body {
   font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
+/* =================== 
+    RESTORA FONT
+  ===================== */
+@font-face {
+  font-family: Restora;
+  src: url('../asset/Fonts/restora-1.otf');
+}
+@font-face {
+  font-family: Restoramedium;
+  src: url('../asset/Fonts/restoramedium-1.otf');
+}
+@font-face {
+  font-family: Restorabold;
+  src: url('../asset/Fonts/restoraextrabold-1.otf');
+}
+a,
+p, 
+h2,
+h3,
+h4, 
+button {
+  font-family: "Restora";
+}
+.restoramedium {
+  font-family: "Restoramedium";
+}
+.restorabold {
+  font-family: "Restorabold";
+}
+
 /* Remove the fullPage.js watermark from the last slide */
 .fp-watermark {
   display: none;
+}
+/* =========================== 
+  WORK EXPERIENCE SECTION 
+============================== */
+.work-exp-grid {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  grid-auto-flow: column;
+}
+
+/* =========================== 
+  Media queries
+============================== */
+@media (min-width: 768px) {
+  /* background images */
+  .yw-bg-img {
+    background-image: url("../images/Intro-Animation.jpg");
+  }
+  .blue-bg-img {
+    background-image: url("../images/blue-bg-img.jpg");
+  }
+  .pink-bg-img {
+    background-image: url("../images/pink-bg-img.jpg");
+  }
+  .org-bg-img {
+    background-image: url("../images/org-bg-img.jpg");
+  }
+  .purple-bg-img {
+    background-image: url("../images/purple-bg-img.png");
+  }
+
+  .yw-bg-img, 
+  .blue-bg-img,
+  .pink-bg-img, 
+  .org-bg-img, 
+  .purple-bg-img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  /* contact section image flip effect */
+  .perspective {
+    perspective: 700px;
+  }
+  .front,
+  .back{
+    backface-visibility: hidden;
+  }
+  .wrapper {
+    transition: transform 1.4s ease-out;
+    transform-style: preserve-3d;
+  }
+  .wrapper:hover,
+  .back{
+    transform: rotateY(180deg);
+  }
 }

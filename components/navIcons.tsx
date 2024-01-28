@@ -4,7 +4,7 @@ import classNames from "@/utils/classNames"
  * Icons as hyperlinks, when clicked it opens links to either e-mail,
  * Linkedin, Resume, Github, Medium, or copy link
  */
-export default function IconLinks({
+export default function NavIcons({
   fill,
   flexSpacing,
 }: {
@@ -16,11 +16,11 @@ export default function IconLinks({
    * flexSpacing: flexbox property for justify-content
    * content will either have space around or between flex items
    * */
-  flexSpacing: "justify-between" | "justify-around" // | union type, valid values
+  flexSpacing: "justify-between" | "justify-around" | 'justify-center' // | union type, valid values
 }) {
 
   return (
-    <div className={classNames(`flex rounded-tl-2xl py-4`, flexSpacing)}>
+    <div className={classNames(`hidden md:flex flex-col mx-auto my-auto gap-y-4`, flexSpacing)}>
       {/* ======== EMAIL ICON LINK ======== */}
       <a
         href="mailto:derekraustin@gmail.com"
@@ -40,7 +40,6 @@ export default function IconLinks({
             fill={`${fill}`}
           />
         </svg>
-        <span className="hidden md:block md:mx-2 md:text-[#f38b57]">Email</span>
       </a>
 
       {/* =========== LINKEDIN ICON LINK =========== */}
@@ -64,7 +63,6 @@ export default function IconLinks({
             fill={`${fill}`}
           />
         </svg>
-        <span className="hidden md:block md:mx-2 md:text-[#f38b57]">Linkedin</span>
       </a>
 
       {/* =========== RESUME ICON LINK =========== */}
@@ -86,7 +84,6 @@ export default function IconLinks({
             fill={`${fill}`}
           />
         </svg>
-        <span className="hidden md:block md:mx-2 md:text-[#f38b57]">Resume</span>
       </a>
 
       {/* =========== GITHUB ICON LINK =========== */}
@@ -109,7 +106,6 @@ export default function IconLinks({
             fill={`${fill}`}
           />
         </svg>
-        <span className="hidden md:block md:mx-2 md:text-[#f38b57]">Github</span>
       </a>
 
       {/* =========== MEDIUM ICON LINK =========== */}
@@ -132,7 +128,6 @@ export default function IconLinks({
             fill={`${fill}`}
           />
         </svg>
-        <span className="hidden md:block md:mx-2 md:text-[#f38b57]">Medium</span>
       </a>
 
       {/* =========== BOOK LINK =========== */}
@@ -155,7 +150,6 @@ export default function IconLinks({
             fill={`${fill}`}
           />
         </svg>
-        <span className="hidden md:block md:mx-2 md:text-[#f38b57]">Book</span>
       </a>
     </div>
   )
