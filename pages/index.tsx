@@ -101,10 +101,10 @@ function DisplaySections({
             </div>
 
             {/*===== ABOUT SECTION WITH TECH STACK ====== */}
-              <div className="section flex h-screen flex-col bg-[#b9e3ff]">
-                <TechStackSection />
-              </div>
-            
+            <div className="section flex h-screen flex-col bg-[#b9e3ff]">
+              <TechStackSection />
+            </div>
+
             {/*========= WORK EXPERIENCE SECTION ========= */}
             <div className="section bg-[#FFE366]">
               <WorkExperienceSection />
@@ -184,11 +184,7 @@ export default function Home() {
           aspect="aspect-[1500/2668]"
         />
       )}
-      {width >= 768 && (
-        <MedLrgDevices
-          aspect="aspect-[5760/3200]"
-        />
-      )}
+      {width >= 768 && <MedLrgDevices aspect="aspect-[5760/3200]" />}
     </>
   )
 }

@@ -16,16 +16,17 @@ export default function NavIcons({
    * flexSpacing: flexbox property for justify-content
    * content will either have space around or between flex items
    * */
-  flexSpacing: "justify-between" | "justify-around" | 'justify-center' // | union type, valid values
+  flexSpacing: "justify-between" | "justify-around" | "justify-center" // | union type, valid values
 }) {
-
   return (
-    <div className={classNames(`hidden md:flex flex-col mx-auto my-auto gap-y-4`, flexSpacing)}>
+    <div
+      className={classNames(
+        `mx-auto my-auto hidden flex-col gap-y-4 md:flex`,
+        flexSpacing,
+      )}
+    >
       {/* ======== EMAIL ICON LINK ======== */}
-      <a
-        href="mailto:derekraustin@gmail.com"
-        className="flex items-center"
-      >
+      <a href="mailto:derekraustin@gmail.com" className="flex items-center">
         <svg
           width="35"
           height="35"
@@ -66,10 +67,7 @@ export default function NavIcons({
       </a>
 
       {/* =========== RESUME ICON LINK =========== */}
-      <a
-        href="#"
-        className="flex items-center"
-      >
+      <a href="#" className="flex items-center">
         <svg
           width="35"
           height="35"
