@@ -15,6 +15,7 @@ const IntroSection = () => {
         <p className="text-3xl text-[#FB70AA] md:text-5xl lg:text-7xl">
           <TypewriterComponent
             onInit={(typewriter) => typewriter.typeString(INTRO_STRING).start()}
+            options={{ delay: 25 }}
           />
         </p>
       </div>
