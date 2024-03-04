@@ -4,11 +4,17 @@ import ResumeIcon from "./resumeIcon"
 import GithubIcon from "./githubIcon"
 import MediumIcon from "./mediumIcon"
 import BookLinkIcon from "./bookLinkIcon"
-import TypewriterComponent, { type Options } from "typewriter-effect"
+import TypewriterComponent, {
+  type Options,
+  type TypewriterClass,
+} from "typewriter-effect"
 
 /** This is the string that will be typed out by the `<TypewriterComponent>`. */
 const INTRO_STRING =
   "React Software Engineer specializing in optimizing web performance, enhancing accessiblility, and crafting highly readable code."
+
+const TypewriterOnInit = (typewriter: TypewriterClass) =>
+  typewriter.typeString(INTRO_STRING).start().pauseFor(3000)
 
 /**
  * We loop the animation after 3s because this animation starts
@@ -25,9 +31,7 @@ const IntroSection = () => {
       <div className="mx-auto w-4/5 pt-4 md:w-[90%]">
         <p className="text-3xl text-[#FB70AA] md:text-5xl lg:text-7xl">
           <TypewriterComponent
-            onInit={(typewriter) =>
-              typewriter.typeString(INTRO_STRING).start().pauseFor(3000)
-            }
+            onInit={TypewriterOnInit}
             options={TypewriterOptions}
           />
         </p>
