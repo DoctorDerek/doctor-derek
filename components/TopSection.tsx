@@ -19,7 +19,6 @@ export default function TopSection({
           src={Logo}
           alt={"Derek Austin Logo"}
           className={classNames(
-            // We use "bg-yellow" to fill in the background (sides)
             "mx-auto block object-contain md:mb-16",
             aspect,
           )}
