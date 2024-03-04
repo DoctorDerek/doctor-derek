@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Logo from "@/images/Logo.svg"
 import Navbar from "./navbar"
-
+import ReactParallaxTilt from "react-parallax-tilt"
 /** Helper function to join Tailwind CSS classNames. Filters out falsy values */
 const classNames = (...args: string[]) => args.filter(Boolean).join(" ")
 
@@ -15,14 +15,22 @@ export default function TopSection({
     <div className="yw-bg-img md:h-[100vh]">
       <Navbar />
       <div className="flex h-[93dvh] w-full flex-col justify-center">
-        <Image
-          src={Logo}
-          alt={"Derek Austin Logo"}
-          className={classNames(
-            "mx-auto block object-contain md:mb-16",
-            aspect,
-          )}
-        />
+        <ReactParallaxTilt
+          glareEnable={true}
+          tiltMaxAngleX={10}
+          tiltMaxAngleY={10}
+          perspective={1000}
+          glareColor={"rgb(255,0,0)"}
+        >
+          <Image
+            src={Logo}
+            alt={"Derek Develops Logo"}
+            className={classNames(
+              "mx-auto block object-contain md:mb-16",
+              aspect,
+            )}
+          />
+        </ReactParallaxTilt>
       </div>
     </div>
   )
