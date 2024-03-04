@@ -4,11 +4,20 @@ import ResumeIcon from "./resumeIcon"
 import GithubIcon from "./githubIcon"
 import MediumIcon from "./mediumIcon"
 import BookLinkIcon from "./bookLinkIcon"
-import TypewriterComponent from "typewriter-effect"
+import TypewriterComponent, { type Options } from "typewriter-effect"
 
 /** This is the string that will be typed out by the `<TypewriterComponent>`. */
 const INTRO_STRING =
   "React Software Engineer specializing in optimizing web performance, enhancing accessiblility, and crafting highly readable code."
+
+/**
+ * We loop the animation after 3s because this animation starts
+ * immediately when the page loads since we're using FullPage.js.
+ *
+ * When typing, we use a quite-fast-but-not-blinding 25ms delay
+ * between each character. When deleting, it's blinding at 1ms.
+ * */
+const TypewriterOptions: Options = { delay: 25, loop: true, deleteSpeed: 1 }
 
 const IntroSection = () => {
   return (
@@ -19,14 +28,7 @@ const IntroSection = () => {
             onInit={(typewriter) =>
               typewriter.typeString(INTRO_STRING).start().pauseFor(3000)
             }
-            /**
-             * We loop the animation after 3s because this animation starts
-             * immediately when the page loads since we're using FullPage.js.
-             *
-             * When typing, we use a quite-fast-but-not-blinding 25ms delay
-             * between each character. When deleting, it's blinding at 1ms.
-             * */
-            options={{ delay: 25, loop: true, deleteSpeed: 1 }}
+            options={TypewriterOptions}
           />
         </p>
       </div>
