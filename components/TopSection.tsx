@@ -17,7 +17,7 @@ export default function TopSection({
       <div className="flex h-[93dvh] w-full flex-col justify-center">
         <Image
           src={Logo}
-          alt={"Intro_Animation"}
+          alt={"Derek Austin Logo"}
           className={classNames(
             // We use "bg-yellow" to fill in the background (sides)
             "mx-auto block object-contain md:mb-16",
