@@ -4,14 +4,37 @@ import ResumeIcon from "./resumeIcon"
 import GithubIcon from "./githubIcon"
 import MediumIcon from "./mediumIcon"
 import BookLinkIcon from "./bookLinkIcon"
+import TypewriterComponent, {
+  type Options,
+  type TypewriterClass,
+} from "typewriter-effect"
+
+/** This is the string that will be typed out by the `<TypewriterComponent>`. */
+const INTRO_STRING =
+  "React Software Engineer specializing in optimizing web performance, enhancing accessiblility, and crafting highly readable code."
+
+const TypewriterOnInit = (typewriter: TypewriterClass) =>
+  typewriter.typeString(INTRO_STRING).start().pauseFor(3000)
+
+/**
+ * We loop the animation after 3s because this animation starts
+ * immediately when the page loads since we're using FullPage.js.
+ *
+ * When typing, we use a quite-fast-but-not-blinding 25ms delay
+ * between each character. When deleting, it's blinding at 1ms.
+ * */
+const TypewriterOptions: Options = { delay: 25, loop: true, deleteSpeed: 1 }
+
+const Typewriter = () => (
+  <TypewriterComponent onInit={TypewriterOnInit} options={TypewriterOptions} />
+)
 
 const IntroSection = () => {
   return (
     <div className="yw-bg-img flex h-[90vh] flex-col md:h-screen">
       <div className="mx-auto w-4/5 pt-4 md:w-[90%]">
         <p className="text-3xl text-[#FB70AA] md:text-5xl lg:text-7xl">
-          React Software Engineer specializing in optimizing web performance,
-          enhancing accessiblility, and crafting highly readable code.
+          <Typewriter />
         </p>
       </div>
       {/* ========= ICON LINKS ============ */}
