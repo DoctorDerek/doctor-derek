@@ -27,21 +27,21 @@ body {
   ===================== */
 @font-face {
   font-family: Restora;
-  src: url('../asset/Fonts/restora-1.otf');
+  src: url("../asset/Fonts/restora-1.otf");
 }
 @font-face {
   font-family: Restoramedium;
-  src: url('../asset/Fonts/restoramedium-1.otf');
+  src: url("../asset/Fonts/restoramedium-1.otf");
 }
 @font-face {
   font-family: Restorabold;
-  src: url('../asset/Fonts/restoraextrabold-1.otf');
+  src: url("../asset/Fonts/restoraextrabold-1.otf");
 }
 a,
-p, 
+p,
 h2,
 h3,
-h4, 
+h4,
 button {
   font-family: "Restora";
 }
@@ -86,10 +86,10 @@ button {
     background-image: url("../images/purple-bg-img.png");
   }
 
-  .yw-bg-img, 
+  .yw-bg-img,
   .blue-bg-img,
-  .pink-bg-img, 
-  .org-bg-img, 
+  .pink-bg-img,
+  .org-bg-img,
   .purple-bg-img {
     background-position: center;
     background-repeat: no-repeat;
@@ -101,7 +101,7 @@ button {
     perspective: 700px;
   }
   .front,
-  .back{
+  .back {
     backface-visibility: hidden;
   }
   .wrapper {
@@ -109,7 +109,7 @@ button {
     transform-style: preserve-3d;
   }
   .wrapper:hover,
-  .back{
+  .back {
     transform: rotateY(180deg);
   }
 }

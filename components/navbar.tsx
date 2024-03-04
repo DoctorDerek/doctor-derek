@@ -37,13 +37,12 @@ export default function Navbar() {
                 alt="Logo"
                 className="md:hidden"
               />
-               {/* Displays logo on medium and large devices */}
+              {/* Displays logo on medium and large devices */}
               <Image
                 src={medLrgLogo}
                 alt="Logo"
-                className="hidden md:block md:mx-auto"
+                className="hidden md:mx-auto md:block"
               />
-
             </Link>
           </div>
           <button
@@ -123,28 +122,40 @@ export default function Navbar() {
                 </div>
               </div>
             </div>
-             {/* Displays icons in sidebar on medium and large devices */}
+            {/* Displays icons in sidebar on medium and large devices */}
             <div className="mx-auto my-auto hidden flex-col justify-between gap-y-4 md:flex">
-              <a className="block mb-2" href="mailto:derekraustin@gmail.com">
+              <a className="mb-2 block" href="mailto:derekraustin@gmail.com">
                 <EmailIcon fill="#F38B57" />
               </a>
               <a
-              className="block mb-2"
+                className="mb-2 block"
                 href="https://www.linkedin.com/in/derek-austin/"
                 target="_blank"
               >
                 <LinkedinIcon fill="#F38B57" />
               </a>
-              <a className="block mb-2" href="">
+              <a className="mb-2 block" href="">
                 <ResumeIcon fill="#F38B57" />
               </a>
-              <a className="block mb-2" href="https://github.com/DoctorDerek" target="_blank">
+              <a
+                className="mb-2 block"
+                href="https://github.com/DoctorDerek"
+                target="_blank"
+              >
                 <GithubIcon fill="#F38B57" />
               </a>
-              <a className="block mb-2" href="https://doctorderek.medium.com/" target="_blank">
+              <a
+                className="mb-2 block"
+                href="https://doctorderek.medium.com/"
+                target="_blank"
+              >
                 <MediumIcon fill="#F38B57" />
               </a>
-              <a className="block mb-2" href="https://www.amazon.com/dp/B0BRJDLJ43" target="_blank">
+              <a
+                className="mb-2 block"
+                href="https://www.amazon.com/dp/B0BRJDLJ43"
+                target="_blank"
+              >
                 <BookLinkIcon fill="#F38B57" />
               </a>
             </div>

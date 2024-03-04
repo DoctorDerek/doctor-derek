@@ -7,8 +7,7 @@ export default function Modal({
   showModal,
   setShowModal,
 }: {
-  portfolioWork: 
-  {
+  portfolioWork: {
     /**
      * projectTitle: string value for name of the project
      */
@@ -76,7 +75,7 @@ export default function Modal({
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
                 </div>
-                
+
                 {/* Project information */}
                 <div className="mt-5 sm:mt-4 sm:flex">
                   {portfolioWork.map((item) => {
@@ -85,7 +84,9 @@ export default function Modal({
                         className={item.isClicked ? "" : "hidden"}
                         key={"modal-key"}
                       >
-                        <h3 className="restorabold text-4xl my-4">{item.projectTitle}</h3>
+                        <h3 className="restorabold my-4 text-4xl">
+                          {item.projectTitle}
+                        </h3>
                         <p>{item.details}</p>
                       </div>
                     )

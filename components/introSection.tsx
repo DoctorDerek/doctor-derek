@@ -19,7 +19,7 @@ const IntroSection = () => {
         <div className="w-3/4 md:w-11/12 lg:w-3/5">
           <div className="flex justify-around py-6 md:mx-auto lg:justify-between">
             <a
-              className="text-lg text-[#F38B57] md:flex md:mr-4 lg:text-xl"
+              className="text-lg text-[#F38B57] md:mr-4 md:flex lg:text-xl"
               href="mailto:derekraustin@gmail.com"
             >
               <EmailIcon fill="#F38B57" />
@@ -28,7 +28,7 @@ const IntroSection = () => {
               </span>
             </a>
             <a
-              className="text-lg text-[#F38B57] md:flex md:mr-4 lg:text-xl"
+              className="text-lg text-[#F38B57] md:mr-4 md:flex lg:text-xl"
               href="https://www.linkedin.com/in/derek-austin/"
               target="_blank"
             >
@@ -37,7 +37,10 @@ const IntroSection = () => {
                 Linkedin
               </span>
             </a>
-            <a href="#" className="text-lg  text-[#F38B57] md:flex md:mr-4 lg:text-xl">
+            <a
+              href="#"
+              className="text-lg  text-[#F38B57] md:mr-4 md:flex lg:text-xl"
+            >
               <ResumeIcon fill="#F38B57" />
               <span className="restoramedium ml-2 hidden pt-1 md:block">
                 Resume
@@ -45,7 +48,7 @@ const IntroSection = () => {
             </a>
             <a
               href="https://github.com/DoctorDerek"
-              className="text-lg text-[#F38B57] md:flex md:mr-4 lg:text-xl"
+              className="text-lg text-[#F38B57] md:mr-4 md:flex lg:text-xl"
               target="_blank"
             >
               <GithubIcon fill="#F38B57" />
@@ -55,7 +58,7 @@ const IntroSection = () => {
             </a>
             <a
               href="https://doctorderek.medium.com/"
-              className="text-lg text-[#F38B57] md:flex md:mr-4 lg:text-xl"
+              className="text-lg text-[#F38B57] md:mr-4 md:flex lg:text-xl"
               target="_blank"
             >
               <MediumIcon fill="#F38B57" />

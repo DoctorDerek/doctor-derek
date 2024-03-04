@@ -58,7 +58,7 @@ const Pokedex: InferGetStaticPropsType<typeof getStaticProps> = ({
   const pokemons = allPokemons.slice(
     // For example, for Pokemon #32, we'd be on page 4. Then we...
     (currentPageNumber - 1) * 10, // Start at Pokemon #30 (index 29), included.
-    currentPageNumber * 10 // Slice to Pokemon #41 (index 40), excluded.
+    currentPageNumber * 10, // Slice to Pokemon #41 (index 40), excluded.
     // And, of course, remember that .slice() includes start but not end items.
   )
 
@@ -145,7 +145,7 @@ const Pokedex: InferGetStaticPropsType<typeof getStaticProps> = ({
                     // Highlight the active Pokémon:
                     thisPokemonNumber === number
                       ? "border-yellow-400 bg-gray-700" // active state
-                      : "border-transparent bg-gray-600 hover:bg-gray-700"
+                      : "border-transparent bg-gray-600 hover:bg-gray-700",
                     // Note: We use border-transparent for an invisible border
                     // that helps with the alignment of the CSS flexbox items.
                   )}
@@ -168,7 +168,7 @@ const Pokedex: InferGetStaticPropsType<typeof getStaticProps> = ({
               "bottom-0 flex w-full items-center justify-between bg-gray-900 p-4 text-xs",
               // To handle #151, page 16 with Mew, we use position: absolute
               // instead of position sticky because this page has only 1 item.
-              currentPageNumber === MAX_PAGE_NUMBER ? "absolute" : "sticky"
+              currentPageNumber === MAX_PAGE_NUMBER ? "absolute" : "sticky",
             )}
           >
             {/* Pokédex component: Pokémon sidebar -- pagination component. */}
@@ -346,7 +346,7 @@ function PaginationButton({
           paddingX ? paddingX : "px-2",
           currentPage
             ? "border-yellow-400 bg-gray-700" // active state
-            : "border-transparent bg-gray-600 hover:bg-gray-700"
+            : "border-transparent bg-gray-600 hover:bg-gray-700",
           // Note that we use border-transparent for an invisible border
           // that helps with the alignment of the CSS flexbox items.
         )}
@@ -372,7 +372,7 @@ function PokemonImage({
         "relative overflow-hidden rounded-full bg-white",
         size === "h-16 w-16"
           ? "h-16 w-16 border-2 border-solid border-gray-400"
-          : "h-8 w-8"
+          : "h-8 w-8",
       )}
     >
       {/* We again use overflow-hidden to round the corners */}

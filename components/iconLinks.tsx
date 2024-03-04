@@ -18,14 +18,10 @@ export default function IconLinks({
    * */
   flexSpacing: "justify-between" | "justify-around" // | union type, valid values
 }) {
-
   return (
     <div className={classNames(`flex rounded-tl-2xl py-4`, flexSpacing)}>
       {/* ======== EMAIL ICON LINK ======== */}
-      <a
-        href="mailto:derekraustin@gmail.com"
-        className="flex items-center"
-      >
+      <a href="mailto:derekraustin@gmail.com" className="flex items-center">
         <svg
           width="35"
           height="35"
@@ -40,7 +36,7 @@ export default function IconLinks({
             fill={`${fill}`}
           />
         </svg>
-        <span className="hidden md:block md:mx-2 md:text-[#f38b57]">Email</span>
+        <span className="hidden md:mx-2 md:block md:text-[#f38b57]">Email</span>
       </a>
 
       {/* =========== LINKEDIN ICON LINK =========== */}
@@ -64,14 +60,13 @@ export default function IconLinks({
             fill={`${fill}`}
           />
         </svg>
-        <span className="hidden md:block md:mx-2 md:text-[#f38b57]">Linkedin</span>
+        <span className="hidden md:mx-2 md:block md:text-[#f38b57]">
+          Linkedin
+        </span>
       </a>
 
       {/* =========== RESUME ICON LINK =========== */}
-      <a
-        href="#"
-        className="flex items-center"
-      >
+      <a href="#" className="flex items-center">
         <svg
           width="35"
           height="35"
@@ -86,7 +81,9 @@ export default function IconLinks({
             fill={`${fill}`}
           />
         </svg>
-        <span className="hidden md:block md:mx-2 md:text-[#f38b57]">Resume</span>
+        <span className="hidden md:mx-2 md:block md:text-[#f38b57]">
+          Resume
+        </span>
       </a>
 
       {/* =========== GITHUB ICON LINK =========== */}
@@ -109,7 +106,9 @@ export default function IconLinks({
             fill={`${fill}`}
           />
         </svg>
-        <span className="hidden md:block md:mx-2 md:text-[#f38b57]">Github</span>
+        <span className="hidden md:mx-2 md:block md:text-[#f38b57]">
+          Github
+        </span>
       </a>
 
       {/* =========== MEDIUM ICON LINK =========== */}
@@ -132,7 +131,9 @@ export default function IconLinks({
             fill={`${fill}`}
           />
         </svg>
-        <span className="hidden md:block md:mx-2 md:text-[#f38b57]">Medium</span>
+        <span className="hidden md:mx-2 md:block md:text-[#f38b57]">
+          Medium
+        </span>
       </a>
 
       {/* =========== BOOK LINK =========== */}
@@ -155,7 +156,7 @@ export default function IconLinks({
             fill={`${fill}`}
           />
         </svg>
-        <span className="hidden md:block md:mx-2 md:text-[#f38b57]">Book</span>
+        <span className="hidden md:mx-2 md:block md:text-[#f38b57]">Book</span>
       </a>
     </div>
   )

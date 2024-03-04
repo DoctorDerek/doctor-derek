@@ -11,9 +11,9 @@ const BlogSection = () => {
     },
     breakpoints: {
       "(min-width: 1040px)": {
-        slides: { perView: 3 }
+        slides: { perView: 3 },
       },
-    }
+    },
   })
   /* Array of objects, each object is a article */
   const articlePosts = [
@@ -117,7 +117,7 @@ const BlogSection = () => {
         </div>
 
         {/* ========== Slider =========== */}
-        <div className="hidden h-full md:block md:w-1/2 md:pl-4 lg:flex lg:flex-col lg:w-2/3">
+        <div className="hidden h-full md:block md:w-1/2 md:pl-4 lg:flex lg:w-2/3 lg:flex-col">
           <div className="mt-4 w-[95%] lg:mb-auto lg:mt-auto lg:w-4/5">
             <div className="lg:my-auto">
               <div ref={sliderRef} className="keen-slider hover:cursor-grab">
@@ -157,7 +157,7 @@ const BlogSection = () => {
                                 <Image
                                   src={clock}
                                   alt="How to user Readonly in Typescript"
-                                  className="lg:h-[30vh] w-full"
+                                  className="w-full lg:h-[30vh]"
                                 />
                                 <p className="absolute -bottom-4 w-11/12 rounded-tr-xl bg-[#FB70AA] py-2 pl-3 pr-3 text-lg text-white">
                                   {article.title}
