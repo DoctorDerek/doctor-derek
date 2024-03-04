@@ -14,16 +14,16 @@ export default function TopSection({
   return (
     <div className="yw-bg-img md:h-[100vh]">
       <Navbar />
-      <div className="h-[93dvh] w-full flex flex-col justify-center">
-      <Image
-        src={Logo}
-        alt={"Intro_Animation"}
-        className={classNames(
-          // We use "bg-yellow" to fill in the background (sides)
-          "object-contain block mx-auto md:mb-16",
-          aspect,
-        )}
-      />
+      <div className="flex h-[93dvh] w-full flex-col justify-center">
+        <Image
+          src={Logo}
+          alt={"Intro_Animation"}
+          className={classNames(
+            // We use "bg-yellow" to fill in the background (sides)
+            "mx-auto block object-contain md:mb-16",
+            aspect,
+          )}
+        />
       </div>
     </div>
   )

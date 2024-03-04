@@ -56,17 +56,14 @@ const PostsSection = () => {
                 time: string
               }) => {
                 return (
-                  <div
-                    key={article.title}
-                    className="keen-slider__slide"
-                  >
+                  <div key={article.title} className="keen-slider__slide">
                     <div className="ml-2">
                       <div className="">
                         <div
                           key={article.header}
-                          className="h-full w-11/12 mt-20"
+                          className="mt-20 h-full w-11/12"
                         >
-                          <div className="w-11/12 relative">
+                          <div className="relative w-11/12">
                             <p className="absolute -top-3 left-4 rounded-tr-xl bg-[#FFE366] py-1 pl-3 pr-3 text-2xl">
                               {article.header}
                             </p>
@@ -80,11 +77,9 @@ const PostsSection = () => {
                               {article.title}
                             </p>
                           </div>
-                          <div className="w-11/12 bg-[#b9e3ff] pb-4 pt-8 pl-4">
-                            <p className="text-xl">
-                              {article.details}
-                            </p>
-                            <p className="text-[#747fa6] mt-4">
+                          <div className="w-11/12 bg-[#b9e3ff] pb-4 pl-4 pt-8">
+                            <p className="text-xl">{article.details}</p>
+                            <p className="mt-4 text-[#747fa6]">
                               {article.time}
                             </p>
                           </div>

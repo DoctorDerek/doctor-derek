@@ -18,7 +18,7 @@ export default function AppContainer({
     <div
       className={classNames(
         "flex h-screen w-screen flex-col items-center justify-center text-white",
-        bgColor ? bgColor : "bg-gray-900"
+        bgColor ? bgColor : "bg-gray-900",
       )}
     >
       <Head>
@@ -53,5 +53,5 @@ export default function AppContainer({
 }
 
 function FlexAlignmentBox({ children }: { children: React.ReactNode }) {
-  return <div className="flex w-full justify-between py-2 px-4">{children}</div>
+  return <div className="flex w-full justify-between px-4 py-2">{children}</div>
 }

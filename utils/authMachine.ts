@@ -79,7 +79,7 @@ const authMachine = createMachine(
       clearUserFromLocalStorage: (context, event) =>
         localStorage.removeItem(LOCALSTORAGE_KEY_AUTH),
     },
-  }
+  },
 )
 
 export default authMachine

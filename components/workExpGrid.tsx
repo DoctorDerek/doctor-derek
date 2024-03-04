@@ -2,7 +2,7 @@ import React from "react"
 import Image from "next/image"
 import codeIcon from "images/codeIcon.svg"
 
-export default function WorkExpGrid({...clonedList }) {
+export default function WorkExpGrid({ ...clonedList }) {
   /** Number of items in combinedLists divided by 2 for placeholder space */
   const getHalfNum = Math.floor(clonedList.length / 2)
 
