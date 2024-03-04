@@ -5,13 +5,14 @@ import GithubIcon from "./githubIcon"
 import MediumIcon from "./mediumIcon"
 import BookLinkIcon from "./bookLinkIcon"
 
+const INTRO_STRING =
+  "React Software Engineer specializing in optimizing web performance, enhancing accessiblility, and crafting highly readable code."
 const IntroSection = () => {
   return (
     <div className="yw-bg-img flex h-[90vh] flex-col md:h-screen">
       <div className="mx-auto w-4/5 pt-4 md:w-[90%]">
         <p className="text-3xl text-[#FB70AA] md:text-5xl lg:text-7xl">
-          React Software Engineer specializing in optimizing web performance,
-          enhancing accessiblility, and crafting highly readable code.
+          {INTRO_STRING}
         </p>
       </div>
       {/* ========= ICON LINKS ============ */}
