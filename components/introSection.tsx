@@ -25,15 +25,16 @@ const TypewriterOnInit = (typewriter: TypewriterClass) =>
  * */
 const TypewriterOptions: Options = { delay: 25, loop: true, deleteSpeed: 1 }
 
+const Typewriter = () => (
+  <TypewriterComponent onInit={TypewriterOnInit} options={TypewriterOptions} />
+)
+
 const IntroSection = () => {
   return (
     <div className="yw-bg-img flex h-[90vh] flex-col md:h-screen">
       <div className="mx-auto w-4/5 pt-4 md:w-[90%]">
         <p className="text-3xl text-[#FB70AA] md:text-5xl lg:text-7xl">
-          <TypewriterComponent
-            onInit={TypewriterOnInit}
-            options={TypewriterOptions}
-          />
+          <Typewriter />
         </p>
       </div>
       {/* ========= ICON LINKS ============ */}
