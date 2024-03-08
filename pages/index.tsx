@@ -184,7 +184,7 @@ export default function Home() {
           aspect="aspect-[1500/2668]"
         />
       )}
-      {width >= 768 && <MedLrgDevices aspect="aspect-[5760/3200]" />}
+      {width >= 768 && <MedLrgDevices />}
     </>
   )
 }
