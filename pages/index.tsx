@@ -35,7 +35,7 @@ import BlogSection from "@/components/blogSection"
 import ContactSection from "@/components/contactSection"
 import PostsSection from "@/components/PostsSection"
 import SectionContainer from "@/components/sectionContainer"
-import TopSection from "@/components/topSection"
+import TopSection from "@/components/TopSection"
 import MedLrgDevices from "@/components/medLrgDevices"
 
 const DesktopSections = [

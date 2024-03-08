@@ -8,7 +8,7 @@ import Portfolio from "@/components/Portfolio"
 import Testimonials from "@/components/testimonials"
 import BlogSection from "@/components/blogSection"
 import ContactSection from "@/components/contactSection"
-import TopSection from "@/components/topSection"
+import TopSection from "@/components/TopSection"
 
 /* Displays sections based on medium or large screen size */
 export default function MedLrgDevices({
