@@ -86,7 +86,7 @@ function DisplaySections({
         return (
           <ReactFullpage.Wrapper>
             {/* ========= TOP IMAGE ============ */}
-            <div className={`section h-screen bg-[#FFE366]`}>
+            <div className="section h-screen bg-[#FFE366]">
               <TopSection />
             </div>
 
