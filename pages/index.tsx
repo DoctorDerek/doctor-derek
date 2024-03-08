@@ -87,7 +87,7 @@ function DisplaySections({
           <ReactFullpage.Wrapper>
             {/* ========= TOP IMAGE ============ */}
             <div className={`section h-screen bg-[#FFE366]`}>
-              <TopSection aspect="aspect-[5760/3200]" />
+              <TopSection />
             </div>
 
             {/* ========= INTRO SECTION ============ */}
