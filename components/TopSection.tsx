@@ -14,14 +14,14 @@ export default function TopSection({
   return (
     <div className="yw-bg-img md:h-[100vh]">
       <Navbar />
-      <div className="flex h-[93dvh] w-full flex-col justify-center">
-        <ReactParallaxTilt
-          glareEnable={true}
-          tiltMaxAngleX={10}
-          tiltMaxAngleY={10}
-          perspective={1000}
-          glareColor={"rgb(255,0,0)"}
-        >
+      <ReactParallaxTilt
+        glareEnable={true}
+        tiltMaxAngleX={10}
+        tiltMaxAngleY={10}
+        perspective={1000}
+        glareColor={"rgb(255,0,0)"}
+      >
+        <div className="flex h-[93dvh] w-full flex-col justify-center">
           <Image
             src={Logo}
             alt={"Derek Develops Logo"}
@@ -30,8 +30,8 @@ export default function TopSection({
               aspect,
             )}
           />
-        </ReactParallaxTilt>
-      </div>
+        </div>
+      </ReactParallaxTilt>
     </div>
   )
 }
