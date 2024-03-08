@@ -25,6 +25,7 @@ export default function TopSection({
           <Image
             src={Logo}
             alt={"Derek Develops Logo"}
+            // These classes vertically center the image:
             className={classNames("relative bottom-4 md:bottom-24", aspect)}
           />
         </div>
