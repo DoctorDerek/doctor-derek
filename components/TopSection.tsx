@@ -21,14 +21,11 @@ export default function TopSection({
         perspective={1000}
         glareColor={"rgb(255,0,0)"}
       >
-        <div className="flex h-[93dvh] w-full flex-col justify-center">
+        <div className="flex h-[93dvh] flex-col items-center justify-center">
           <Image
             src={Logo}
             alt={"Derek Develops Logo"}
-            className={classNames(
-              "mx-auto block object-contain md:mb-16",
-              aspect,
-            )}
+            className={classNames("md:mb-16", aspect)}
           />
         </div>
       </ReactParallaxTilt>
