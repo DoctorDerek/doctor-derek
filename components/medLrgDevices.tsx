@@ -11,12 +11,7 @@ import ContactSection from "@/components/contactSection"
 import TopSection from "@/components/TopSection"
 
 /* Displays sections based on medium or large screen size */
-export default function MedLrgDevices({
-  aspect,
-}: {
-  /** The aspect ratio of the images, i.e. desktop | mobile */
-  aspect: "aspect-[5760/3200]" | "aspect-[1500/2668]"
-}) {
+export default function MedLrgDevices() {
   return (
     <ReactFullpage
       credits={{ enabled: false }}
@@ -28,7 +23,7 @@ export default function MedLrgDevices({
           <ReactFullpage.Wrapper>
             {/* ========= TOP IMAGE ============ */}
             <div className="section h-screen bg-[#FFE366]">
-              <TopSection aspect="aspect-[5760/3200]" />
+              <TopSection />
             </div>
 
             {/* ========= INTRO SECTION ============ */}
