@@ -16,6 +16,7 @@ export default function TopSection() {
           tiltMaxAngleY={37}
           perspective={1000}
           glareMaxOpacity={0}
+          className="flex h-[60vh] w-[60vw] items-center justify-center"
         >
           <Image
             src={Logo}
