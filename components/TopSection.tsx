@@ -22,7 +22,7 @@ export default function TopSection() {
             src={Logo}
             alt={"Derek Develops Logo"}
             // The margin bottom here vertically centers the logo:
-            className={classNames("mb-[10vh] object-fill")}
+            className={classNames("object-fill")}
           />
         </ReactParallaxTilt>
       </div>
