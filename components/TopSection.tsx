@@ -21,7 +21,7 @@ export default function TopSection({
         perspective={1000}
         glareColor={"rgb(255,0,0)"}
       >
-        <div className="flex h-screen flex-col items-center justify-center">
+        <div className="flex h-screen items-center justify-center">
           <Image
             src={Logo}
             alt={"Derek Develops Logo"}
