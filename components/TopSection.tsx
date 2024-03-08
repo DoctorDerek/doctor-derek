@@ -17,7 +17,6 @@ export default function TopSection({
       <Navbar />
       <div className="flex h-screen items-center justify-center">
         <ReactParallaxTilt
-          glareEnable={true}
           tiltMaxAngleX={37}
           tiltMaxAngleY={37}
           perspective={1000}
