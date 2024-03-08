@@ -25,8 +25,8 @@ export default function TopSection({
           <Image
             src={Logo}
             alt={"Derek Develops Logo"}
-            // These classes vertically center the image:
-            className={classNames("relative bottom-4 md:bottom-24", aspect)}
+            // The margin bottom here vertically centers the logo:
+            className={classNames("mb-[10vh] object-fill", aspect)}
           />
         </div>
       </ReactParallaxTilt>
