@@ -2,6 +2,7 @@ import Image from "next/image"
 import Logo from "@/images/Logo.svg"
 import Navbar from "./navbar"
 import ReactParallaxTilt from "react-parallax-tilt"
+
 /** Helper function to join Tailwind CSS classNames. Filters out falsy values */
 const classNames = (...args: string[]) => args.filter(Boolean).join(" ")
 
