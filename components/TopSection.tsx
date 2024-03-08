@@ -25,7 +25,7 @@ export default function TopSection({
           <Image
             src={Logo}
             alt={"Derek Develops Logo"}
-            className={classNames("relative bottom-24", aspect)}
+            className={classNames("relative bottom-4 md:bottom-24", aspect)}
           />
         </div>
       </ReactParallaxTilt>
