@@ -6,12 +6,7 @@ import ReactParallaxTilt from "react-parallax-tilt"
 /** Helper function to join Tailwind CSS classNames. Filters out falsy values */
 const classNames = (...args: string[]) => args.filter(Boolean).join(" ")
 
-export default function TopSection({
-  aspect,
-}: {
-  /** The aspect ratio of the images, i.e. desktop | mobile */
-  aspect: "aspect-[5760/3200]" | "aspect-[1500/2668]"
-}) {
+export default function TopSection() {
   return (
     <div className="yw-bg-img h-screen">
       <Navbar />
@@ -26,7 +21,7 @@ export default function TopSection({
             src={Logo}
             alt={"Derek Develops Logo"}
             // The margin bottom here vertically centers the logo:
-            className={classNames("mb-[10vh] object-fill", aspect)}
+            className={classNames("mb-[10vh] object-fill")}
           />
         </ReactParallaxTilt>
       </div>
