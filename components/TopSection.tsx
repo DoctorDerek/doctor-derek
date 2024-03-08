@@ -18,8 +18,8 @@ export default function TopSection({
       <div className="flex h-screen items-center justify-center">
         <ReactParallaxTilt
           glareEnable={true}
-          tiltMaxAngleX={10}
-          tiltMaxAngleY={10}
+          tiltMaxAngleX={37}
+          tiltMaxAngleY={37}
           perspective={1000}
           glareMaxOpacity={0}
         >
