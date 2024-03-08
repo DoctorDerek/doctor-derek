@@ -13,7 +13,7 @@ export default function TopSection({
   aspect: "aspect-[5760/3200]" | "aspect-[1500/2668]"
 }) {
   return (
-    <div className="yw-bg-img h-screen w-screen">
+    <div className="yw-bg-img h-screen">
       <Navbar />
       <ReactParallaxTilt
         glareEnable={true}
