@@ -15,22 +15,22 @@ export default function TopSection({
   return (
     <div className="yw-bg-img h-screen">
       <Navbar />
-      <ReactParallaxTilt
-        glareEnable={true}
-        tiltMaxAngleX={10}
-        tiltMaxAngleY={10}
-        perspective={1000}
-        glareMaxOpacity={0}
-      >
-        <div className="flex h-screen items-center justify-center">
+      <div className="flex h-screen items-center justify-center">
+        <ReactParallaxTilt
+          glareEnable={true}
+          tiltMaxAngleX={10}
+          tiltMaxAngleY={10}
+          perspective={1000}
+          glareMaxOpacity={0}
+        >
           <Image
             src={Logo}
             alt={"Derek Develops Logo"}
             // The margin bottom here vertically centers the logo:
             className={classNames("mb-[10vh] object-fill", aspect)}
           />
-        </div>
-      </ReactParallaxTilt>
+        </ReactParallaxTilt>
+      </div>
     </div>
   )
 }
