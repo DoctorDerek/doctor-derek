@@ -19,7 +19,6 @@ export default function TopSection({
         tiltMaxAngleX={10}
         tiltMaxAngleY={10}
         perspective={1000}
-        glareColor={"rgb(255,0,0)"}
       >
         <div className="flex h-screen items-center justify-center">
           <Image
