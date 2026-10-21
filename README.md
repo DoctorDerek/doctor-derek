@@ -49,6 +49,21 @@ pnpm dev
 
 ## Verification
 
+### TypeScript lint coverage
+
+The existing quality workflow uses [DoctorDerekCICD](https://github.com/DoctorDerek/DoctorDerekCICD) to check every Git-tracked `.ts`, `.tsx`, `.mts`, and `.cts` file against this repository’s effective ESLint configuration. Missing configuration or missing enabled TypeScript rules fails the guard. The scanner remains shared; `eslint.config.ts` owns this site’s rules and exceptions.
+
+The [Next.js TypeScript preset](https://nextjs.org/docs/app/api-reference/config/eslint#with-typescript) supplies the TypeScript rules alongside the existing Next.js and React rules. Normal rule findings remain advisory through `eslint-plugin-only-warn`; missing TypeScript configuration or rules fails the shared guard. Fatal parsing diagnostics retain error severity locally. Strict TypeScript checking remains a separate gate: lint-configuration coverage is not type-aware linting or proof of runtime correctness.
+
+Two scoped exceptions preserve necessary behavior:
+
+- `components/ClientShell.tsx` permits synchronous `require()` calls only for local minified fullPage extension files. This preserves the documented [`pluginWrapper` initialization contract](https://github.com/alvarotrigo/react-fullpage#fullpagejs-extension-example). Other import paths and other source files still use the normal import rule.
+- Four named component tests omit Next.js-only image props before forwarding remaining props to a native `img`. `ignoreRestSiblings` allows that intentional omission without hiding unused imports, ordinary parameters, or unused bindings elsewhere.
+
+`__tests__/eslint.config.test.ts` exercises real ESLint diagnostics, valid typed JSX, and both sides of each exception. Generated outputs and private vendor assets remain ignored; authored TypeScript files remain covered.
+
+### Local checks
+
 Run the complete local quality gate before submitting changes:
 
 ```powershell
